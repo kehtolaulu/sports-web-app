@@ -1,15 +1,15 @@
 CREATE TABLE "user" (
-  id       SERIAL             NOT NULL,
-  login    VARCHAR(16) UNIQUE NOT NULL,
-  password VARCHAR(64)        NOT NULL,
+  id       SERIAL      NOT NULL,
+  login    VARCHAR(16) NOT NULL,
+  password VARCHAR(64) NOT NULL,
   name     VARCHAR(20),
   CONSTRAINT pk_user PRIMARY KEY (id),
   CONSTRAINT unique_user_name UNIQUE (login)
 );
 
 CREATE TABLE sport (
-  id   SERIAL NOT NULL,
-  name VARCHAR(45) UNIQUE,
+  id   SERIAL      NOT NULL,
+  name VARCHAR(45) NOT NULL,
   CONSTRAINT pk_sport PRIMARY KEY (id),
   CONSTRAINT unique_sport_name UNIQUE (name)
 );
@@ -75,6 +75,6 @@ CREATE TABLE match (
   CONSTRAINT pk_match PRIMARY KEY (id),
   CONSTRAINT match_sport_fk FOREIGN KEY (sport_id) REFERENCES sport (id),
   CONSTRAINT match_tournament_fk FOREIGN KEY (tournament_id) REFERENCES tournament (id),
-  CONSTRAINT match_team_fk FOREIGN KEY (team_2_id) REFERENCES team (id),
-  CONSTRAINT match_team_fk FOREIGN KEY (team_1_id) REFERENCES team (id)
+  CONSTRAINT match_team_1_fk FOREIGN KEY (team_1_id) REFERENCES team (id),
+  CONSTRAINT match_team_2_fk FOREIGN KEY (team_2_id) REFERENCES team (id)
 );

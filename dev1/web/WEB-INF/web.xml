@@ -5,3 +5,41 @@
          version="4.0">
 
 </web-app>
+
+<!--
+GET /about
+GET /index
+
+GET /contact ????
+
+GET /sportsmen
+GET /results
+
+profile
+GET /profile
+POST /profile
+
+profile by id
+GET /profile/*
+
+posts
+GET /posts
+POST /posts (put?)
+
+post by id
+GET /posts/*
+POST /posts/*
+
+comment
+POST /posts/*/comments (put?)
+
+signup
+GET /sign_up
+POST /sign_up
+
+login
+GET /login
+POST /login
+
+GET /logout -> login
+-->

@@ -4,42 +4,64 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.css</url-pattern>
+        <url-pattern>*.jpg</url-pattern>
+
+
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AboutServlet</servlet-name>
+        <servlet-class>servlets.AboutServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AboutServlet</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
 
-<!--
-GET /about
-GET /index
 
-GET /contact ????
+        <!--
+        GET /about
+        GET /index
 
-GET /sportsmen
-GET /results
+        GET /contact ????
 
-profile
-GET /profile
-POST /profile
+        GET /sportsmen
+        GET /results
 
-profile by id
-GET /profile/*
+        profile
+        GET /profile
+        POST /profile
 
-posts
-GET /posts
-POST /posts (put?)
+        profile by id
+        GET /profile/*
 
-post by id
-GET /posts/*
-POST /posts/*
+        posts
+        GET /posts
+        POST /posts (put?)
 
-comment
-POST /posts/*/comments (put?)
+        post by id
+        GET /posts/*
+        POST /posts/*
 
-signup
-GET /sign_up
-POST /sign_up
+        comment
+        POST /posts/*/comments (put?)
 
-login
-GET /login
-POST /login
+        signup
+        GET /sign_up
+        POST /sign_up
 
-GET /logout -> login
--->
+        login
+        GET /login
+        POST /login
+
+        GET /logout -> login
+        -->

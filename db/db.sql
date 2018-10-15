@@ -78,3 +78,64 @@ CREATE TABLE match (
   CONSTRAINT match_team_1_fk FOREIGN KEY (team_1_id) REFERENCES team (id),
   CONSTRAINT match_team_2_fk FOREIGN KEY (team_2_id) REFERENCES team (id)
 );
+
+CREATE TABLE match_to_teams (
+  team_1_id INTEGER NOT NULL,
+  team_2_id INTEGER NOT NULL,
+  match_id  INTEGER NOT NULL,
+  CONSTRAINT match_team_1_fk FOREIGN KEY (team_1_id) REFERENCES team (id),
+  CONSTRAINT match_team_2_fk FOREIGN KEY (team_2_id) REFERENCES team (id),
+  CONSTRAINT match_fk FOREIGN KEY (match_id) REFERENCES match (id)
+);
+
+CREATE TABLE match_to_sportsman (
+  match_id     INTEGER NOT NULL,
+  sportsman_id INTEGER NOT NULL,
+  CONSTRAINT match_fk FOREIGN KEY (match_id) REFERENCES match (id),
+  CONSTRAINT sportsman_fk FOREIGN KEY (sportsman_id) REFERENCES sportsman (id)
+);
+
+ALTER TABLE sportsman
+  ADD bio TEXT;
+
+ALTER TABLE tournament
+  DROP datetime;
+
+ALTER TABLE tournament
+  ADD COLUMN date_from date,
+  ADD COLUMN date_to date;
+
+ALTER table tournament
+  ADD COLUMN result text;
+
+ALTER TABLE match
+  drop team_1_id,
+  drop team_2_id;
+
+INSERT INTO "user" (login, password, name)
+values ('emilya', 'emilya123', 'Emilya'),
+       ('dimka', 'dimka123', 'Dima');
+
+INSERT INTO sport (name)
+values ('football'),
+       ('tennis');
+
+INSERT INTO post (author_id, title, text, datetime, sport_id)
+VALUES (1, 'Hello World!', 'Text', '2018-10-15 00:00:00', 1),
+       (2, 'Title!', 'Text 2', '2018-10-14 00:00:01', 2);
+
+INSERT INTO comment (author_id, post_id, datetime, text)
+values (2, 1, '2018-10-15 00:00:02', 'nice post'),
+       (1, 2, '2018-10-15 00:00:03', 'thanks');
+
+INSERT INTO team (sport_id, name)
+VALUES (1, 'Barcelona'),
+       (2, 'Team Russia');
+
+INSERT INTO tournament (name, sport_id, place, date_from, date_to, result)
+values ('World Cup', 1, 'Kazan', '2018-06-10', '2018-06-30', 'Russia won'),
+       ('World Cup', 2, 'Moscow', '2018-10-10', '2018-10-30', 'Russia won');
+
+INSERT INTO sportsman (team_id, name)
+VALUES (1, 'Neymar'),
+       (2, 'Maria Sharapova');

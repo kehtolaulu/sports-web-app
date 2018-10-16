@@ -6,15 +6,16 @@
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/icomoon.css">
+</#macro>
+<#macro import>
     <link rel="stylesheet" href="/static/css/style3.css">
 </#macro>
-
 <#macro nav_bar>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark probootstrap-navabr-dark">
     <div class="container">
         <p>
         <form action="" method="post" class="search">
-            <input type="search" name="" placeholder="поиск" class="input"/>
+            <input type="search" name="" placeholder="search" class="input"/>
             <input type="submit" name="" value="" class="submit"/>
         </form>
         </p>
@@ -23,31 +24,40 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="probootstrap-nav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="index.html" class="nav-link">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a href="/index" class="nav-link">
                     <small>Home</small>
                 </a></li>
+
+                <#if user??>
                 <li class="nav-item"><a href="cards.html" class="nav-link">
                     <small>My Profile</small>
                 </a></li>
+                </#if>
+
                 <li class="nav-item"><a href="news.html" class="nav-link">
                     <small>News</small>
                 </a></li>
                 <li class="nav-item"><a href="popularathletes.html" class="nav-link">
                     <small>Popular Athletes</small>
                 </a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">
-                    <small>Contact</small>
-                </a></li>
-                <li class="nav-item"><a href="aboutus.html" class="nav-link">
+                <#--<li class="nav-item"><a href="contact.html" class="nav-link">-->
+                    <#--<small>Contact</small>-->
+                <#--</a></li>-->
+                <li class="nav-item"><a href="/about" class="nav-link">
                     <small>About us</small>
                 </a></li>
                 <li class="nav-item"><a href="results.html" class="nav-link">
                     <small>Game Scheduels</small>
                 </a></li>
-                <li class="nav-item probootstrap-cta probootstrap-seperator"><a href="signup.html" class="nav-link">Sign
-                    up</a></li>
-                <li class="nav-item probootstrap-cta"><a href="log.html" class="nav-link">Log In</a></li>
+
+                <#if user??>
+                <li class="nav-item probootstrap-cta probootstrap-seperator"><a href="/logout" class="nav-link">Log out</a></li>
+                <#else>
+                    <li class="nav-item probootstrap-cta probootstrap-seperator"><a href="signup.html" class="nav-link">Sign
+                        up</a></li>
+                    <li class="nav-item probootstrap-cta"><a href="/login" class="nav-link">Log In</a></li>
+                </#if>
             </ul>
         </div>
     </div>
@@ -62,6 +72,7 @@
 
 <head>
     <@page_head/>
+    <@import/>
 </head>
 
 <body>

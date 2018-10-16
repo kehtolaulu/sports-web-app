@@ -352,7 +352,7 @@ textarea {
       visibility: visible; }
 
 .probootstrap-section-feature {
-  background-image: url(../images/background3.jpg);
+  background-image: url(/static/images/background3.jpg);
   background-position: center center; }
   .probootstrap-section-feature .probootstrap-heading {
     color: #fff; }

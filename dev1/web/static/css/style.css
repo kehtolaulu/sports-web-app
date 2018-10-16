@@ -177,7 +177,7 @@ h1, h2, h3, h4, h5 {
   background-repeat: no-repeat; }
 
 .probootstrap-cover {
-  background-image: url(../images/background.jpg);
+  background-image: url(/static/images/background.jpg);
   background-position: center center; }
   .probootstrap-cover .probootstrap-text .probootstrap-heading {
     font-size: 70px;

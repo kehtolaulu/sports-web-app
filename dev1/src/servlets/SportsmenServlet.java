@@ -1,5 +1,6 @@
 package servlets;
 
+import entities.Sportsman;
 import entities.User;
 import services.SportsmenService;
 import services.UserService;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @WebServlet(name = "SportsmenServlet")
@@ -32,8 +34,10 @@ public class SportsmenServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = userService.getCurrentUser(request);
+        List<Sportsman> sportsmen = sportsmenService.getAllSportsmen();
         Map<String, Object> root = new HashMap<>() {{
             put("user", user);
+            put("sportsmen", sportsmen);
         }};
         Helper.render(
                 getServletContext(),

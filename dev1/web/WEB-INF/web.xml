@@ -60,6 +60,16 @@
         <servlet-name>LogOutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SportsmenServlet</servlet-name>
+        <servlet-class>servlets.SportsmenServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SportsmenServlet</servlet-name>
+        <url-pattern>/sportsmen</url-pattern>
+    </servlet-mapping>
 </web-app>
 
 

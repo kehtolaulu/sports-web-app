@@ -1,9 +1,6 @@
 package dao.postgresdao;
 
-import dao.SportsmanDAO;
-import entities.Sport;
 import entities.Sportsman;
-import entities.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,13 +9,13 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PostgresSportsmanDAO implements SportsmanDAO {
-    private PostgresTeamDAO teamDAO;
+public class SportsmanDAO implements dao.SportsmanDAO {
+    private TeamDAO teamDAO;
     private Connection connection;
 
-    public PostgresSportsmanDAO() {
+    public SportsmanDAO() {
         this.connection = ConnectionSingleton.getInstance();
-        teamDAO = new PostgresTeamDAO();
+        teamDAO = new TeamDAO();
     }
 
 

@@ -1,32 +1,25 @@
 package dao.postgresdao;
 
-import dao.TeamDAO;
-import entities.Post;
-import entities.Team;
+import entities.Sport;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PostgresTeamDAO implements TeamDAO {
+public class SportDAO implements dao.SportDAO {
     private Connection connection;
-    private PostgresSportDAO sportDAO;
-
-    public PostgresTeamDAO () {
+    public SportDAO() {
         this.connection = ConnectionSingleton.getInstance();
-        sportDAO = new PostgresSportDAO();
     }
-
     @Override
-    public Team getTeamById(int id) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM team WHERE id = ?");
+    public Sport getSportById(int id) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM sport WHERE id = ?");
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-            return new Team(
+            return new Sport(
                     resultSet.getInt("id"),
-                    sportDAO.getSportById(resultSet.getInt("sport_id")),
                     resultSet.getString("name")
             );
         }

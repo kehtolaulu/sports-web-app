@@ -5,6 +5,7 @@ import services.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,6 +30,12 @@ public class LoginServlet extends HttpServlet {
             User current_user = userService.authenticate(request);
             if (current_user != null) {
                 userService.authorize(current_user, request);
+                if (request.getParameter("remember_me") != null) {
+                    // TODO: 17/10/2018  
+                    response.addCookie(
+                            new Cookie("remember_me", "token" + current_user.getLogin())
+                    );
+                }
                 response.sendRedirect("/profile");
             } else {
                 response.sendRedirect("/login?err=too_bad_login");

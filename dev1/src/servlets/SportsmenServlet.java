@@ -23,7 +23,6 @@ public class SportsmenServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        super.init();
         userService = new UserService();
         sportsmenService = new SportsmenService();
     }

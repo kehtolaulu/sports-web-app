@@ -10,11 +10,11 @@ import java.io.IOException;
 @WebServlet(name = "LogOutServlet")
 public class LogOutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.getSession().invalidate();
+        response.sendRedirect("/auth");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getSession().invalidate();
-        response.sendRedirect("/login");
+
     }
 }

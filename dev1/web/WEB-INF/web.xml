@@ -39,7 +39,7 @@
 
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
+        <url-pattern>/auth</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -78,7 +78,7 @@
     
     <servlet-mapping>
         <servlet-name>SignupServlet</servlet-name>
-        <url-pattern>/signup</url-pattern>
+        <url-pattern>/registration</url-pattern>
     </servlet-mapping>
 </web-app>
 
@@ -91,30 +91,32 @@
         GET /results
 
         profile
-        GET /profile
-        POST /profile
+        GET /profile посмотреть свой профиль
+        POST /profile отредактировать свой профиль
 
         profile by id
-        GET /profile/*
+        GET /profile/* посмотреть профиль getuserbyid
 
         posts
-        GET /posts
-        POST /posts (put?)
+        GET /posts все посты открыть getallposts
+        POST /posts создать пост addpost
 
         post by id
-        GET /posts/*
-        POST /posts/*
+        GET /posts/* getpostbyid
+        POST /posts/* edit post
+        DELETE /posts/* delete post
 
         comment
-        POST /posts/*/comments (put?)
+        POST /posts/*/comments добавить коммент addcomment
+        DELETE /posts/*/comments удалить коммент deletecomment
 
-        signup
-        GET /sign_up
-        POST /sign_up
+        sign up
+        GET /registration
+        POST /registration
 
         login
-        GET /login
-        POST /login
+        GET /auth
+        POST /auth
 
-        GET /logout -> login
+        POST /logout -> login
         -->

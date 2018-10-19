@@ -31,10 +31,7 @@ public class LoginServlet extends HttpServlet {
             if (current_user != null) {
                 userService.authorize(current_user, request);
                 if (request.getParameter("remember_me") != null) {
-                    // TODO: 17/10/2018  
-                    response.addCookie(
-                            new Cookie("remember_me", "token" + current_user.getLogin())
-                    );
+                    userService.addToken(current_user, response);
                 }
                 response.sendRedirect("/profile");
             } else {

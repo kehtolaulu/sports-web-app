@@ -25,4 +25,20 @@ public class SportDAO implements dao.SportDAO {
         }
         return null;
     }
+
+    @Override
+    public Sport getSportByName(String name) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM sport WHERE name = ?");
+        statement.setString(1, name);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            return new Sport(
+                    resultSet.getInt("id"),
+                    resultSet.getString("name")
+            );
+        }
+        return null;
+    }
+
+
 }

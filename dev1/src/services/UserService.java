@@ -94,6 +94,13 @@ public class UserService {
         return true;
     }
 
+    public User getUserById(int id) {
+        try {
+            return userDAO.getUserById(id);
+        } catch (SQLException e) {
+            return null;
+        }
+    }
 
     private String createToken(String username) {
         String token = username + new Date().toString();

@@ -104,8 +104,8 @@
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2018-10-19.13:24:42.973</IntrospectionTimestamp>
-      <IntrospectionStateNumber>803</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-10-20.14:39:41.129</IntrospectionTimestamp>
+      <IntrospectionStateNumber>804</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -177,7 +177,7 @@
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2018-10-12.21:45:58.768</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-10-20.14:39:41.597</IntrospectionTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -303,7 +303,7 @@
     <table id="49" parent="21" name="match">
       <ObjectId>16910</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>738</StateNumber>
+      <StateNumber>804</StateNumber>
     </table>
     <table id="50" parent="21" name="post">
       <ObjectId>16827</ObjectId>
@@ -443,18 +443,24 @@
       <StateNumber>738</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="71" parent="49" name="pk_match">
+    <column id="71" parent="49" name="name">
+      <Position>8</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>804</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="72" parent="49" name="pk_match">
       <ObjectId>16914</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="72" parent="49" name="pk_match">
+    <key id="73" parent="49" name="pk_match">
       <ObjectId>16915</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>pk_match</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="73" parent="49" name="match_sport_fk">
+    <foreign-key id="74" parent="49" name="match_sport_fk">
       <ObjectId>16916</ObjectId>
       <ColNames>sport_id</ColNames>
       <RefTableId>16817</RefTableId>
@@ -463,7 +469,7 @@
       <RefKeyName>pk_sport</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="74" parent="49" name="match_tournament_fk">
+    <foreign-key id="75" parent="49" name="match_tournament_fk">
       <ObjectId>16921</ObjectId>
       <ColNames>tournament_id</ColNames>
       <RefTableId>16884</RefTableId>
@@ -472,7 +478,7 @@
       <RefKeyName>pk_tournament</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="75" parent="50" name="id">
+    <column id="76" parent="50" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -481,53 +487,53 @@
       <TypeId>23</TypeId>
       <SequenceName>post_id_seq</SequenceName>
     </column>
-    <column id="76" parent="50" name="author_id">
+    <column id="77" parent="50" name="author_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>733</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="77" parent="50" name="title">
+    <column id="78" parent="50" name="title">
       <Position>3</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>733</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="78" parent="50" name="text">
+    <column id="79" parent="50" name="text">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>733</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="79" parent="50" name="datetime">
+    <column id="80" parent="50" name="datetime">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>733</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="80" parent="50" name="sport_id">
+    <column id="81" parent="50" name="sport_id">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>733</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="81" parent="50" name="pk_post">
+    <index id="82" parent="50" name="pk_post">
       <ObjectId>16834</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="82" parent="50" name="pk_post">
+    <key id="83" parent="50" name="pk_post">
       <ObjectId>16835</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>pk_post</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="83" parent="50" name="post_author_fk">
+    <foreign-key id="84" parent="50" name="post_author_fk">
       <ObjectId>16836</ObjectId>
       <ColNames>author_id</ColNames>
       <RefTableId>16807</RefTableId>
@@ -536,7 +542,7 @@
       <RefKeyName>pk_user</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="84" parent="50" name="post_sport_fk">
+    <foreign-key id="85" parent="50" name="post_sport_fk">
       <ObjectId>16841</ObjectId>
       <ColNames>sport_id</ColNames>
       <RefTableId>16817</RefTableId>
@@ -545,7 +551,7 @@
       <RefKeyName>pk_sport</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="85" parent="51" name="id">
+    <column id="86" parent="51" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -554,35 +560,35 @@
       <TypeId>23</TypeId>
       <SequenceName>sport_id_seq</SequenceName>
     </column>
-    <column id="86" parent="51" name="name">
+    <column id="87" parent="51" name="name">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>732</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="87" parent="51" name="pk_sport">
+    <index id="88" parent="51" name="pk_sport">
       <ObjectId>16821</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="88" parent="51" name="unique_sport_name">
+    <index id="89" parent="51" name="unique_sport_name">
       <ObjectId>16823</ObjectId>
       <ColNames>name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="89" parent="51" name="pk_sport">
+    <key id="90" parent="51" name="pk_sport">
       <ObjectId>16822</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>pk_sport</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="90" parent="51" name="unique_sport_name">
+    <key id="91" parent="51" name="unique_sport_name">
       <ObjectId>16824</ObjectId>
       <ColNames>name</ColNames>
       <UnderlyingIndexName>unique_sport_name</UnderlyingIndexName>
     </key>
-    <column id="91" parent="52" name="id">
+    <column id="92" parent="52" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -591,38 +597,38 @@
       <TypeId>23</TypeId>
       <SequenceName>sportsman_id_seq</SequenceName>
     </column>
-    <column id="92" parent="52" name="team_id">
+    <column id="93" parent="52" name="team_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>737</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="93" parent="52" name="name">
+    <column id="94" parent="52" name="name">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>737</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="94" parent="52" name="bio">
+    <column id="95" parent="52" name="bio">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <StateNumber>750</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="95" parent="52" name="pk_sportsman">
+    <index id="96" parent="52" name="pk_sportsman">
       <ObjectId>16901</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="96" parent="52" name="pk_sportsman">
+    <key id="97" parent="52" name="pk_sportsman">
       <ObjectId>16902</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>pk_sportsman</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="97" parent="52" name="sportsman_team_fk">
+    <foreign-key id="98" parent="52" name="sportsman_team_fk">
       <ObjectId>16903</ObjectId>
       <ColNames>team_id</ColNames>
       <RefTableId>16869</RefTableId>
@@ -631,7 +637,7 @@
       <RefKeyName>pk_team</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="98" parent="53" name="id">
+    <column id="99" parent="53" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -640,42 +646,42 @@
       <TypeId>23</TypeId>
       <SequenceName>team_id_seq</SequenceName>
     </column>
-    <column id="99" parent="53" name="sport_id">
+    <column id="100" parent="53" name="sport_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>735</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="100" parent="53" name="name">
+    <column id="101" parent="53" name="name">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>735</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="101" parent="53" name="pk_team">
+    <index id="102" parent="53" name="pk_team">
       <ObjectId>16873</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="102" parent="53" name="unique_team_name">
+    <index id="103" parent="53" name="unique_team_name">
       <ObjectId>16875</ObjectId>
       <ColNames>name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="103" parent="53" name="pk_team">
+    <key id="104" parent="53" name="pk_team">
       <ObjectId>16874</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>pk_team</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="104" parent="53" name="unique_team_name">
+    <key id="105" parent="53" name="unique_team_name">
       <ObjectId>16876</ObjectId>
       <ColNames>name</ColNames>
       <UnderlyingIndexName>unique_team_name</UnderlyingIndexName>
     </key>
-    <foreign-key id="105" parent="53" name="team_sport_fk">
+    <foreign-key id="106" parent="53" name="team_sport_fk">
       <ObjectId>16877</ObjectId>
       <ColNames>sport_id</ColNames>
       <RefTableId>16817</RefTableId>
@@ -684,31 +690,31 @@
       <RefKeyName>pk_sport</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="106" parent="54" name="user_id">
+    <column id="107" parent="54" name="user_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>802</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="107" parent="54" name="token">
+    <column id="108" parent="54" name="token">
       <Position>2</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>802</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="108" parent="54" name="unique_token">
+    <index id="109" parent="54" name="unique_token">
       <ObjectId>17158</ObjectId>
       <ColNames>user_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="109" parent="54" name="unique_token">
+    <key id="110" parent="54" name="unique_token">
       <ObjectId>17159</ObjectId>
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>unique_token</UnderlyingIndexName>
     </key>
-    <foreign-key id="110" parent="54" name="user_fk">
+    <foreign-key id="111" parent="54" name="user_fk">
       <ObjectId>17153</ObjectId>
       <ColNames>user_id</ColNames>
       <RefTableId>16807</RefTableId>
@@ -717,7 +723,7 @@
       <RefKeyName>pk_user</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="111" parent="55" name="id">
+    <column id="112" parent="55" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -726,57 +732,57 @@
       <TypeId>23</TypeId>
       <SequenceName>tournament_id_seq</SequenceName>
     </column>
-    <column id="112" parent="55" name="name">
+    <column id="113" parent="55" name="name">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="113" parent="55" name="sport_id">
+    <column id="114" parent="55" name="sport_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>736</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="114" parent="55" name="place">
+    <column id="115" parent="55" name="place">
       <Position>5</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="115" parent="55" name="date_from">
+    <column id="116" parent="55" name="date_from">
       <Position>6</Position>
       <DataType>date|0s</DataType>
       <StateNumber>752</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="116" parent="55" name="date_to">
+    <column id="117" parent="55" name="date_to">
       <Position>7</Position>
       <DataType>date|0s</DataType>
       <StateNumber>752</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="117" parent="55" name="result">
+    <column id="118" parent="55" name="result">
       <Position>8</Position>
       <DataType>text|0s</DataType>
       <StateNumber>753</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="118" parent="55" name="pk_tournament">
+    <index id="119" parent="55" name="pk_tournament">
       <ObjectId>16888</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="119" parent="55" name="pk_tournament">
+    <key id="120" parent="55" name="pk_tournament">
       <ObjectId>16889</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>pk_tournament</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="120" parent="55" name="tournament_sport_fk">
+    <foreign-key id="121" parent="55" name="tournament_sport_fk">
       <ObjectId>16890</ObjectId>
       <ColNames>sport_id</ColNames>
       <RefTableId>16817</RefTableId>
@@ -785,7 +791,7 @@
       <RefKeyName>pk_sport</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="121" parent="56" name="id">
+    <column id="122" parent="56" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -794,43 +800,43 @@
       <TypeId>23</TypeId>
       <SequenceName>user_id_seq</SequenceName>
     </column>
-    <column id="122" parent="56" name="login">
+    <column id="123" parent="56" name="login">
       <Position>2</Position>
       <DataType>varchar(16)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>731</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="123" parent="56" name="password">
+    <column id="124" parent="56" name="password">
       <Position>3</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>731</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="124" parent="56" name="name">
+    <column id="125" parent="56" name="name">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <StateNumber>731</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="125" parent="56" name="pk_user">
+    <index id="126" parent="56" name="pk_user">
       <ObjectId>16811</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="126" parent="56" name="unique_user_name">
+    <index id="127" parent="56" name="unique_user_name">
       <ObjectId>16813</ObjectId>
       <ColNames>login</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="127" parent="56" name="pk_user">
+    <key id="128" parent="56" name="pk_user">
       <ObjectId>16812</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>pk_user</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="128" parent="56" name="unique_user_name">
+    <key id="129" parent="56" name="unique_user_name">
       <ObjectId>16814</ObjectId>
       <ColNames>login</ColNames>
       <UnderlyingIndexName>unique_user_name</UnderlyingIndexName>

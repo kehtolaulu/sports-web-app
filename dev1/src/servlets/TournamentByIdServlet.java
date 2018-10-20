@@ -1,9 +1,7 @@
 package servlets;
 
-import entities.Match;
 import entities.Tournament;
-import services.MatchService;
-import services.SportsmenService;
+import entities.User;
 import services.TournamentService;
 import services.UserService;
 
@@ -12,33 +10,43 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.transform.Result;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-@WebServlet(name = "ResultsServlet")
-public class ResultsServlet extends HttpServlet {
-
+@WebServlet(name = "TournamentByIdServlet")
+public class TournamentByIdServlet extends HttpServlet {
     private TournamentService tournamentService;
     @Override
     public void init() throws ServletException {
         tournamentService = new TournamentService();
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Tournament> tournaments = tournamentService.getAllTournaments();
-        Map<String, Object> root = new HashMap<>();
-        root.put("results", tournaments);
+        Tournament tournament = tournamentService.getTournamentById(getId(request));
+        Map<String, Object> root = new HashMap<>() {
+            {
+                put("tournament", tournament);
+            }
+        };
         Helper.render(
                 getServletContext(),
                 response,
-                "results.ftl",
-                new HashMap<>()
+                "tournament.ftl",
+                root
         );
+    }
+
+    private int getId(HttpServletRequest request) {
+        Pattern compile = Pattern.compile("/posts/([1-9][0-9]*)");
+        Matcher matcher = compile.matcher(request.getRequestURI());
+        matcher.find();
+        return Integer.parseInt(matcher.group(1));
     }
 }

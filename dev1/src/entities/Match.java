@@ -10,8 +10,9 @@ public class Match {
     private Tournament tournament;
     private Team team1;
     private Team team2;
+    private String name;
 
-    public Match(int id, Date datetime, String result, Sport sport, Tournament tournament, Team team1, Team team2) {
+    public Match(int id, String name, Date datetime, String result, Sport sport, Tournament tournament, Team team1, Team team2) {
         this.id = id;
         this.datetime = datetime;
         this.result = result;
@@ -19,6 +20,7 @@ public class Match {
         this.tournament = tournament;
         this.team1 = team1;
         this.team2 = team2;
+        this.name = name;
     }
 
     public int getId() {

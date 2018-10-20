@@ -3,6 +3,7 @@ package services;
 
 import dao.MatchDAO;
 import entities.Match;
+import entities.Tournament;
 
 import java.sql.SQLException;
 import java.util.LinkedList;
@@ -22,4 +23,13 @@ public class MatchService {
             return new LinkedList<>();
         }
     }
+    public List<Match> getMatchesByTournament(Tournament tournament) {
+        try {
+            return matchDAO.getMatchesByTournament(tournament);
+        } catch (SQLException e) {
+            return new LinkedList<>();
+
+        }
+    }
+
 }

@@ -20,6 +20,10 @@ public class CommentService {
         commentDAO.newComment(author, post, new java.sql.Date(new java.util.Date().getTime()), text);
     }
     public void deleteComment(int id) {
-        commentDAO.deleteComment(id);
+        try {
+            commentDAO.deleteComment(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

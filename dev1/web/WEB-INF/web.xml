@@ -88,7 +88,9 @@
         GET /index
 
         GET /sportsmen
-        GET /results
+        GET /results getalltournaments
+
+        GET /tournament/* gettournament by id
 
         profile
         GET /profile посмотреть свой профиль

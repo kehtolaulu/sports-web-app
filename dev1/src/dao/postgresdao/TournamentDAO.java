@@ -1,13 +1,13 @@
 package dao.postgresdao;
 
 import dao.SportDAO;
+import entities.Post;
 import entities.Sport;
 import entities.Tournament;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TournamentDAO implements dao.TournamentDAO {
 
@@ -37,4 +37,26 @@ public class TournamentDAO implements dao.TournamentDAO {
         }
         return null;
     }
+
+    @Override
+    public List<Tournament> getAllTournaments() throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM tournament");
+        List<Tournament> tournaments = new ArrayList<>();
+        while (resultSet.next()) {
+            tournaments.add(new Tournament(
+                    resultSet.getInt("id"),
+                    resultSet.getString("name"),
+                    sportDAO.getSportById(resultSet.getInt("sport_id")),
+                    resultSet.getDate("date_from"),
+                    resultSet.getDate("date_to"),
+                    resultSet.getString("place"),
+                    resultSet.getString("result")
+
+            ));
+        }
+        return tournaments;
+    }
+
+
 }

@@ -4,11 +4,10 @@ import dao.SportDAO;
 import dao.TeamDAO;
 import dao.TournamentDAO;
 import entities.Match;
+import entities.Post;
+import entities.Tournament;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +31,7 @@ public class MatchDAO implements dao.MatchDAO {
         while (resultSet.next()) {
             matches.add(new Match(
                     resultSet.getInt("id"),
+                    resultSet.getString("name"),
                     resultSet.getDate("datetime"),
                     resultSet.getString("result"),
                     sportDAO.getSportById(resultSet.getInt("sport_id")),
@@ -41,5 +41,26 @@ public class MatchDAO implements dao.MatchDAO {
             ));
         }
         return matches;
+    }
+
+    @Override
+    public List<Match> getMatchesByTournament(Tournament tournament) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM match WHERE tournament_id = ?");
+        statement.setInt(1, tournament.getId());
+        ResultSet resultSet = statement.executeQuery();
+        List<Match> matches = new ArrayList<>();
+        while (resultSet.next()) {
+            matches.add(new Match(
+                    resultSet.getInt("id"),
+                    resultSet.getString("name"),
+                    resultSet.getDate("datetime"),
+                    resultSet.getString("result"),
+                    sportDAO.getSportById(resultSet.getInt("sport_id")),
+                    tournamentDAO.getTournamentById(resultSet.getInt("tournament_id")),
+                    teamDAO.getTeamById(resultSet.getInt("team_1_id")),
+                    teamDAO.getTeamById(resultSet.getInt("team_2_id"))
+            ));
+        }
+        return null;
     }
 }

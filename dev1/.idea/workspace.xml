@@ -7,28 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c917403b-fc38-46cf-b7e0-839f3067b897" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/09cf554f-8d88-45a7-9674-b4087ba538e4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/09cf554f-8d88-45a7-9674-b4087ba538e4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/09cf554f-8d88-45a7-9674-b4087ba538e4/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/09cf554f-8d88-45a7-9674-b4087ba538e4/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/SportsmanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/SportsmanDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/postgresdao/MatchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/postgresdao/MatchDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/postgresdao/SportsmanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/postgresdao/SportsmanDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Match.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/AboutServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/CommentServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/IndexServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/JSONServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/LogOutServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/LoginServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/PostByIdServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/PostDispatcherServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/PostsServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/ProfileByIdServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/ProfileServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/ResultsServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/SearchServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/SignupServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/SportsmenServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/TournamentByIdServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/search/JSONServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/search/JSONServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -271,18 +250,18 @@
         <counts>
           <entry key="dummy" value="21" />
           <entry key="ftl" value="117" />
-          <entry key="java" value="6684" />
+          <entry key="java" value="6685" />
           <entry key="sql" value="187" />
-          <entry key="xml" value="529" />
+          <entry key="xml" value="1026" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="FTL" value="117" />
-          <entry key="JAVA" value="6684" />
+          <entry key="JAVA" value="6685" />
           <entry key="PLAIN_TEXT" value="21" />
           <entry key="Scratch" value="187" />
-          <entry key="XML" value="529" />
+          <entry key="XML" value="1026" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -293,7 +272,7 @@
           <entry key="match" value="3" />
           <entry key="sql" value="2" />
           <entry key="user" value="3" />
-          <entry key="xml" value="10" />
+          <entry key="xml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -303,7 +282,7 @@
           <entry key="FTL" value="10" />
           <entry key="JAVA" value="184" />
           <entry key="Scratch" value="2" />
-          <entry key="XML" value="10" />
+          <entry key="XML" value="11" />
         </counts>
       </usages-collector>
     </session>
@@ -313,8 +292,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/servlets/search/JSONServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            <state relative-caret-position="90">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -370,6 +349,15 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-30">
+              <caret line="148" column="29" lean-forward="true" selection-start-line="148" selection-start-column="29" selection-end-line="148" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/servlets/auth/SignupServlet.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -379,20 +367,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/servlets/sportsmen/SportsmenServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
               <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/servlets/posts/PostsServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -428,7 +407,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/servlets/AboutServlet.java" />
         <option value="$PROJECT_DIR$/src/dao/postgresdao/TeamDAO.java" />
         <option value="$PROJECT_DIR$/src/servlets/SignupServlet.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/templates/signup.ftl" />
@@ -476,9 +454,10 @@
         <option value="$PROJECT_DIR$/src/dao/postgresdao/SportsmanDAO.java" />
         <option value="$PROJECT_DIR$/src/servlets/JSONServlet.java" />
         <option value="$PROJECT_DIR$/src/servlets/ResultsServlet.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/servlets/posts/PostDispatcherServlet.java" />
         <option value="$PROJECT_DIR$/src/servlets/sportsmen/SportsmenServlet.java" />
+        <option value="$PROJECT_DIR$/src/servlets/search/JSONServlet.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
       </list>
     </option>
   </component>
@@ -560,6 +539,55 @@
             <path>
               <item name="dev1" type="b2602c69:ProjectViewProjectNode" />
               <item name="dev1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="servlets" type="462c0819:PsiDirectoryNode" />
+              <item name="about" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dev1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dev1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="servlets" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dev1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dev1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="servlets" type="462c0819:PsiDirectoryNode" />
+              <item name="posts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dev1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dev1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="servlets" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dev1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dev1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="servlets" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dev1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dev1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="servlets" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dev1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dev1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="servlets" type="462c0819:PsiDirectoryNode" />
+              <item name="sportsmen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dev1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dev1" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -593,7 +621,7 @@
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540044359652" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540045141348" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last.edited.regexp" value="emilyaemilyaemil" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -723,15 +751,16 @@
       <workItem from="1539939426605" duration="14341000" />
       <workItem from="1540017323170" duration="197000" />
       <workItem from="1540021005045" duration="416000" />
-      <workItem from="1540034720580" duration="4842000" />
+      <workItem from="1540034720580" duration="5470000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46406000" />
+    <option name="totallyTimeSpent" value="47034000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49638554" visible="true" weight="0.3018598" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1080,13 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="95" column="33" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/servlets/auth/LoginServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1143,13 +1165,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlets/search/JSONServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/servlets/about/AboutServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1202,6 +1217,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlets/search/JSONServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="148" column="29" lean-forward="true" selection-start-line="148" selection-start-column="29" selection-end-line="148" selection-end-column="29" />
         </state>
       </provider>
     </entry>

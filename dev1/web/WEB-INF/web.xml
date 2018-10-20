@@ -80,6 +80,76 @@
         <servlet-name>SignupServlet</servlet-name>
         <url-pattern>/registration</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ResultsServlet</servlet-name>
+        <servlet-class>servlets.results.ResultsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ResultsServlet</servlet-name>
+        <url-pattern>/results</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TournamentByIdServlet</servlet-name>
+        <servlet-class>servlets.results.TournamentByIdServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TournamentByIdServlet</servlet-name>
+        <url-pattern>/tournament/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>servlets.search.SearchServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JsonServlet</servlet-name>
+        <servlet-class>servlets.search.JSONServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>JsonServlet</servlet-name>
+        <url-pattern>/search/autocomplete.json</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ProfileByIdServlet</servlet-name>
+        <servlet-class>servlets.profile.ProfileByIdServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProfileByIdServlet</servlet-name>
+        <url-pattern>/profile/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PostsServlet</servlet-name>
+        <servlet-class>servlets.posts.PostsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PostsServlet</servlet-name>
+        <url-pattern>/posts</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PostDispatcherServlet</servlet-name>
+        <servlet-class>servlets.posts.PostDispatcherServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PostDispatcherServlet</servlet-name>
+        <url-pattern>/posts/*</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
 
 

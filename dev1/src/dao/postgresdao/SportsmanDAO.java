@@ -1,11 +1,9 @@
 package dao.postgresdao;
 
 import entities.Sportsman;
+import entities.Team;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -35,5 +33,21 @@ public class SportsmanDAO implements dao.SportsmanDAO {
             sportsmen.add(sportsman);
         }
         return sportsmen;
+    }
+
+    @Override
+    public Sportsman getSportsmanById(int id) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM sportsman WHERE id = ?");
+        statement.setInt(1, id);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            return new Sportsman(
+                    resultSet.getInt("id"),
+                    teamDAO.getTeamById(resultSet.getInt("team_id")),
+                    resultSet.getString("name"),
+                    resultSet.getString("bio")
+            );
+        }
+        return null;
     }
 }

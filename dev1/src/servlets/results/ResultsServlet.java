@@ -1,4 +1,4 @@
-package servlets;
+package servlets.results;
 
 import entities.Match;
 import entities.Tournament;
@@ -6,6 +6,7 @@ import services.MatchService;
 import services.SportsmenService;
 import services.TournamentService;
 import services.UserService;
+import servlets.Helper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,9 +26,6 @@ public class ResultsServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         tournamentService = new TournamentService();
-    }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

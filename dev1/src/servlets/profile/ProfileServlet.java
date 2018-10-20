@@ -1,8 +1,9 @@
-package servlets;
+package servlets.profile;
 
 import services.PostService;
 import services.SportService;
 import services.UserService;
+import servlets.Helper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -1,9 +1,10 @@
-package servlets;
+package servlets.results;
 
 import entities.Tournament;
 import entities.User;
 import services.TournamentService;
 import services.UserService;
+import servlets.Helper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -11,6 +11,7 @@ public class Match {
     private Team team1;
     private Team team2;
     private String name;
+    private Sportsman sportsman;
 
     public Match(int id, String name, Date datetime, String result, Sport sport, Tournament tournament, Team team1, Team team2) {
         this.id = id;
@@ -20,6 +21,16 @@ public class Match {
         this.tournament = tournament;
         this.team1 = team1;
         this.team2 = team2;
+        this.name = name;
+    }
+
+    public Match(int id, String name, Date datetime, String result, Sport sport, Tournament tournament, Sportsman sportsman) {
+        this.id = id;
+        this.datetime = datetime;
+        this.result = result;
+        this.sport = sport;
+        this.tournament = tournament;
+        this.sportsman = sportsman;
         this.name = name;
     }
 
@@ -77,5 +88,21 @@ public class Match {
 
     public void setTeam2(Team team2) {
         this.team2 = team2;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Sportsman getSportsman() {
+        return sportsman;
+    }
+
+    public void setSportsman(Sportsman sportsman) {
+        this.sportsman = sportsman;
     }
 }

@@ -14,7 +14,7 @@
 
     <servlet>
         <servlet-name>AboutServlet</servlet-name>
-        <servlet-class>servlets.AboutServlet</servlet-class>
+        <servlet-class>servlets.about.AboutServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -24,7 +24,7 @@
 
     <servlet>
         <servlet-name>IndexServlet</servlet-name>
-        <servlet-class>servlets.IndexServlet</servlet-class>
+        <servlet-class>servlets.about.IndexServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -34,7 +34,7 @@
 
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>servlets.LoginServlet</servlet-class>
+        <servlet-class>servlets.auth.LoginServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -44,7 +44,7 @@
 
     <servlet>
         <servlet-name>ProfileServlet</servlet-name>
-        <servlet-class>servlets.ProfileServlet</servlet-class>
+        <servlet-class>servlets.profile.ProfileServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -54,7 +54,7 @@
 
     <servlet>
         <servlet-name>LogOutServlet</servlet-name>
-        <servlet-class>servlets.LogOutServlet</servlet-class>
+        <servlet-class>servlets.auth.LogOutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LogOutServlet</servlet-name>
@@ -63,7 +63,7 @@
 
     <servlet>
         <servlet-name>SportsmenServlet</servlet-name>
-        <servlet-class>servlets.SportsmenServlet</servlet-class>
+        <servlet-class>servlets.sportsmen.SportsmenServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -73,7 +73,7 @@
     
     <servlet>
         <servlet-name>SignupServlet</servlet-name>
-        <servlet-class>servlets.SignupServlet</servlet-class>
+        <servlet-class>servlets.auth.SignupServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>
@@ -91,6 +91,9 @@
         GET /results getalltournaments
 
         GET /tournament/* gettournament by id
+
+        /search
+        /search/autocomplete.json
 
         profile
         GET /profile посмотреть свой профиль

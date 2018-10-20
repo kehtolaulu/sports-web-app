@@ -1,4 +1,4 @@
-package servlets;
+package servlets.posts;
 
 import entities.Comment;
 import services.CommentService;

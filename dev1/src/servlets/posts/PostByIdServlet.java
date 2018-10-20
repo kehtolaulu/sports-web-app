@@ -1,9 +1,10 @@
-package servlets;
+package servlets.posts;
 
 import entities.Post;
 import entities.User;
 import services.PostService;
 import services.UserService;
+import servlets.Helper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

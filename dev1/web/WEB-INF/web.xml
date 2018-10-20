@@ -102,23 +102,13 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>SearchServlet</servlet-name>
-        <servlet-class>servlets.search.SearchServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>SearchServlet</servlet-name>
-        <url-pattern>/search</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>JsonServlet</servlet-name>
-        <servlet-class>servlets.search.JSONServlet</servlet-class>
+        <servlet-class>servlets.results.SearchJSONServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>JsonServlet</servlet-name>
-        <url-pattern>/search/autocomplete.json</url-pattern>
+        <url-pattern>/search.json</url-pattern>
     </servlet-mapping>
 
     <servlet>

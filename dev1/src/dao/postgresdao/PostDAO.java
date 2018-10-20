@@ -83,5 +83,26 @@ public class PostDAO implements dao.PostDAO {
         return statement.execute();
     }
 
+    @Override
+    public List<Post> getPostsByAuthor(User author) throws SQLException {
+        List<Post> posts = new ArrayList<>();
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM post WHERE author_id = ?");
+        statement.setInt(1, author.getId());
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            Post post = new Post(
+                    resultSet.getInt("id"),
+                    userDAO.getUserById(author.getId()),
+                    resultSet.getString("title"),
+                    resultSet.getString("text"),
+                    resultSet.getDate("datetime"),
+                    sportDAO.getSportById(resultSet.getInt("sport_id"))
+            );
+            posts.add(post);
+        }
+        return posts;
+
+    }
+
 
 }

@@ -17,6 +17,7 @@ public class PostDispatcherServlet extends HttpServlet {
         Map<Pattern, HttpServlet> dispatchMap = new TreeMap<>((o1, o2) -> o2.toString().compareTo(o1.toString())) {{
             put(Pattern.compile("/posts/([1-9][0-9]*)/comments"), new CommentServlet());
             put(Pattern.compile("/posts/([1-9][0-9]*)"), new PostByIdServlet());
+            put(Pattern.compile("/posts/([1-9][0-9]*)/comments.json"), new CommentJSONServlet());
         }};
 
         for (var pair : dispatchMap.entrySet()) {

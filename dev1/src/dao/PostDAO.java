@@ -14,4 +14,5 @@ public interface PostDAO {
     Post getPostById(int id) throws SQLException;
     boolean deletePost(int id) throws SQLException;
     boolean updatePost(int id, String text, String title) throws SQLException;
+    List<Post> getPostsByAuthor(User author) throws SQLException;
 }

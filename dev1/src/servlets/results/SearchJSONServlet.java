@@ -1,4 +1,4 @@
-package servlets.search;
+package servlets.results;
 
 import entities.Match;
 import entities.User;
@@ -15,8 +15,8 @@ import java.io.IOException;
 import java.util.List;
 
 
-@WebServlet(name = "JSONServlet")
-public class JSONServlet extends HttpServlet {
+@WebServlet(name = "SearchJSONServlet")
+public class SearchJSONServlet extends HttpServlet {
     private MatchService matchService;
 
     @Override

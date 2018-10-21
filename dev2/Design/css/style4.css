@@ -27,6 +27,12 @@ input {
 	margin: 150px auto;
 	width: 280px;
 }
+.margin {
+    border: 3px solid #666; /* Параметры рамки */
+    padding: 10px; /* Поля вокруг текста */
+    margin: 30px; /* Отступы вокруг */
+   }
+}
 
 #login form span {
 	background-color: #363b41;

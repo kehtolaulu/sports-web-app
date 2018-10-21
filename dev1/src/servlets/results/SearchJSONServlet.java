@@ -1,7 +1,6 @@
 package servlets.results;
 
 import entities.Match;
-import entities.User;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import services.MatchService;
@@ -23,6 +22,7 @@ public class SearchJSONServlet extends HttpServlet {
     public void init() throws ServletException {
         matchService = new MatchService();
     }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Match> matches = matchService.getAllMatches();
         JSONArray array = new JSONArray();

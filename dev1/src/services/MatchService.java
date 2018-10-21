@@ -23,6 +23,7 @@ public class MatchService {
             return new LinkedList<>();
         }
     }
+
     public List<Match> getMatchesByTournament(Tournament tournament) {
         try {
             return matchDAO.getMatchesByTournament(tournament);

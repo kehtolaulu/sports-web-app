@@ -9,9 +9,11 @@ import java.sql.SQLException;
 
 public class SportDAO implements dao.SportDAO {
     private Connection connection;
+
     public SportDAO() {
         this.connection = ConnectionSingleton.getInstance();
     }
+
     @Override
     public Sport getSportById(int id) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM sport WHERE id = ?");

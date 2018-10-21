@@ -1,7 +1,5 @@
 package servlets.profile;
 
-import services.PostService;
-import services.SportService;
 import services.UserService;
 import servlets.Helper;
 
@@ -40,13 +38,13 @@ public class ProfileServlet extends HttpServlet {
         }
     }
 
-        protected void doGet (HttpServletRequest request, HttpServletResponse response) throws
-        ServletException, IOException {
-            Helper.render(
-                    getServletContext(),
-                    response,
-                    "profile.ftl",
-                    new HashMap<>()
-            );
-        }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
+            ServletException, IOException {
+        Helper.render(
+                getServletContext(),
+                response,
+                "profile.ftl",
+                new HashMap<>()
+        );
     }
+}

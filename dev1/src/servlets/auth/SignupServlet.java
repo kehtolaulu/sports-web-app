@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map;
 
 @WebServlet(name = "SignupServlet")
 public class SignupServlet extends HttpServlet {
@@ -21,6 +20,7 @@ public class SignupServlet extends HttpServlet {
     public void init() throws ServletException {
         userService = new UserService();
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (userService.getCurrentUser(request) != null) {
             response.sendError(403);

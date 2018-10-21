@@ -1,9 +1,10 @@
 package servlets.posts;
 
 import entities.Comment;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import services.CommentService;
 import services.PostService;
-import services.SportService;
 import services.UserService;
 
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,6 +31,20 @@ public class CommentServlet extends HttpServlet {
         postService = new PostService();
     }
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Comment> comments = commentService.getCommentsByPost(postService.getPostById(getId(request)));
+        JSONArray array = new JSONArray();
+        String query = request.getParameter("query");
+        for (Comment comment : comments) {
+            JSONObject matchJson = new JSONObject();
+            matchJson.put("comment", comment);
+            array.put(matchJson.toMap());
+        }
+        response.setContentType("text/json");
+        response.getWriter().print(array.toString());
+        response.getWriter().close();
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (userService.getCurrentUser(request) == null) {
             response.sendError(403);
@@ -36,21 +52,17 @@ public class CommentServlet extends HttpServlet {
             String text = request.getParameter("text");
             int post_id = getId(request);
             try {
-                commentService.newComment(userService.getCurrentUser(request), postService.getPostById(post_id), text);
+                Comment comment = commentService.newComment(userService.getCurrentUser(request), postService.getPostById(post_id), text);
+                JSONObject commentJson = new JSONObject();
+                commentJson.put("comment", comment);
+                response.getWriter().print(commentJson);
+                response.getWriter().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
             response.sendRedirect("/profile");
         }
     }
-
-    @Override
-    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = getId(request);
-        commentService.deleteComment(id);
-        response.sendRedirect("/posts/" + id);
-    }
-
 
     private int getId(HttpServletRequest request) {
         Pattern compile = Pattern.compile("/posts/([1-9][0-9]*)/comments");

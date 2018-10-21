@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface MatchDAO {
     List<Match> getAllMatches() throws SQLException;
+
     List<Match> getMatchesByTournament(Tournament tournament) throws SQLException;
 }

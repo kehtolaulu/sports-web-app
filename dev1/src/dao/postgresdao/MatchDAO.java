@@ -5,7 +5,6 @@ import dao.SportsmanDAO;
 import dao.TeamDAO;
 import dao.TournamentDAO;
 import entities.Match;
-import entities.Post;
 import entities.Tournament;
 
 import java.sql.*;
@@ -26,6 +25,7 @@ public class MatchDAO implements dao.MatchDAO {
         this.teamDAO = new dao.postgresdao.TeamDAO();
         this.sportsmanDAO = new dao.postgresdao.SportsmanDAO();
     }
+
     @Override
     public List<Match> getAllMatches() throws SQLException {
         Statement statement = connection.createStatement();

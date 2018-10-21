@@ -138,6 +138,16 @@
         <servlet-name>PostDispatcherServlet</servlet-name>
         <url-pattern>/posts/*</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CommentByIdServlet</servlet-name>
+        <servlet-class>servlets.posts.CommentByIdServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>CommentByIdServlet</servlet-name>
+        <url-pattern>/comments/*</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>
@@ -174,6 +184,8 @@
         comment
         POST /posts/*/comments добавить коммент addcomment
         DELETE /posts/*/comments удалить коммент deletecomment
+
+        DELETE /comments/* deletecomment
 
         sign up
         GET /registration

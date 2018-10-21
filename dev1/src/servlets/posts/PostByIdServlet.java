@@ -1,7 +1,9 @@
 package servlets.posts;
 
+import entities.Comment;
 import entities.Post;
 import entities.User;
+import services.CommentService;
 import services.PostService;
 import services.UserService;
 import servlets.Helper;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,6 +25,7 @@ import java.util.regex.Pattern;
 public class PostByIdServlet extends HttpServlet {
     private UserService userService;
     private PostService postService;
+    private CommentService commentService;
 
     @Override
     public void init() throws ServletException {
@@ -58,16 +62,18 @@ public class PostByIdServlet extends HttpServlet {
             response.sendRedirect("/login");
         } else {
             int id = getId(request);
-            Post post = null;
+            Post post;
             post = postService.getPostById(id);
             if (post == null) {
                 response.sendError(404);
                 return;
             }
+            List<Comment> comments = commentService.getCommentsByPost(post);
             Map<String, Object> root = new HashMap<>();
             root.put("post", post);
             root.put("can_delete", currentUser.equals(post.getAuthor()));
             root.put("can_edit", currentUser.equals(post.getAuthor()));
+            root.put("comments", comments);
             Helper.render(
                     getServletContext(),
                     response,
@@ -77,6 +83,7 @@ public class PostByIdServlet extends HttpServlet {
         }
 
     }
+
     private int getId(HttpServletRequest request) {
         Pattern compile = Pattern.compile("/posts/([1-9][0-9]*)");
         Matcher matcher = compile.matcher(request.getRequestURI());

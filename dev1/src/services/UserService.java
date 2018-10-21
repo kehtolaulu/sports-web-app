@@ -54,7 +54,7 @@ public class UserService {
         session.setAttribute("current_user", current_user);
     }
 
-    public boolean signUp (String login, String password, String name) {
+    public boolean signUp(String login, String password, String name) {
         if (!isIdentifier(login)) {
             return false;
         }
@@ -108,7 +108,7 @@ public class UserService {
     }
 
     private String hashPassword(String password) {
-        final byte[] salt = new byte[] { -26, 107, -28, 36, 90, -64, -119, 70, -80, 115, -84, -38, -19, -123, -88, -70 };
+        final byte[] salt = new byte[]{-26, 107, -28, 36, 90, -64, -119, 70, -80, 115, -84, -38, -19, -123, -88, -70};
 
         MessageDigest md = null;
         try {

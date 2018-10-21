@@ -1,9 +1,5 @@
 package servlets.posts;
 
-import entities.Comment;
-import entities.Match;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import services.CommentService;
 import services.PostService;
 import services.UserService;
@@ -14,36 +10,40 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@WebServlet(name = "CommentJSONServlet")
-public class CommentJSONServlet extends HttpServlet {
+@WebServlet(name = "CommentByIdServlet")
+public class CommentByIdServlet extends HttpServlet {
+    private UserService userService;
     private CommentService commentService;
     private PostService postService;
+
     @Override
     public void init() throws ServletException {
+        userService = new UserService();
         commentService = new CommentService();
         postService = new PostService();
     }
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Comment> comments = commentService.getCommentsByPost(postService.getPostById(getId(request)));
-        JSONArray array = new JSONArray();
-        String query = request.getParameter("query");
-        for (Comment comment : comments) {
-                JSONObject matchJson = new JSONObject();
-                matchJson.put("comment", comment);
-                array.put(matchJson.toMap());
-        }
-        response.setContentType("text/json");
-        response.getWriter().print(array.toString());
-        response.getWriter().close();
+
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = getId(request);
+        int post_id = commentService.getCommentById(id).getPost().getId();
+        commentService.deleteComment(id);
+        response.sendRedirect("/posts/" + post_id);
     }
 
     private int getId(HttpServletRequest request) {
-        Pattern compile = Pattern.compile("/posts/([1-9][0-9]*)/comments.json");
+        Pattern compile = Pattern.compile("/comments/([1-9][0-9]*)");
         Matcher matcher = compile.matcher(request.getRequestURI());
         matcher.find();
         return Integer.parseInt(matcher.group(1));

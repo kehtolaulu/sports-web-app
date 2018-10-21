@@ -24,13 +24,16 @@ public class CommentDAO implements dao.CommentDAO {
     }
 
     @Override
-    public void newComment(User author, Post post, Date datetime, String text) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO comment (author_id, post_id, datetime, text) VALUES (?, ?, ?, ?)");
+    public Comment newComment(User author, Post post, Date datetime, String text) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO comment (author_id, post_id, datetime, text) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
         statement.setInt(1, author.getId());
         statement.setInt(2, post.getId());
         statement.setDate(3, datetime);
         statement.setString(4, text);
         statement.execute();
+        statement.executeUpdate();
+        ResultSet keys = statement.getGeneratedKeys();
+        return instance(keys);
     }
 
     @Override
@@ -45,16 +48,7 @@ public class CommentDAO implements dao.CommentDAO {
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM comment WHERE id = ?");
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
-        if (resultSet.next()) {
-            return new Comment(
-                    resultSet.getInt("id"),
-                    userDAO.getUserById(resultSet.getInt("author_id")),
-                    postDAO.getPostById(resultSet.getInt("post_id")),
-                    resultSet.getDate("datetime"),
-                    resultSet.getString("text")
-            );
-        }
-        return null;
+        return instance(resultSet);
     }
 
     @Override
@@ -74,6 +68,19 @@ public class CommentDAO implements dao.CommentDAO {
             comments.add(comment);
         }
         return comments;
+    }
 
+    protected Comment instance(ResultSet rs) throws SQLException {
+        if (rs.next()) {
+            return new Comment(
+                    rs.getInt("id"),
+                    userDAO.getUserById(rs.getInt("author_id")),
+                    postDAO.getPostById(rs.getInt("post_id")),
+                    rs.getDate("datetime"),
+                    rs.getString("text")
+            );
+        } else {
+            return null;
+        }
     }
 }

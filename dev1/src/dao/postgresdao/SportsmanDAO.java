@@ -1,7 +1,6 @@
 package dao.postgresdao;
 
 import entities.Sportsman;
-import entities.Team;
 
 import java.sql.*;
 import java.util.LinkedList;

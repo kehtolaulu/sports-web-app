@@ -1,6 +1,5 @@
 package services;
 
-import dao.PostDAO;
 import dao.SportDAO;
 import entities.Sport;
 

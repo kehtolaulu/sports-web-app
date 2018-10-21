@@ -1,8 +1,6 @@
 package dao.postgresdao;
 
 import dao.SportDAO;
-import entities.Post;
-import entities.Sport;
 import entities.Tournament;
 
 import java.sql.*;
@@ -13,6 +11,7 @@ public class TournamentDAO implements dao.TournamentDAO {
 
     private Connection connection;
     private SportDAO sportDAO;
+
     public TournamentDAO() {
 
         this.connection = ConnectionSingleton.getInstance();

@@ -1,9 +1,7 @@
 package servlets.results;
 
 import entities.Tournament;
-import entities.User;
 import services.TournamentService;
-import services.UserService;
 import servlets.Helper;
 
 import javax.servlet.ServletException;
@@ -20,6 +18,7 @@ import java.util.regex.Pattern;
 @WebServlet(name = "TournamentByIdServlet")
 public class TournamentByIdServlet extends HttpServlet {
     private TournamentService tournamentService;
+
     @Override
     public void init() throws ServletException {
         tournamentService = new TournamentService();

@@ -36,6 +36,7 @@ public class PostService {
             return null;
         }
     }
+
     public void deletePost(int id) throws SQLException {
         postDAO.deletePost(id);
     }

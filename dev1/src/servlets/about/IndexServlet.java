@@ -21,6 +21,7 @@ public class IndexServlet extends HttpServlet {
     public void init() throws ServletException {
         userService = new UserService();
     }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = userService.getCurrentUser(request);
         Map<String, Object> root = new HashMap<>() {

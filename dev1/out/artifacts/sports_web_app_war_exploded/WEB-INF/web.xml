@@ -14,7 +14,7 @@
 
     <servlet>
         <servlet-name>AboutServlet</servlet-name>
-        <servlet-class>servlets.AboutServlet</servlet-class>
+        <servlet-class>servlets.about.AboutServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -24,7 +24,7 @@
 
     <servlet>
         <servlet-name>IndexServlet</servlet-name>
-        <servlet-class>servlets.IndexServlet</servlet-class>
+        <servlet-class>servlets.about.IndexServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -34,17 +34,17 @@
 
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>servlets.LoginServlet</servlet-class>
+        <servlet-class>servlets.auth.LoginServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
+        <url-pattern>/auth</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>ProfileServlet</servlet-name>
-        <servlet-class>servlets.ProfileServlet</servlet-class>
+        <servlet-class>servlets.profile.ProfileServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -54,7 +54,7 @@
 
     <servlet>
         <servlet-name>LogOutServlet</servlet-name>
-        <servlet-class>servlets.LogOutServlet</servlet-class>
+        <servlet-class>servlets.auth.LogOutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LogOutServlet</servlet-name>
@@ -63,7 +63,7 @@
 
     <servlet>
         <servlet-name>SportsmenServlet</servlet-name>
-        <servlet-class>servlets.SportsmenServlet</servlet-class>
+        <servlet-class>servlets.sportsmen.SportsmenServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -73,13 +73,83 @@
     
     <servlet>
         <servlet-name>SignupServlet</servlet-name>
-        <servlet-class>servlets.SignupServlet</servlet-class>
+        <servlet-class>servlets.auth.SignupServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>
         <servlet-name>SignupServlet</servlet-name>
-        <url-pattern>/signup</url-pattern>
+        <url-pattern>/registration</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ResultsServlet</servlet-name>
+        <servlet-class>servlets.results.ResultsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ResultsServlet</servlet-name>
+        <url-pattern>/results</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TournamentByIdServlet</servlet-name>
+        <servlet-class>servlets.results.TournamentByIdServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TournamentByIdServlet</servlet-name>
+        <url-pattern>/tournament/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JsonServlet</servlet-name>
+        <servlet-class>servlets.results.SearchJSONServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>JsonServlet</servlet-name>
+        <url-pattern>/search.json</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ProfileByIdServlet</servlet-name>
+        <servlet-class>servlets.profile.ProfileByIdServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProfileByIdServlet</servlet-name>
+        <url-pattern>/profile/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PostsServlet</servlet-name>
+        <servlet-class>servlets.posts.PostsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PostsServlet</servlet-name>
+        <url-pattern>/posts</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PostDispatcherServlet</servlet-name>
+        <servlet-class>servlets.posts.PostDispatcherServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PostDispatcherServlet</servlet-name>
+        <url-pattern>/posts/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CommentByIdServlet</servlet-name>
+        <servlet-class>servlets.posts.CommentByIdServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>CommentByIdServlet</servlet-name>
+        <url-pattern>/comments/*</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
 
 
@@ -88,33 +158,42 @@
         GET /index
 
         GET /sportsmen
-        GET /results
+        GET /results getalltournaments
+
+        GET /tournament/* gettournament by id
+
+        /search
+        /search/autocomplete.json
 
         profile
-        GET /profile
-        POST /profile
+        GET /profile посмотреть свой профиль
+        POST /profile отредактировать свой профиль
 
         profile by id
-        GET /profile/*
+        GET /profile/* посмотреть профиль getuserbyid
 
         posts
-        GET /posts
-        POST /posts (put?)
+        GET /posts все посты открыть getallposts
+        POST /posts создать пост addpost
 
         post by id
-        GET /posts/*
-        POST /posts/*
+        GET /posts/* getpostbyid
+        POST /posts/* edit post
+        DELETE /posts/* delete post
 
         comment
-        POST /posts/*/comments (put?)
+        POST /posts/*/comments добавить коммент addcomment
+        DELETE /posts/*/comments удалить коммент deletecomment
 
-        signup
-        GET /sign_up
-        POST /sign_up
+        DELETE /comments/* deletecomment
+
+        sign up
+        GET /registration
+        POST /registration
 
         login
-        GET /login
-        POST /login
+        GET /auth
+        POST /auth
 
-        GET /logout -> login
+        POST /logout -> login
         -->

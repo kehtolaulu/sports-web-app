@@ -194,6 +194,8 @@ h1, h2, h3, h4, h5 {
     font-size: 50px;
     line-height: 1;
 	margin-top:-180px;
+border: thin silver solid;
+  padding: 0.5em;
 	}
   .probootstrap-cover .probootstrap-text .probootstrap-subheading p {
     color: rgba(255, 255, 255, 0.5);

@@ -22,9 +22,10 @@
                                                                         required></p>
                         <!-- JS because of IE support; better: placeholder="Password" -->
                         <p><input type="submit" value="Log In"></p>
+                        <p>  <input type="checkbox" name="option2" value="a2">Remember me</p>
                     </fieldset>
                 </form>
-                <p>No account? &nbsp;&nbsp;<a href="signup.html">Sign up</a><span
+                <p>No account? &nbsp;&nbsp;<a href="/registration">Sign up</a><span
                         class="fontawesome-arrow-right"></span></p>
             </div>
             <div class="probootstrap-subheading mb-5">

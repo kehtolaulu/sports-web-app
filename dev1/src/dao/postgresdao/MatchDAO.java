@@ -60,7 +60,7 @@ public class MatchDAO implements dao.MatchDAO {
 
     @Override
     public List<Match> getMatchesByTournament(Tournament tournament) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM match WHERE tournament_id = ?");
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM match INNER JOIN match_to_teams ON match.id = match_to_teams.match_id WHERE tournament_id = ?");
         statement.setInt(1, tournament.getId());
         ResultSet resultSet = statement.executeQuery();
         List<Match> matches = new ArrayList<>();
@@ -76,6 +76,20 @@ public class MatchDAO implements dao.MatchDAO {
                     teamDAO.getTeamById(resultSet.getInt("team_2_id"))
             ));
         }
-        return null;
+        PreparedStatement statement2 = connection.prepareStatement("SELECT * FROM match INNER JOIN match_to_sportsman ON match.id = match_to_sportsman.match_id WHERE tournament_id = ?");
+        statement2.setInt(1, tournament.getId());
+        ResultSet rs2 = statement2.executeQuery();
+        while (rs2.next()) {
+            matches.add(new Match(
+                    rs2.getInt("id"),
+                    rs2.getString("name"),
+                    rs2.getDate("datetime"),
+                    rs2.getString("result"),
+                    sportDAO.getSportById(rs2.getInt("sport_id")),
+                    tournamentDAO.getTournamentById(rs2.getInt("tournament_id")),
+                    sportsmanDAO.getSportsmanById(rs2.getInt("sportsman_id"))
+            ));
+        }
+        return matches;
     }
 }

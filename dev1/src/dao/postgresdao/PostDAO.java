@@ -31,21 +31,19 @@ public class PostDAO implements dao.PostDAO {
                     userDAO.getUserById(resultSet.getInt("author_id")),
                     resultSet.getString("title"),
                     resultSet.getString("text"),
-                    resultSet.getDate("datetime"),
-                    sportDAO.getSportById(resultSet.getInt("sport_id"))
+                    resultSet.getDate("datetime")
             ));
         }
         return posts;
     }
 
     @Override
-    public void newPost(User author, String title, String text, Date datetime, Sport sport) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO post (author_id, title, text, datetime, sport_id) VALUES (?, ?, ?, ?, ?)");
+    public void newPost(User author, String title, String text, Date datetime) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO post (author_id, title, text, datetime) VALUES (?, ?, ?, ?)");
         statement.setInt(1, author.getId());
         statement.setString(2, title);
         statement.setString(3, text);
         statement.setDate(4, datetime);
-        statement.setInt(5, sport.getId());
         statement.execute();
     }
 
@@ -60,8 +58,7 @@ public class PostDAO implements dao.PostDAO {
                     userDAO.getUserById(resultSet.getInt("author_id")),
                     resultSet.getString("title"),
                     resultSet.getString("text"),
-                    resultSet.getDate("datetime"),
-                    sportDAO.getSportById(resultSet.getInt("sport_id"))
+                    resultSet.getDate("datetime")
             );
         }
         return null;
@@ -95,8 +92,7 @@ public class PostDAO implements dao.PostDAO {
                     userDAO.getUserById(author.getId()),
                     resultSet.getString("title"),
                     resultSet.getString("text"),
-                    resultSet.getDate("datetime"),
-                    sportDAO.getSportById(resultSet.getInt("sport_id"))
+                    resultSet.getDate("datetime")
             );
             posts.add(post);
         }

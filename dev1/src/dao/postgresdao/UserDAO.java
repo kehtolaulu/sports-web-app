@@ -65,10 +65,12 @@ public class UserDAO implements dao.UserDAO {
     }
 
     @Override
-    public boolean updateUser(int id, String password, String name) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("UPDATE \"user\" SET password = ?, name = ? WHERE id = ?");
+    public boolean updateUser(int id, String password, String name, String login) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("UPDATE \"user\" SET password = ?, name = ?, login = ? WHERE id = ?");
         statement.setString(1, password);
         statement.setString(2, name);
+        statement.setString(3, login);
+        statement.setInt(4, id);
         return statement.execute();
     }
 
@@ -87,4 +89,6 @@ public class UserDAO implements dao.UserDAO {
         }
         return null;
     }
+
+
 }

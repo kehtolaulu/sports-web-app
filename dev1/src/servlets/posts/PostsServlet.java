@@ -38,13 +38,12 @@ public class PostsServlet extends HttpServlet {
         } else {
             String text = request.getParameter("text");
             String title = request.getParameter("title");
-            int sport_id = (sportService.getSportByName(request.getParameter("sport"))).getId();
             try {
-                postService.newPost(userService.getCurrentUser(request), title, text, sportService.getSportById(sport_id));
+                postService.newPost(userService.getCurrentUser(request), title, text);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            response.sendRedirect("/profile");
+            response.sendRedirect("/posts");
         }
     }
 

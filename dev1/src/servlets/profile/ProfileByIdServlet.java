@@ -26,10 +26,8 @@ public class ProfileByIdServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = userService.getUserById(getId(request));
-        User current_user = userService.getCurrentUser(request);
         Map<String, Object> root = new HashMap<>() {
             {
-                put("current_user", current_user);
                 put("user", user);
             }
         };

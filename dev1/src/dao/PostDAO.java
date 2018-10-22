@@ -11,7 +11,7 @@ import java.util.List;
 public interface PostDAO {
     List<Post> getAllPosts() throws SQLException;
 
-    void newPost(User author, String title, String text, Date datetime, Sport sport) throws SQLException;
+    void newPost(User author, String title, String text, Date datetime) throws SQLException;
 
     Post getPostById(int id) throws SQLException;
 

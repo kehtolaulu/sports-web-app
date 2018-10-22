@@ -13,7 +13,7 @@ const deleteComment = (id) => {
         }
     });
 };
-// textId, postId
+
 const newComment = () => {
     let text = $('#comment').val();
     $.ajax({

@@ -123,7 +123,7 @@
 
     <servlet>
         <servlet-name>PostDispatcherServlet</servlet-name>
-        <servlet-class>servlets.posts.PostDispatcherServlet</servlet-class>
+        <servlet-class>servlets.DispatcherServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>PostDispatcherServlet</servlet-name>
@@ -140,6 +140,7 @@
         <servlet-name>CommentByIdServlet</servlet-name>
         <url-pattern>/comments/*</url-pattern>
     </servlet-mapping>
+
 
 
 </web-app>
@@ -159,7 +160,9 @@
 
         profile
         GET /profile посмотреть свой профиль
-        POST /profile отредактировать свой профиль
+        
+        GET /profile/*/edit edit profile
+        POST /profile/*/edit отредактировать свой профиль
 
         profile by id
         GET /profile/* посмотреть профиль getuserbyid
@@ -172,7 +175,9 @@
 
         post by id
         GET /posts/* getpostbyid
-        POST /posts/* edit post
+
+       GET /posts/*/edit
+        POST /posts/*/edit edit post
         DELETE /posts/* delete post
 
         comment

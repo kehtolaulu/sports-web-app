@@ -10,16 +10,14 @@ public class Post {
     private String title;
     private String text;
     private Date datetime;
-    private Sport sport;
 
-    public Post(int id, User author, String title, String text, Date datetime, Sport sport) {
+    public Post(int id, User author, String title, String text, Date datetime) {
         this.id = id;
         this.author = author;
         this.authorId = author.getId();
         this.title = title;
         this.text = text;
         this.datetime = datetime;
-        this.sport = sport;
     }
 
     public Integer getAuthorId() {
@@ -71,11 +69,4 @@ public class Post {
         this.datetime = datetime;
     }
 
-    public Sport getSport() {
-        return sport;
-    }
-
-    public void setSport(Sport sport) {
-        this.sport = sport;
-    }
 }

@@ -24,31 +24,19 @@ public class ProfileServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (userService.getCurrentUser(request) == null) {
-            response.sendError(403);
-        } else {
-            int userId = userService.getCurrentUser(request).getId();
-            String password = request.getParameter("newPassword");
-            String name = request.getParameter("newName");
-            boolean success = userService.updateProfile(userId, password, name);
-            if (success) {
-                response.sendRedirect("/profile");
-            } else {
-                response.sendRedirect("/auth?msg=fail");
-            }
-            response.sendRedirect("/profile");
-        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
-        User user = userService.getCurrentUser(request);
+        int id = userService.getCurrentUser(request).getId();
+        User user = userService.getUserById(id);
         Map root = new HashMap<>();
         root.put("user", user);
         Helper.render(
                 getServletContext(),
                 response,
-                "profile.ftl",
+                "myprofile.ftl",
                 root
         );
     }

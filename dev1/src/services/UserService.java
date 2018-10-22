@@ -98,13 +98,22 @@ public class UserService {
         }
     }
 
-    public boolean updateProfile(int id, String password, String name) {
-        if (!isPassword(password)) {
-            return false;
+    public boolean updateProfile(int id, String password, String name, String login) {
+        String hash = "";
+        if (password == "") {
+            try {
+                hash = userDAO.getUserById(id).getPassword();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            if (!isPassword(password)) {
+                return false;
+            }
+            hash = hashPassword(password);
         }
-        String hash = hashPassword(password);
         try {
-            userDAO.updateUser(id, hash, name);
+            userDAO.updateUser(id, hash, name, login);
         } catch (SQLException e) {
             return false;
         }
@@ -123,20 +132,6 @@ public class UserService {
         String token = username + new Date().toString();
         return hashPassword(token);
     }
-
-//    private String encode(String toEncode, String salt) {
-//        String encoded = "";
-//        try {
-//            toEncode += salt;
-//            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-//            byte[] hash = digest.digest(toEncode.getBytes(StandardCharsets.UTF_8));
-//            encoded = Base64.getEncoder().encodeToString(hash);
-//        } catch (NoSuchAlgorithmException e) {
-//            e.printStackTrace();
-//        }
-//        return encoded;
-//    }
-
 
     private String hashPassword(String password) {
         final byte[] salt = new byte[]{-26, 107, -28, 36, 90, -64, -119, 70, -80, 115, -84, -38, -19, -123, -88, -70};

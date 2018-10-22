@@ -17,8 +17,8 @@ public class PostService {
         this.postDAO = new dao.postgresdao.PostDAO();
     }
 
-    public void newPost(User author, String title, String text, Sport sport) throws SQLException {
-        postDAO.newPost(author, title, text, new java.sql.Date(new Date().getTime()), sport);
+    public void newPost(User author, String title, String text) throws SQLException {
+        postDAO.newPost(author, title, text, new java.sql.Date(new Date().getTime()));
     }
 
     public List<Post> getAllPosts() {

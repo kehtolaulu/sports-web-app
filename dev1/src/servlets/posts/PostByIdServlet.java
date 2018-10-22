@@ -38,15 +38,7 @@ public class PostByIdServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (userService.getCurrentUser(request) == null) {
-            response.sendError(403);
-        } else {
-            int id = getId(request);
-            String text = request.getParameter("newText");
-            String title = request.getParameter("newTitle");
-            postService.updatePost(id, text, title);
-            response.sendRedirect(String.format("/posts/%s", id));
-        }
+
     }
 
     @Override

@@ -11,10 +11,15 @@
                         <div class="probootstrap-text">
                             <h1 class="profile text-white mb-4"><small><p>Name: ${user.name}</p> <p>Login: ${user.login}</p> </small></h1>
                             <p><img src="images/myphoto.jpg" class = "newphoto"> </p>
-                            <p> <form method="GET" id="edit_post" action="/profile/${user.id}/posts">
+                            <p> <form method="GET" id="edit_profile" action="/profile/${user.id}/edit">
+                            <button type="submit" class="button8">Edit profile</button>
+                            </form>  </p>
+                            <p> <form method="GET" id="see_posts" action="/profile/${user.id}/posts">
                             <button type="submit" class="button8">See posts</button>
-                        </form>  </p>
-                        </form>
+                            </form>  </p>
+                            <p> <form method="POST" id="log_out" action="/logout">
+                                <button type="submit" class="button8">Log out</button>
+                            </form>
                             </p>
                             <div class="probootstrap-subheading mb-5">
                             </div>

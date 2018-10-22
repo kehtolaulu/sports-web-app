@@ -19,7 +19,7 @@
 
                         <#if user??>
                             <#if post.author.id == user.id>
-                            <form method="POST" id="edit_post" action="/posts/${post.id}">
+                            <form method="GET" id="edit_post" action="/posts/${post.id}/edit">
                                 <button type="submit" class="button8">Edit post</button>
                             </form>
                             <form method="POST" id="delete_post">

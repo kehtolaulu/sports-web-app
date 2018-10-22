@@ -9,19 +9,20 @@
         <div class="container">
             <div class="row probootstrap-vh-100 align-items-center text-center">
                 <div class="col-sm">
+                    <#if user??>
                     <p>Make new post</p>
-                    <textarea id="title" class="text" cols="60" rows="2"> </textarea>
+                    <p>
+                    <form method="POST" id="create_post" action="/posts">
+                        <textarea id="title" class="text" cols="60" rows="2" name="text"> </textarea>
                     <p>
                         <small>Title</small>
                     </p>
-                    <textarea id="text" class="text" cols="40" rows="1"> </textarea>
+                    <textarea id="text" class="text" cols="40" rows="1" name="title"> </textarea>
                     <p></p>
-                    <p>
-                    <form method="POST" id="create_post" action="/posts">
                         <button type="submit" class="button8">Create post</button>
                     </form>
                     </p>
-
+                    </#if>
                 <#if posts?has_content>
                     <#list posts as post>
                     <div class="probootstrap-text">

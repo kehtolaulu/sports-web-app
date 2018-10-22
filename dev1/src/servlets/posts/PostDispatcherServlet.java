@@ -1,5 +1,7 @@
 package servlets.posts;
 
+import servlets.profile.ProfileByIdServlet;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +20,8 @@ public class PostDispatcherServlet extends HttpServlet {
         Map<Pattern, HttpServlet> dispatchMap = new TreeMap<>((o1, o2) -> o2.toString().compareTo(o1.toString())) {{
             put(Pattern.compile("/posts/([1-9][0-9]*)/comments"), new CommentServlet());
             put(Pattern.compile("/posts/([1-9][0-9]*)"), new PostByIdServlet());
+            put(Pattern.compile("/profile/([1-9][0-9]*)"), new ProfileByIdServlet());
+            put(Pattern.compile("/profile/([1-9][0-9]*)/posts"), new PostsByAuthorServlet());
         }};
 
         for (var pair : dispatchMap.entrySet()) {

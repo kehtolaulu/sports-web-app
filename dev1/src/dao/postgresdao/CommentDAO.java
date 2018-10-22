@@ -1,6 +1,5 @@
 package dao.postgresdao;
 
-import dao.PostDAO;
 import entities.Comment;
 import entities.Post;
 import entities.User;
@@ -12,7 +11,7 @@ import java.util.List;
 public class CommentDAO implements dao.CommentDAO {
 
     private Connection connection;
-    private dao.UserDAO userDAO;
+    private UserDAO userDAO;
     private SportDAO sportDAO;
     private PostDAO postDAO;
 
@@ -30,10 +29,12 @@ public class CommentDAO implements dao.CommentDAO {
         statement.setInt(2, post.getId());
         statement.setDate(3, datetime);
         statement.setString(4, text);
-        statement.execute();
         statement.executeUpdate();
         ResultSet keys = statement.getGeneratedKeys();
-        return instance(keys);
+        if (keys.next()) {
+            return instance(keys);
+        }
+        return null;
     }
 
     @Override
@@ -54,33 +55,31 @@ public class CommentDAO implements dao.CommentDAO {
     @Override
     public List<Comment> getCommentsByPost(Post post) throws SQLException {
         List<Comment> comments = new ArrayList<>();
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM comment WHERE post_id = ?");
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM comment INNER JOIN \"user\" ON \"user\".id = comment.author_id WHERE post_id = ?");
         statement.setInt(1, post.getId());
-        ResultSet resultSet = statement.executeQuery();
-        while (resultSet.next()) {
-            Comment comment = new Comment(
-                    resultSet.getInt("id"),
-                    post.getAuthor(),
-                    post,
-                    resultSet.getDate("datetime"),
-                    resultSet.getString("text")
-            );
+        ResultSet rs = statement.executeQuery();
+        while (rs.next()) {
+            Comment comment = new Comment();
+            comment.setId(rs.getInt("id"));
+
+            User user = userDAO.instance(rs);
+            user.setId(rs.getInt("author_id"));
+
+            comment.setAuthor(user);
+            comment.setDatetime(rs.getDate("datetime"));
+            comment.setText(rs.getString("text"));
             comments.add(comment);
         }
         return comments;
     }
 
-    protected Comment instance(ResultSet rs) throws SQLException {
-        if (rs.next()) {
-            return new Comment(
-                    rs.getInt("id"),
-                    userDAO.getUserById(rs.getInt("author_id")),
-                    postDAO.getPostById(rs.getInt("post_id")),
-                    rs.getDate("datetime"),
-                    rs.getString("text")
-            );
-        } else {
-            return null;
-        }
+    public Comment instance(ResultSet rs) throws SQLException {
+        return new Comment(
+                rs.getInt("id"),
+                userDAO.getUserById(rs.getInt("author_id")),
+                postDAO.getPostById(rs.getInt("post_id")),
+                rs.getDate("datetime"),
+                rs.getString("text")
+        );
     }
 }

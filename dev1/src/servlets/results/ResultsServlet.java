@@ -27,12 +27,12 @@ public class ResultsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Tournament> tournaments = tournamentService.getAllTournaments();
         Map<String, Object> root = new HashMap<>();
-        root.put("results", tournaments);
+        root.put("tournaments", tournaments);
         Helper.render(
                 getServletContext(),
                 response,
                 "results.ftl",
-                new HashMap<>()
+                root
         );
     }
 }

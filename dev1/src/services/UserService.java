@@ -11,8 +11,10 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.Date;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,7 +28,21 @@ public class UserService {
 
     public User getCurrentUser(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        return (User) session.getAttribute("current_user");
+        User user = (User) session.getAttribute("current_user");
+        if (user == null) {
+            Optional<Cookie> remember_me = Arrays.stream(request.getCookies()).filter(cookie -> cookie.getName().equals("remember_me")).findAny();
+            if (remember_me.isPresent()) {
+                String token = remember_me.get().getValue();
+                try {
+                    return userDAO.getUserByToken(token);
+                } catch (SQLException e) {
+                    return null;
+                }
+            } else {
+                return null;
+            }
+        }
+        return user;
     }
 
     public User authenticate(HttpServletRequest request) {

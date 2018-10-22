@@ -1,8 +1,6 @@
 package servlets.results;
 
 import entities.Match;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import services.MatchService;
 
 import javax.servlet.ServletException;
@@ -23,21 +21,21 @@ public class SearchJSONServlet extends HttpServlet {
         matchService = new MatchService();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Match> matches = matchService.getAllMatches();
-        JSONArray array = new JSONArray();
-        String query = request.getParameter("query");
-        for (Match match : matches) {
-            if ((match.getTeam1().getName().toLowerCase().contains(query.toLowerCase())) ||
-                    (match.getSportsman().getName().toLowerCase().contains(query.toLowerCase())) ||
-                    (match.getTeam2().getName().toLowerCase().contains(query.toLowerCase()))) {
-                JSONObject matchJson = new JSONObject();
-                matchJson.put("match", match);
-                array.put(matchJson.toMap());
-            }
-        }
-        response.setContentType("text/json");
-        response.getWriter().print(array.toString());
-        response.getWriter().close();
-    }
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        List<Match> matches = matchService.getAllMatches();
+//        JSONArray array = new JSONArray();
+//        String query = request.getParameter("query");
+//        for (Match match : matches) {
+//            if ((match.getTeam1().getName().toLowerCase().contains(query.toLowerCase())) ||
+//                    (match.getSportsman().getName().toLowerCase().contains(query.toLowerCase())) ||
+//                    (match.getTeam2().getName().toLowerCase().contains(query.toLowerCase()))) {
+//                JSONObject matchJson = new JSONObject();
+//                matchJson.put("match", match);
+//                array.put(matchJson.toMap());
+//            }
+//        }
+//        response.setContentType("text/json");
+//        response.getWriter().print(array.toString());
+//        response.getWriter().close();
+//    }
 }

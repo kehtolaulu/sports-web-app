@@ -1,5 +1,6 @@
 package servlets.profile;
 
+import entities.User;
 import services.UserService;
 import servlets.Helper;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 @WebServlet(name = "ProfileServlet")
 public class ProfileServlet extends HttpServlet {
@@ -40,11 +42,14 @@ public class ProfileServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
+        User user = userService.getCurrentUser(request);
+        Map root = new HashMap<>();
+        root.put("user", user);
         Helper.render(
                 getServletContext(),
                 response,
                 "profile.ftl",
-                new HashMap<>()
+                root
         );
     }
 }

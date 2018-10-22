@@ -1,9 +1,12 @@
-package servlets.profile;
+package servlets.posts;
 
+import entities.Post;
 import entities.User;
+import services.PostService;
 import services.UserService;
 import servlets.Helper;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,35 +14,39 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@WebServlet(name = "ProfileByIdServlet")
-public class ProfileByIdServlet extends HttpServlet {
+@WebServlet(name = "PostsByAuthorServlet")
+public class PostsByAuthorServlet extends HttpServlet {
+    private PostService postService;
     private UserService userService;
 
     @Override
-    public void init() throws ServletException {
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
         userService = new UserService();
+        postService = new PostService();
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = userService.getUserById(getId(request));
-        User current_user = userService.getCurrentUser(request);
-        Map<String, Object> root = new HashMap<>() {
-            {
-                put("current_user", current_user);
-                put("user", user);
-            }
-        };
+        User author = userService.getUserById(getId(request));
+        List<Post> posts = postService.getPostsByAuthor(author);
+        Map<String, Object> root = new HashMap<>();
+        root.put("posts", posts);
+        root.put("author", author);
         Helper.render(
                 getServletContext(),
                 response,
-                "profile.ftl",
+                "postsbyauthor.ftl",
                 root
         );
-
     }
 
     private int getId(HttpServletRequest request) {

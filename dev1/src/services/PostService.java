@@ -48,5 +48,11 @@ public class PostService {
             e.printStackTrace();
         }
     }
-
+    public List<Post> getPostsByAuthor(User author) {
+        try {
+            return postDAO.getPostsByAuthor(author);
+        } catch (SQLException e) {
+            return new LinkedList<>();
+        }
+    }
 }

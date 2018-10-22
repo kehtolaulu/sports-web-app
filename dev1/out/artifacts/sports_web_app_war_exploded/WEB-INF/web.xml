@@ -112,15 +112,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ProfileByIdServlet</servlet-name>
-        <servlet-class>servlets.profile.ProfileByIdServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ProfileByIdServlet</servlet-name>
-        <url-pattern>/profile/*</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>PostsServlet</servlet-name>
         <servlet-class>servlets.posts.PostsServlet</servlet-class>
     </servlet>
@@ -137,6 +128,7 @@
     <servlet-mapping>
         <servlet-name>PostDispatcherServlet</servlet-name>
         <url-pattern>/posts/*</url-pattern>
+        <url-pattern>/profile/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -171,6 +163,8 @@
 
         profile by id
         GET /profile/* посмотреть профиль getuserbyid
+
+        GET /profile/*/posts postsbyuser
 
         posts
         GET /posts все посты открыть getallposts

@@ -20,12 +20,7 @@ public class UserDAO implements dao.UserDAO {
         statement.setString(1, username);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-            return new User(
-                    resultSet.getInt("id"),
-                    resultSet.getString("login"),
-                    resultSet.getString("password"),
-                    resultSet.getString("name")
-            );
+            return instance(resultSet);
         }
         return null;
     }
@@ -38,14 +33,18 @@ public class UserDAO implements dao.UserDAO {
         ResultSet resultSet = statement.executeQuery();
 
         if (resultSet.next()) {
-            return new User(
-                    resultSet.getInt("id"),
-                    resultSet.getString("login"),
-                    resultSet.getString("password"),
-                    resultSet.getString("name")
-            );
+            return instance(resultSet);
         }
         return null;
+    }
+
+    public User instance(ResultSet resultSet) throws SQLException {
+        return new User(
+                resultSet.getInt("id"),
+                resultSet.getString("login"),
+                resultSet.getString("password"),
+                resultSet.getString("name")
+        );
     }
 
     @Override
@@ -71,5 +70,21 @@ public class UserDAO implements dao.UserDAO {
         statement.setString(1, password);
         statement.setString(2, name);
         return statement.execute();
+    }
+
+    @Override
+    public User getUserByToken(String token) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM tokens INNER JOIN \"user\" ON tokens.user_id = \"user\".id WHERE token = ?");
+        statement.setString(1, token);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            return new User(
+                    resultSet.getInt("\"user\".id"),
+                    resultSet.getString("login"),
+                    resultSet.getString("password"),
+                    resultSet.getString("name")
+            );
+        }
+        return null;
     }
 }

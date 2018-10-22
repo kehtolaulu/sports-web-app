@@ -1,8 +1,7 @@
 package servlets.posts;
 
+import com.google.gson.Gson;
 import entities.Comment;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import services.CommentService;
 import services.PostService;
 import services.UserService;
@@ -34,30 +33,22 @@ public class CommentServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Comment> comments = commentService.getCommentsByPost(postService.getPostById(getId(request)));
-        JSONArray array = new JSONArray();
-        String query = request.getParameter("query");
-        for (Comment comment : comments) {
-            JSONObject matchJson = new JSONObject();
-            matchJson.put("comment", comment);
-            array.put(matchJson.toMap());
-        }
-        response.setContentType("text/json");
-        response.getWriter().print(array.toString());
-        response.getWriter().close();
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        userService.getCurrentUser(request);
         if (userService.getCurrentUser(request) == null) {
             response.sendError(403);
         } else {
             String text = request.getParameter("text");
             int post_id = getId(request);
             try {
+                response.setContentType("text/json");
+                Gson gson = new Gson();
                 Comment comment = commentService.newComment(userService.getCurrentUser(request), postService.getPostById(post_id), text);
-                JSONObject commentJson = new JSONObject();
-                commentJson.put("comment", comment);
-                response.getWriter().print(commentJson);
+                String s = gson.toJson(comment);
+                response.getWriter().print(s);
                 response.getWriter().close();
             } catch (SQLException e) {
                 e.printStackTrace();

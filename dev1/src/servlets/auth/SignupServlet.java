@@ -32,7 +32,7 @@ public class SignupServlet extends HttpServlet {
             if (success) {
                 response.sendRedirect("/profile");
             } else {
-                response.sendRedirect("/login?msg=fail");
+                response.sendRedirect("/auth?msg=fail");
             }
         }
 

@@ -22,7 +22,7 @@ public class PostDispatcherServlet extends HttpServlet {
 
         for (var pair : dispatchMap.entrySet()) {
             if (pair.getKey().matcher(req.getRequestURI()).matches()) {
-                pair.getValue().init();
+                pair.getValue().init(getServletConfig());
                 pair.getValue().service(req, resp);
                 return;
             }

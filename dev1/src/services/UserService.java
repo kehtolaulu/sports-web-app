@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.Base64;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -107,20 +108,34 @@ public class UserService {
         return hashPassword(token);
     }
 
+//    private String encode(String toEncode, String salt) {
+//        String encoded = "";
+//        try {
+//            toEncode += salt;
+//            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+//            byte[] hash = digest.digest(toEncode.getBytes(StandardCharsets.UTF_8));
+//            encoded = Base64.getEncoder().encodeToString(hash);
+//        } catch (NoSuchAlgorithmException e) {
+//            e.printStackTrace();
+//        }
+//        return encoded;
+//    }
+
+
     private String hashPassword(String password) {
         final byte[] salt = new byte[]{-26, 107, -28, 36, 90, -64, -119, 70, -80, 115, -84, -38, -19, -123, -88, -70};
 
         MessageDigest md = null;
         try {
-            md = MessageDigest.getInstance("SHA-512");
+            md = MessageDigest.getInstance("SHA-256");
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
         md.update(salt);
 
-        byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));
+        byte[] hash = md.digest(password.getBytes(StandardCharsets.UTF_8));
 
-        return new String(hashedPassword, StandardCharsets.US_ASCII);
+        return Base64.getEncoder().encodeToString(hash);
     }
 
     private boolean isPassword(String password) {

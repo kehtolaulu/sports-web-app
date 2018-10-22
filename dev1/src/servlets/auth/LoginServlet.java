@@ -34,21 +34,22 @@ public class LoginServlet extends HttpServlet {
                 }
                 response.sendRedirect("/profile");
             } else {
-                response.sendRedirect("/login?err=too_bad_login");
+                response.sendRedirect("/auth?err=too_bad_login");
             }
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = userService.getCurrentUser(request);
-        Map<String, Object> root = new HashMap<>() {{
-            put("user", user);
-        }};
-        Helper.render(
-                getServletContext(),
-                response,
-                "login.ftl",
-                root
-        );
+        if (user != null) {
+            response.sendRedirect("/profile");
+        } else {
+            Helper.render(
+                    getServletContext(),
+                    response,
+                    "login.ftl",
+                    new HashMap<>()
+            );
+        }
     }
 }

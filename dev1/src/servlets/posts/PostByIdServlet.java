@@ -8,6 +8,8 @@ import services.PostService;
 import services.UserService;
 import servlets.Helper;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,16 +23,18 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@WebServlet(name = "PostByIdServlet")
+@WebServlet(name = "PostByIdServlet", urlPatterns = {"/posts/:id"})
 public class PostByIdServlet extends HttpServlet {
     private UserService userService;
     private PostService postService;
     private CommentService commentService;
 
     @Override
-    public void init() throws ServletException {
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
         userService = new UserService();
         postService = new PostService();
+        commentService = new CommentService();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -57,10 +61,7 @@ public class PostByIdServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User currentUser = userService.getCurrentUser(request);
-        if (currentUser == null) {
-            response.sendRedirect("/login");
-        } else {
+            User user = userService.getCurrentUser(request);
             int id = getId(request);
             Post post;
             post = postService.getPostById(id);
@@ -71,17 +72,15 @@ public class PostByIdServlet extends HttpServlet {
             List<Comment> comments = commentService.getCommentsByPost(post);
             Map<String, Object> root = new HashMap<>();
             root.put("post", post);
-            root.put("can_delete", currentUser.equals(post.getAuthor()));
-            root.put("can_edit", currentUser.equals(post.getAuthor()));
+//            root.put("can_delete", user.equals(post.getAuthor()));
             root.put("comments", comments);
+            root.put("user", user);
             Helper.render(
                     getServletContext(),
                     response,
                     "post.ftl",
                     root
             );
-        }
-
     }
 
     private int getId(HttpServletRequest request) {

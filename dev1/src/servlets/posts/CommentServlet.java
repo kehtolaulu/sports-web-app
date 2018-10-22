@@ -7,6 +7,7 @@ import services.CommentService;
 import services.PostService;
 import services.UserService;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +26,8 @@ public class CommentServlet extends HttpServlet {
     private PostService postService;
 
     @Override
-    public void init() throws ServletException {
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
         userService = new UserService();
         commentService = new CommentService();
         postService = new PostService();
@@ -60,7 +62,6 @@ public class CommentServlet extends HttpServlet {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            response.sendRedirect("/profile");
         }
     }
 

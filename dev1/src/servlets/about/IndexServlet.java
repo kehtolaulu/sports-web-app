@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(name = "IndexServlet")
+@WebServlet(name = "IndexServlet", urlPatterns = {"/index"})
 public class IndexServlet extends HttpServlet {
     private UserService userService;
 

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/static/css/icomoon.css">
 </#macro>
 <#macro import>
-    <link rel="stylesheet" href="/static/css/style3.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     <script src="/static/js/script.js"></script>
 </#macro>
 <#macro nav_bar>
@@ -23,13 +23,15 @@
             <div class="collapse navbar-collapse" id="probootstrap-nav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="/index" class="nav-link"><small>Home</small></a></li>
+                    <#if user??>
                     <li class="nav-item"><a href="/profile" class="nav-link"><small>My Profile</small></a></li>
+                    </#if>
                     <li class="nav-item"><a href="/posts" class="nav-link"><small>News</small></a></li>
                     <li class="nav-item"><a href="/sportsmen" class="nav-link"><small>Popular Athletes</small></a></li>
                     <li class="nav-item"><a href="/about" class="nav-link" ><small>About us</small></a></li>
                     <li class="nav-item"><a href="/results" class="nav-link"><small>Results</small></a></li>
                 <#if user??>
-                    <li class="nav-item probootstrap-cta probootstrap-seperator"><form method="post" action="/logout"><button type="submit" class="button8">Log out</button></li>
+                    <li class="nav-item probootstrap-cta probootstrap-seperator"><form method="post" action="/logout"><button type="submit" class="button8">Log out</button></form></li>
                 <#else>
                     <li class="nav-item probootstrap-cta probootstrap-seperator"><a href="/registration" class="nav-link">Sign
                         up</a></li>

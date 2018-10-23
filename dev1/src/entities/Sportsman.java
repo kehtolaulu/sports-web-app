@@ -5,12 +5,14 @@ public class Sportsman {
     private Team team;
     private String name;
     private String bio;
+    private String photo;
 
-    public Sportsman(int id, Team team, String name, String bio) {
+    public Sportsman(int id, Team team, String name, String bio, String photo) {
         this.id = id;
         this.team = team;
         this.name = name;
         this.bio = bio;
+        this.photo = photo;
     }
 
     public int getId() {
@@ -43,5 +45,13 @@ public class Sportsman {
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

@@ -21,6 +21,8 @@
             </button>
 
             <div class="collapse navbar-collapse" id="probootstrap-nav">
+                <a href="/search" class="nav-link"><small>SEARCH TOURNAMENTS</small></a>
+                <ul class="navbar-nav ml-auto">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="/index" class="nav-link"><small>Home</small></a></li>
                     <#if user??>

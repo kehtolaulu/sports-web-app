@@ -302,11 +302,7 @@ textarea {
   .probootstrap-section-feature p {
     color: rgba(255, 255, 255, 0.4); }
 
-.probootstrap-navabr-dark {
-  background: rgba(0, 0, 0, 0.2) !important;
-  position: absolute;
-  left: 0;
-  right: 0; }
+
   @media screen and (max-width: 960px) {
     .probootstrap-navabr-dark {
       background: #000 !important;
@@ -464,7 +460,7 @@ input[type="search"] {
 }
 .button8 {
   display: inline-block;
-  color: white;
+  color: blue;
   font-weight: 700;
   text-decoration: none;
   user-select: none;

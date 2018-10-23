@@ -10,20 +10,16 @@
             <div class="row probootstrap-vh-100 align-items-center text-center">
 
                 <div class="col-sm">
-                    <a href="#openModal">Maria Sharapova</a>
-
-                    <div id="openModal" class="modalDialog">
-                        <div>
-                            <a href="#close" title="Закрыть" class="close">X</a>
+                        <div id="sportsmen-list">
                         <#list sportsmen as sportsman>
+                            <div id="sportsmen-item">
                             <h2>${sportsman.name}</h2>
-                            <p>${sportsman.team}</p>
+                            <p>${sportsman.team.name}</p>
                             <p>${sportsman.bio}</p>
+                                <img src="${sportsman.photo}" width="400" height="250">
+                            </div>
                         </#list>
                         </div>
-                    </div>
-
-                    <img src="images/maria.jpg" width="400" height="250"> </img>
                     <div class="probootstrap-text">
 
                         <div class="probootstrap-subheading mb-5">

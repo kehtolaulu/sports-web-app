@@ -27,7 +27,8 @@ public class SportsmanDAO implements dao.SportsmanDAO {
                     resultSet.getInt("id"),
                     teamDAO.getTeamById(resultSet.getInt("team_id")),
                     resultSet.getString("name"),
-                    resultSet.getString("bio")
+                    resultSet.getString("bio"),
+                    resultSet.getString("photo")
             );
             sportsmen.add(sportsman);
         }
@@ -44,7 +45,8 @@ public class SportsmanDAO implements dao.SportsmanDAO {
                     resultSet.getInt("id"),
                     teamDAO.getTeamById(resultSet.getInt("team_id")),
                     resultSet.getString("name"),
-                    resultSet.getString("bio")
+                    resultSet.getString("bio"),
+                    resultSet.getString("photo")
             );
         }
         return null;

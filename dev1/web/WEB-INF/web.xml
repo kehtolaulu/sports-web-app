@@ -103,7 +103,7 @@
 
     <servlet>
         <servlet-name>JsonServlet</servlet-name>
-        <servlet-class>servlets.results.SearchJSONServlet</servlet-class>
+        <servlet-class>servlets.results.SearchServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -139,6 +139,16 @@
     <servlet-mapping>
         <servlet-name>CommentByIdServlet</servlet-name>
         <url-pattern>/comments/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>servlets.results.SearchServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
     </servlet-mapping>
 
 

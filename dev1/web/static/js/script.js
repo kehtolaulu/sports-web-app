@@ -1,31 +1,38 @@
 const deletePost = () => {
-    let req = new XMLHttpRequest();
-    req.open('DELETE', window.location.pathname, true);
-    req.send();
+    $.ajax({
+        url: `${window.location.pathname}`,
+        type: 'DELETE',
+        success: (data) => {
+            window.location.href = '/posts';
+        }
+    });
 };
 
 const deleteComment = (id) => {
     $.ajax({
-        url: `${window.location.pathname}/comments`,
+        url: `/comments/${id}`,
         type: 'DELETE',
         success: (data) => {
-            $(`comments-item-${id}`).remove();
+            $(`#comments-item-${id}`).remove();
         }
     });
 };
 
 const newComment = () => {
     let text = $('#comment').val();
-    $.ajax({
-        url: window.location.pathname + '/comments',
-        type: 'POST',
-        data: {
-            text: text
-        },
-        success: (comment) => {
-            let list = $('#comments-list');
-            list.append(
-                `<div id="comment-item-${comment.id}">
+    if (text === '') {
+        alert('too empty comment!')
+    } else {
+        $.ajax({
+            url: window.location.pathname + '/comments',
+            type: 'POST',
+            data: {
+                text: text
+            },
+            success: (comment) => {
+                let list = $('#comments-list');
+                list.append(
+                    `<div id="comment-item-${comment.id}">
                     <p>
                         ${comment.text}
                         <em>${comment.datetime}</em>
@@ -33,8 +40,10 @@ const newComment = () => {
                     </p>
                  <button onclick='deleteComment();' class="button8">Delete comment</button>
                 </div>`
-            );
-        }
-    });
+                );
+            }
+        });
+    }
+    $('#comment').val('');
 };
 

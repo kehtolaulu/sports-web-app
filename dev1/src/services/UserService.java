@@ -30,7 +30,9 @@ public class UserService {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("current_user");
         if (user == null) {
-            Optional<Cookie> remember_me = Arrays.stream(request.getCookies()).filter(cookie -> cookie.getName().equals("remember_me")).findAny();
+            Optional<Cookie> remember_me = Arrays.stream(request.getCookies())
+                    .filter(cookie -> cookie.getName().equals("remember_me"))
+                    .findAny();
             if (remember_me.isPresent()) {
                 String token = remember_me.get().getValue();
                 try {
@@ -45,6 +47,11 @@ public class UserService {
         return user;
     }
 
+    /**
+     * checks login, password -> user instance
+     * @param request
+     * @return User
+     */
     public User authenticate(HttpServletRequest request) {
         String login = request.getParameter("login");
         if (login != null) {

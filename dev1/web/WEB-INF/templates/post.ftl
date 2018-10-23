@@ -22,9 +22,7 @@
                             <form method="GET" id="edit_post" action="/posts/${post.id}/edit">
                                 <button type="submit" class="button8">Edit post</button>
                             </form>
-                            <form method="POST" id="delete_post">
                                 <button onclick='deletePost();' class="button8">Delete post</button>
-                            </form>
                             </#if>
                         </#if>
                         <div class="probootstrap-subheading mb-5">
@@ -45,12 +43,12 @@
                         <div id="comments-list">
                             <#if comments?has_content>
                                 <#list comments as comment>
-                                    <div id="comment-item">
+                                    <div id="comment-item-${comment.id}">
                                         <p>${comment.text}<em> ${comment.datetime}</em> <em> ${comment.author.name}</em>
                                         </p>
                                     <#if user??>
                                         <#if user.id == comment.author.id>
-                                        <button onclick='deleteComment();' class="button8">Delete comment</button>
+                                        <button onclick='deleteComment(${comment.id});' class="button8">Delete comment</button>
                                         </#if>
                                     </#if>
                                     </div>

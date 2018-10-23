@@ -46,7 +46,6 @@ public class PostByIdServlet extends HttpServlet {
         int id = getId(request);
         try {
             postService.deletePost(id);
-            response.sendRedirect("/posts");
         } catch (SQLException e) {
             e.printStackTrace();
         }

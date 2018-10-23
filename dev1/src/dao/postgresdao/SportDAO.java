@@ -2,10 +2,9 @@ package dao.postgresdao;
 
 import entities.Sport;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class SportDAO implements dao.SportDAO {
     private Connection connection;
@@ -38,6 +37,20 @@ public class SportDAO implements dao.SportDAO {
                     resultSet.getInt("id"),
                     resultSet.getString("name")
             );
+        }
+        return null;
+    }
+
+    @Override
+    public List<Sport> getAllSports() throws SQLException {
+        List<Sport> sports = new LinkedList<>();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM sport");
+        while (resultSet.next()) {
+            sports.add(new Sport(
+                    resultSet.getInt("id"),
+                    resultSet.getString("name")
+            ));
         }
         return null;
     }

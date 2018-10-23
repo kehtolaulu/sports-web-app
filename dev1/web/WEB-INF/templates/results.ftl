@@ -10,10 +10,16 @@
             <div class="row probootstrap-vh-100 align-items-center text-center">
                 <p style="color:red"> TOURNAMENTS </p>
                 <div class="col-sm">
-                    <form action="" method="post" class="search">
-                        <input type="search" name="" placeholder="search" class="input"/>
-                        <input type="submit" name="" value="" class="submit"/>
-                    </form>
+                    Search parameters:
+                    <div>
+                        <form action="/results" method="get" class="search">
+                            <input type="search" name="" placeholder="name" class="input"/>
+                            <input type="text" size="30" class="input" name="sport" placeholder="sport">
+                            <input type="text" size="30" class="input" name="city" placeholder="city">
+                            <input type="text" size="30" class="input" name="year" placeholder="year">
+                            <input type="submit" name="" value="" class="submit"/>
+                        </form>
+                    </div>
                     <p></p>
                     <table>
                         <tr>

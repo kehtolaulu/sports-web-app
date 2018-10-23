@@ -1,6 +1,8 @@
 package servlets.results;
 
+import entities.Sport;
 import entities.Tournament;
+import services.SportService;
 import services.TournamentService;
 import servlets.Helper;
 
@@ -18,16 +20,20 @@ import java.util.Map;
 public class ResultsServlet extends HttpServlet {
 
     private TournamentService tournamentService;
+    private SportService sportService;
 
     @Override
     public void init() throws ServletException {
         tournamentService = new TournamentService();
+        sportService = new SportService();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Tournament> tournaments = tournamentService.getAllTournaments();
+        List<Sport> sports = sportService.getAllSports();
         Map<String, Object> root = new HashMap<>();
         root.put("tournaments", tournaments);
+        root.put("sports", sports);
         Helper.render(
                 getServletContext(),
                 response,

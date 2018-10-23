@@ -2,7 +2,7 @@
 <#include "base.ftl">
 
 <#macro import>
-    <link rel="stylesheet" href="/static/css/style2.css">
+    <link rel="stylesheet" href="/static/css/style5.css">
 </#macro>
 
 <#macro main_content>

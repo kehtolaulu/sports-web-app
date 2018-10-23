@@ -4,6 +4,8 @@ import dao.SportDAO;
 import entities.Sport;
 
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 public class SportService {
     private SportDAO sportDAO;
@@ -25,6 +27,14 @@ public class SportService {
             return sportDAO.getSportByName(name);
         } catch (SQLException e) {
             return null;
+        }
+    }
+
+    public List<Sport> getAllSports() {
+        try {
+            return sportDAO.getAllSports();
+        } catch (SQLException e) {
+            return new LinkedList<>();
         }
     }
 }

@@ -18,7 +18,7 @@
                     </div>
                     </#list>
                     <#else>
-                    <b>There is no comments yet.</b>
+                    <b>There is no posts yet.</b>
                     </#if>
                 </div>
             </div>

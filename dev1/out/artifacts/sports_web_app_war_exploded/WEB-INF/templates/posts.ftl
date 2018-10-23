@@ -13,11 +13,11 @@
                     <p>Make new post</p>
                     <p>
                     <form method="POST" id="create_post" action="/posts">
-                        <textarea id="title" class="text" cols="60" rows="2" name="text"> </textarea>
+                        <textarea id="title" class="text" cols="60" rows="2" name="text" required></textarea>
                     <p>
                         <small>Title</small>
                     </p>
-                    <textarea id="text" class="text" cols="40" rows="1" name="title"> </textarea>
+                    <textarea id="text" class="text" cols="40" rows="1" name="title" required></textarea>
                     <p></p>
                         <button type="submit" class="button8">Create post</button>
                     </form>

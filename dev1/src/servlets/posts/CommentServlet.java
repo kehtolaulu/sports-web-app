@@ -55,13 +55,7 @@ public class CommentServlet extends HttpServlet {
             }
         }
     }
-    @Override
-    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = getId(request);
-        int post_id = commentService.getCommentById(id).getPost().getId();
-        commentService.deleteComment(id);
-        response.sendRedirect("/posts/" + post_id);
-    }
+
     private int getId(HttpServletRequest request) {
         Pattern compile = Pattern.compile("/posts/([1-9][0-9]*)/comments");
         Matcher matcher = compile.matcher(request.getRequestURI());

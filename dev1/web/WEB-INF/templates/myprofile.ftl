@@ -15,7 +15,7 @@
                             <button type="submit" class="button8">Edit profile</button>
                             </form>  </p>
                             <p> <form method="GET" id="see_posts" action="/profile/${user.id}/posts">
-                            <button type="submit" class="button8">See posts</button>
+                            <button type="submit" class="button8">See my posts</button>
                             </form>  </p>
                             <p> <form method="POST" id="log_out" action="/logout">
                                 <button type="submit" class="button8">Log out</button>

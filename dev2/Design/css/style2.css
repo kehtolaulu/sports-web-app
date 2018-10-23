@@ -462,7 +462,7 @@ input[type="search"] {
 input[type="search"] {
   -webkit-appearance: none;
 }
-a.button8 {
+.button8 {
   display: inline-block;
   color: white;
   font-weight: 700;
@@ -475,5 +475,12 @@ a.button8 {
   transition: 0.2s;
   margin-top:-100px;
 } 
-a.button8:hover { background: rgba(255,255,255,.2); }
-a.button8:active { background: white; }
+.button8:hover { background: rgba(255,255,255,.2); }
+.button8:active { background: white; }
+.input {
+	  border: 2px solid;
+	    border-radius: 1px;
+		 display: inline-block;
+
+ 
+}

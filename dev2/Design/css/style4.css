@@ -116,6 +116,7 @@ h1, h2, h3, h4, h5 {
   top: 0;
   left: 0;
   right: 0;
+  		  bottom: 100px;
   background: rgba(0, 0, 0, 0.2); }
   .probootstrap-nav .site-brand {
     font-size: 20px; }
@@ -125,6 +126,7 @@ h1, h2, h3, h4, h5 {
     color: #fff !important;
     position: absolute;
     z-index: 10;
+			  bottom: 100px;
     right: 20px;
     top: 20px; }
   .probootstrap-nav .probootstrap-main-nav {
@@ -146,7 +148,7 @@ h1, h2, h3, h4, h5 {
             content: "";
             position: absolute;
             top: 0;
-            bottom: 0;
+            bottom: 100px;
             left: 0;
             height: 100%;
             width: 2px;
@@ -159,6 +161,7 @@ h1, h2, h3, h4, h5 {
         height: 100vh;
         background: black;
         width: 300px;
+		  bottom: 100px;
         right: 0;
         top: 0;
         padding-top: 50px;

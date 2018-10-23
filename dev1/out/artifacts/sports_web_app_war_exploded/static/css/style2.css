@@ -17,7 +17,38 @@ a {
 h1, h2, h3, h4, h5 {
   line-height: 1.5;
   font-weight: normal;
-  color: #fff; }
+  color: #000; }
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	display: none;
+	pointer-events: none;
+}
+.modalDialog:target {
+	display: block;
+	pointer-events: auto;
+}
+
+.modalDialog > div {
+	width: 400px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #999);
+	background: -o-linear-gradient(#fff, #999);
+}
 
 .probootstrap-nav {
   padding: 20px 0;
@@ -271,11 +302,7 @@ textarea {
   .probootstrap-section-feature p {
     color: rgba(255, 255, 255, 0.4); }
 
-.probootstrap-navabr-dark {
-  background: rgba(0, 0, 0, 0.2) !important;
-  position: absolute;
-  left: 0;
-  right: 0; }
+
   @media screen and (max-width: 960px) {
     .probootstrap-navabr-dark {
       background: #000 !important;
@@ -431,9 +458,9 @@ input[type="search"] {
 input[type="search"] {
   -webkit-appearance: none;
 }
-a.button8 {
+.button8 {
   display: inline-block;
-  color: white;
+  color: blue;
   font-weight: 700;
   text-decoration: none;
   user-select: none;
@@ -444,5 +471,12 @@ a.button8 {
   transition: 0.2s;
   margin-top:-100px;
 } 
-a.button8:hover { background: rgba(255,255,255,.2); }
-a.button8:active { background: white; }
+.button8:hover { background: rgba(255,255,255,.2); }
+.button8:active { background: white; }
+.input {
+	  border: 2px solid;
+	    border-radius: 1px;
+		 display: inline-block;
+
+ 
+}

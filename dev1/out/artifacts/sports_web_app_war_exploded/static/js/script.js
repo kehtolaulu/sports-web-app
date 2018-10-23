@@ -13,7 +13,7 @@ const deleteComment = (id) => {
         url: `/comments/${id}`,
         type: 'DELETE',
         success: (data) => {
-            $(`#comments-item-${id}`).remove();
+            $(`#comment-item-${id}`).remove();
         }
     });
 };
@@ -38,7 +38,7 @@ const newComment = () => {
                         <em>${comment.datetime}</em>
                         <em>${comment.author.name}</em>
                     </p>
-                 <button onclick='deleteComment();' class="button8">Delete comment</button>
+                 <button onclick='deleteComment();'>Delete comment</button>
                 </div>`
                 );
             }

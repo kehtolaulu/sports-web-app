@@ -17,19 +17,27 @@
                             <small>${post.text}</small>
                         </p>
 
-                        <#if user??>
-                            <#if post.author.id == user.id>
-                            <form method="GET" id="edit_post" action="/posts/${post.id}/edit">
-                                <button type="submit" class="button8">Edit post</button>
-                            </form>
-                                <button onclick='deletePost();' class="button8">Delete post</button>
-                            </#if>
-                        </#if>
+
                         <div class="probootstrap-subheading mb-5">
                             <p> ${post.datetime} </p>
                             <p> <a href="/profile/${post.author.id}" class="nav-link">${post.author.name} </a></p>
                         </div>
                     <#--<p><a href="/posts" class="button8">Back to all posts</a>-->
+                        <div>
+                        <#if user??>
+                            <#if post.author.id == user.id>
+                              <form method="GET" id="edit_post" action="/posts">
+                                  <button type="submit" class="button8">Back to all posts</button>
+                              </form>
+                                <#--<p> </p>-->
+                                <form method="GET" id="edit_post" action="/posts/${post.id}/edit">
+                                    <button type="submit" class="button8">Edit post</button>
+                                </form>
+                                <#--<p> </p>-->
+                                <button onclick='deletePost();' class="button8">Delete post</button>
+                            </#if>
+                        </#if>
+                        </div>
 
                         <div id="comments-list">
                             <#if comments?has_content>
@@ -39,7 +47,7 @@
                                         </p>
                                     <#if user??>
                                         <#if user.id == comment.author.id>
-                                        <button onclick='deleteComment(${comment.id});' class="button8">Delete comment</button>
+                                        <button onclick='deleteComment(${comment.id});'>Delete comment</button>
                                         </#if>
                                     </#if>
                                     </div>

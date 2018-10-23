@@ -1,6 +1,7 @@
 package dao.postgresdao;
 
 import dao.SportDAO;
+import entities.Sport;
 import entities.Tournament;
 
 import java.sql.*;
@@ -24,17 +25,21 @@ public class TournamentDAO implements dao.TournamentDAO {
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-            return new Tournament(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name"),
-                    sportDAO.getSportById(resultSet.getInt("sport_id")),
-                    resultSet.getDate("date_from"),
-                    resultSet.getDate("date_to"),
-                    resultSet.getString("place"),
-                    resultSet.getString("result")
-            );
+            return instance(resultSet);
         }
         return null;
+    }
+
+    private Tournament instance(ResultSet resultSet) throws SQLException {
+        return new Tournament(
+                resultSet.getInt("id"),
+                resultSet.getString("name"),
+                sportDAO.getSportById(resultSet.getInt("sport_id")),
+                resultSet.getDate("date_from"),
+                resultSet.getDate("date_to"),
+                resultSet.getString("place"),
+                resultSet.getString("result")
+        );
     }
 
     @Override
@@ -43,19 +48,60 @@ public class TournamentDAO implements dao.TournamentDAO {
         ResultSet resultSet = statement.executeQuery("SELECT * FROM tournament");
         List<Tournament> tournaments = new ArrayList<>();
         while (resultSet.next()) {
-            tournaments.add(new Tournament(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name"),
-                    sportDAO.getSportById(resultSet.getInt("sport_id")),
-                    resultSet.getDate("date_from"),
-                    resultSet.getDate("date_to"),
-                    resultSet.getString("place"),
-                    resultSet.getString("result")
-
-            ));
+            tournaments.add(instance(resultSet));
         }
         return tournaments;
     }
 
+    @Override
+    public List<Tournament> getTournamentsByCity(String city) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM tournament WHERE place = ?");
+        statement.setString(1, city);
+        ResultSet resultSet = statement.executeQuery();
+        List<Tournament> tournaments = new ArrayList<>();
+        while (resultSet.next()) {
+            tournaments.add(instance(resultSet));
+        }
+        return tournaments;
+    }
 
+    @Override
+    public List<Tournament> getTournamentsByYear(String year) throws SQLException {
+        String date1 = year + "-01-01";
+        String date2 = year + "-12-31";
+        PreparedStatement statement = connection.prepareStatement("select * from table tournament where date_from between ? and ? OR date_to between ? and ?");
+        statement.setDate(1, Date.valueOf(date1));
+        statement.setDate(2, Date.valueOf(date2));
+        ResultSet resultSet = statement.executeQuery();
+        List<Tournament> tournaments = new ArrayList<>();
+        while (resultSet.next()) {
+            tournaments.add(instance(resultSet));
+        }
+        return tournaments;
+    }
+
+    @Override
+    public List<Tournament> getTournamentsBySport(Sport sport) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("select * from tournament where sport_id = ?");
+        statement.setInt(1, sport.getId());
+        ResultSet resultSet = statement.executeQuery();
+        List<Tournament> tournaments = new ArrayList<>();
+        while (resultSet.next()) {
+            tournaments.add(instance(resultSet));
+        }
+        return tournaments;
+    }
+
+    @Override
+    public Tournament getTournamentByName(String name) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("select * from tournament where name = ?");
+        statement.setString(1, name);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            return instance(resultSet);
+        }
+        return null;
+    }
+
+    //year city sport name
 }

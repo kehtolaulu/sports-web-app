@@ -1,6 +1,7 @@
 package services;
 
 import dao.TournamentDAO;
+import entities.Sport;
 import entities.Tournament;
 
 import java.sql.SQLException;
@@ -25,6 +26,38 @@ public class TournamentService {
     public Tournament getTournamentById(int id) {
         try {
             return tournamentDAO.getTournamentById(id);
+        } catch (SQLException e) {
+            return null;
+        }
+    }
+
+    public List<Tournament> getTournamentByYear(String year) {
+        try {
+            return tournamentDAO.getTournamentsByYear(year);
+        } catch (SQLException e) {
+            return new LinkedList<>();
+        }
+    }
+
+    public List<Tournament> getTournamentsByCity(String city) {
+        try {
+            return tournamentDAO.getTournamentsByCity(city);
+        } catch (SQLException e) {
+            return new LinkedList<>();
+        }
+    }
+
+    public List<Tournament> getTournamentsBySport(Sport sport) {
+        try {
+            return tournamentDAO.getTournamentsBySport(sport);
+        } catch (SQLException e) {
+            return new LinkedList<>();
+        }
+    }
+
+    public Tournament getTournamentByName(String name) {
+        try {
+            return tournamentDAO.getTournamentByName(name);
         } catch (SQLException e) {
             return null;
         }

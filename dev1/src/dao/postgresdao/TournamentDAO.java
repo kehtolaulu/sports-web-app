@@ -7,6 +7,7 @@ import entities.Tournament;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TournamentDAO implements dao.TournamentDAO {
 
@@ -38,8 +39,8 @@ public class TournamentDAO implements dao.TournamentDAO {
                 resultSet.getDate("date_from"),
                 resultSet.getDate("date_to"),
                 resultSet.getString("place"),
-                resultSet.getString("result")
-        );
+                resultSet.getString("result"),
+                resultSet.getString("year"));
     }
 
     @Override
@@ -103,5 +104,20 @@ public class TournamentDAO implements dao.TournamentDAO {
         return null;
     }
 
-    //year city sport name
+    @Override
+    public List<Tournament> searchTournaments(String name, String sport, String city, String year) throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM tournament");
+        List<Tournament> tournaments = new ArrayList<>();
+        while (rs.next()) {
+            tournaments.add(instance(rs));
+        }
+        return tournaments
+                .stream()
+                .filter(t -> year.equals("") || t.getYear().equals(year))
+                .filter(t -> city.equals("") || t.getPlace().equals(city))
+                .filter(t -> name.equals("") || t.getName().equals(name))
+                .filter(t -> sport.equals("") || t.getSport().getName().equals(sport))
+                .collect(Collectors.toList());
+    }
 }

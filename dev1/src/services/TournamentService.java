@@ -63,5 +63,13 @@ public class TournamentService {
         }
     }
 
+    public List<Tournament> searchTournaments(String name, String sport, String city, String year) {
+        try {
+            return tournamentDAO.searchTournaments(name, sport, city, year);
+        } catch (SQLException e) {
+            return new LinkedList<>();
+        }
+    }
+
 }
 

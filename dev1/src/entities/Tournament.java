@@ -9,7 +9,8 @@ public class Tournament {
     private Date date_from;
     private Date date_to;
     private String place;
-    String result;
+    private String result;
+    private String year;
 
     public Date getDate_from() {
         return date_from;
@@ -27,7 +28,7 @@ public class Tournament {
         this.date_to = date_to;
     }
 
-    public Tournament(int id, String name, Sport sport, Date date_from, Date date_to, String place, String result) {
+    public Tournament(int id, String name, Sport sport, Date date_from, Date date_to, String place, String result, String year) {
         this.id = id;
         this.name = name;
         this.sport = sport;
@@ -35,6 +36,7 @@ public class Tournament {
         this.date_to = date_to;
         this.place = place;
         this.result = result;
+        this.year = year;
     }
 
     public int getId() {
@@ -68,5 +70,21 @@ public class Tournament {
 
     public void setPlace(String place) {
         this.place = place;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
     }
 }

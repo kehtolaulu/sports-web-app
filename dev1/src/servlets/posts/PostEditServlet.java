@@ -18,7 +18,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @WebServlet(name = "PostEditServlet")
-public class PostEditServlet extends HttpServlet {
+public class
+PostEditServlet extends HttpServlet {
     private UserService userService;
     private PostService postService;
     @Override

@@ -55,7 +55,7 @@ public class CommentDAO implements dao.CommentDAO {
     @Override
     public List<Comment> getCommentsByPost(Post post) throws SQLException {
         List<Comment> comments = new ArrayList<>();
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM comment INNER JOIN \"user\" ON \"user\".id = comment.author_id WHERE post_id = ?");
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM comment c INNER JOIN \"user\" ON \"user\".id = c.author_id WHERE post_id = ? ORDER BY c.id ASC");
         statement.setInt(1, post.getId());
         ResultSet rs = statement.executeQuery();
         while (rs.next()) {

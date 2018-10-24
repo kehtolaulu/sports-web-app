@@ -30,9 +30,10 @@ public class ProfileEditServlet extends HttpServlet {
             response.sendError(403);
         } else {
             int userId = userService.getCurrentUser(request).getId();
-            String password = request.getParameter("editpassword");
-            String name = request.getParameter("editname");
-            String login = request.getParameter("editlogin");
+            String password = request.getParameter("editPassword");
+            String name = request.getParameter("editName");
+            String login = request.getParameter("editLogin");
+            String photo;
             boolean success = userService.updateProfile(userId, password, name, login);
             if (success) {
                 response.sendRedirect("/profile");

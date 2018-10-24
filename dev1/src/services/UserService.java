@@ -3,10 +3,8 @@ package services;
 import dao.UserDAO;
 import entities.User;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -26,29 +24,35 @@ public class UserService {
         this.userDAO = new dao.postgresdao.UserDAO();
     }
 
-    public User getCurrentUser(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("current_user");
-        if (user == null) {
-            Optional<Cookie> remember_me = Arrays.stream(request.getCookies())
-                    .filter(cookie -> cookie.getName().equals("remember_me"))
-                    .findAny();
-            if (remember_me.isPresent()) {
-                String token = remember_me.get().getValue();
-                try {
-                    return userDAO.getUserByToken(token);
-                } catch (SQLException e) {
-                    return null;
-                }
-            } else {
-                return null;
-            }
+    public User getCurrentUser(HttpServletRequest req) {
+        User currentUser = (User) req.getSession().getAttribute("current_user");
+        if (currentUser != null) {
+            return currentUser;
         }
-        return user;
+
+        if (req.getCookies() == null || req.getCookies().length == 0) {
+            return null;
+        }
+
+        Optional<Cookie> token = Arrays.stream(req.getCookies())
+                .filter(c -> c.getName().equals("remember_me"))
+                .findAny();
+        if (token.isPresent()) {
+            User userByToken = null;
+            try {
+                userByToken = userDAO.getUserByToken(token.get().getValue());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return userByToken;
+        }
+        return null;
     }
+
 
     /**
      * checks login, password -> user instance
+     *
      * @param request
      * @return User
      */
@@ -166,5 +170,47 @@ public class UserService {
         return matcher.matches();
     }
 
+    public String savePicture(Part file, String path, String filename) {
+        path = path + File.separator + "pic";
+        File dir = new File(path);
+        dir.mkdirs();
+        OutputStream out = null;
+        InputStream filecontent = null;
+        String ext = filename.substring(filename.lastIndexOf("."));
+        System.out.println(ext);
+        String fileName = System.currentTimeMillis() + "";
+        String fullpath = path + File.separator + fileName + ext;
+        try {
+            try {
+                out = new FileOutputStream(new File(fullpath));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            try {
+                filecontent = file.getInputStream();
+                int read = 0;
+                final byte[] bytes = new byte[1024];
+                while ((read = filecontent.read(bytes)) != -1) {
+                    out.write(bytes, 0, read);
+                }
+            } catch (FileNotFoundException fne) {
+                fne.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } finally {
+            try {
+                if (out != null) {
+                    out.close();
+                }
+                if (filecontent != null) {
+                    filecontent.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return "/files/analysis/" + filename + ext;
+    }
 
 }

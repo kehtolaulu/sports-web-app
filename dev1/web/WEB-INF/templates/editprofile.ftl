@@ -1,5 +1,7 @@
 <#include "base.ftl">
-
+<#macro title>
+    Edit profile
+</#macro>
 <#macro import>
     <link rel="stylesheet" href="/static/css/style.css">
 </#macro>
@@ -12,18 +14,21 @@
                     <div class="probootstrap-text">
                         <form method="post" action="/profile/${user.id}/edit">
                         <p style="color:white"><b>Edit name:</b><br>
-                            <input type="text" size="30" name="editname" value=${user.name}>
+                            <input type="text" size="30" name="editName" value=${user.name}>
                         </p>
                         <p style="color:white"><b>Edit login:</b><br>
-                            <input type="text" size="30" name="editlogin" value=${user.login}>
+                            <input type="text" size="30" name="editLogin" value=${user.login}>
                         </p>
                         <p style="color:white"><b>Edit password:</b><br>
-                            <input type="password" size="30" name="editpassword">
+                            <input type="password" size="30" name="editPassword">
                         </p>
-                        <p> <button> Load new picture</button> </p>
+                            <button type="submit">SAVE ALL</a> </button></p>
+                        </form>
+                            <form method="post" action="/upload" enctype="multipart/form-data"></form>
+                        <p style="color:white"><b>Update photo:</b>
+                            <input type="file" size="30" name="file"></p>
                         <p>
-                        <button type="submit">SAVE ALL</a> </button></p>
-                    </form>
+                            </form>
                         <div class="probootstrap-subheading mb-5">
 
                         </div>

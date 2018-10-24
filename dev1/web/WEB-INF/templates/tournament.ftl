@@ -1,6 +1,8 @@
 <#-- @ftlvariable name="matches" type="java.util.Collection<entities.Match>" -->
 <#include "base.ftl">
-
+<#macro title>
+    Tournament
+</#macro>
 <#macro import>
     <link rel="stylesheet" href="/static/css/style5.css">
 </#macro>

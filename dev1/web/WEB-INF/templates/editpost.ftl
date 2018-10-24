@@ -1,5 +1,7 @@
 <#include "base.ftl">
-
+<#macro title>
+    Edit post
+</#macro>
 <#macro import>
     <link rel="stylesheet" href="/static/css/style2.css">
 </#macro>

@@ -1,6 +1,8 @@
 <#-- @ftlvariable name="comments" type="java.util.List" -->
 <#include "base.ftl">
-
+<#macro title>
+    Post
+</#macro>
 <#macro import>
     <link rel="stylesheet" href="/static/css/style4.css">
     <script src="/static/js/jquery-3.3.1.min.js" defer></script>

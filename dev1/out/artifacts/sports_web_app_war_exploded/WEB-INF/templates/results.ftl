@@ -15,7 +15,7 @@
                             <th colspan="2">Kind of Sport</th>
                             <th>Name</th>
                             <th>Place</th>
-                            <th>Data</th>
+                            <th>Date</th>
                             <th> Results</th>
                         </tr>
                         <#list tournaments as tournament>

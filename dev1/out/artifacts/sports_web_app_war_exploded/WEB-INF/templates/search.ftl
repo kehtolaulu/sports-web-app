@@ -1,6 +1,8 @@
 <#-- @ftlvariable name="comments" type="java.util.List" -->
 <#include "base.ftl">
-
+<#macro title>
+    Search
+</#macro>
 <#macro import>
     <link rel="stylesheet" href="/static/css/style2.css">
     <script src="/static/js/jquery-3.3.1.min.js" defer></script>
@@ -16,15 +18,16 @@
                 <div class="probootstrap-text">
                     <div>
 
-                        <input type="search" name="" placeholder="name" size="15" class="input"/>
-                        <input type="text" size="15" class="input" name="sport" placeholder="sport">
-                        <input type="text" size="15" class="input" name="city" placeholder="city">
-                        <input type="text" size="15" class="input" name="year" placeholder="year">
-                        <button class="button8"> SEARCH </button>
+                        <input type="text" name="name" placeholder="name" size="15" class="input" id="name"/>
+                        <input type="text" size="15" class="input" name="sport" placeholder="sport" id="sport">
+                        <input type="text" size="15" class="input" name="city" placeholder="city" id="city">
+                        <input type="text" size="15" class="input" name="year" placeholder="year" id="year">
+                        <button class="button8" onclick="search();"> SEARCH </button>
 
                     </div>
                     <br>
-
+                    <table id="table-results">
+                    </table>
                     <div class="probootstrap-subheading mb-5">
                     </div>
                 </div>

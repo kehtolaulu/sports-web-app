@@ -1,5 +1,7 @@
 <#include "base.ftl">
-
+<#macro title>
+    About
+</#macro>
 <#macro main_content>
 <section class="probootstrap-cover">
     <div class="container">

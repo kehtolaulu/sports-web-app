@@ -102,16 +102,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>JsonServlet</servlet-name>
-        <servlet-class>servlets.results.SearchServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>JsonServlet</servlet-name>
-        <url-pattern>/search.json</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>PostsServlet</servlet-name>
         <servlet-class>servlets.posts.PostsServlet</servlet-class>
     </servlet>
@@ -151,8 +141,23 @@
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
 
-
-
+    <servlet>
+        <servlet-name>UploadPhotoServlet</servlet-name>
+        <servlet-class>servlets.profile.UploadPhotoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadPhotoServlet</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SearchJSONServlet</servlet-name>
+        <servlet-class>servlets.results.SearchJSONServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchJSONServlet</servlet-name>
+        <url-pattern>/search.json</url-pattern>
+    </servlet-mapping>
 </web-app>
 
 

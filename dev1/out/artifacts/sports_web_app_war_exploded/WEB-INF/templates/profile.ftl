@@ -10,7 +10,9 @@
                     <div class="col-sm">
                         <div class="probootstrap-text">
                             <h1 class="profile text-white mb-4"><small><p>Name: ${user.name}</p> <p>Login: ${user.login}</p> </small></h1>
-                            <p><img src="images/myphoto.jpg" class = "newphoto"> </p>
+                            <p><#if user.picture??> <img src="${user.photo}" width="700px" height="700px">
+                            <#else> <img src="/images/myphoto.jpg" width="700px" height="700px">
+                            </#if>> </p>
                             <p> <form method="GET" id="edit_post" action="/profile/${user.id}/posts">
                             <button type="submit" class="button8">See posts</button>
                         </form>  </p>

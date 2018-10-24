@@ -12,7 +12,7 @@ input {
 	font-size: 14px;
 	line-height: 1.5em;
 	padding: 0;
-	-webkit-appearance: none;
+	/*-webkit-appearance: none;*/
 }
 
 .clearfix { *zoom: 1; }
@@ -32,7 +32,7 @@ input {
     padding: 10px; /* Поля вокруг текста */
     margin: 30px; /* Отступы вокруг */
    }
-}
+
 
 #login form span {
 	background-color: #363b41;

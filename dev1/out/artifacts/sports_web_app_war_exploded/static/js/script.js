@@ -47,3 +47,32 @@ const newComment = () => {
     $('#comment').val('');
 };
 
+const search = () => {
+    let name = $('#name').val();
+    let city = $(`#city`).val();
+    let year = $(`#year`).val();
+    let sport = $(`#sport`).val();
+    $.ajax({
+        url: '/search.json',
+        type: 'GET',
+        data: {
+            name: name,
+            city: city,
+            year: year,
+            sport: sport
+        },
+        success: (msg) => {
+            console.log(msg);
+            $('#table-results').empty();
+            msg.forEach((tournament) => $('#table-results').append(`<tr>
+                            <td></td>
+                            <td>${tournament[sport['name']]}</td>
+                            <td><p><a href="/tournament/${tournament.id}">${tournament['name']}</p></a></td>
+                            <td>${tournament['place']}</td>
+                            <td>${tournament['date_from']} - ${tournament['date_to']}</td>
+                            <td>${tournament['result']}</td>
+                        </tr>`));
+        }
+    });
+
+};

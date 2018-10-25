@@ -22,12 +22,16 @@ public class TeamDAO implements dao.TeamDAO {
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-            return new Team(
-                    resultSet.getInt("id"),
-                    sportDAO.getSportById(resultSet.getInt("sport_id")),
-                    resultSet.getString("name")
-            );
+            return instance(resultSet);
         }
         return null;
+    }
+
+    private Team instance(ResultSet resultSet) throws SQLException {
+        return new Team(
+                resultSet.getInt("id"),
+                sportDAO.getSportById(resultSet.getInt("sport_id")),
+                resultSet.getString("name")
+        );
     }
 }

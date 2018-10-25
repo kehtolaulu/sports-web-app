@@ -60,7 +60,7 @@ public class UserDAO implements dao.UserDAO {
     public boolean addToken(User user, String token) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(
                 "insert into tokens (user_id, token) values (?, ?)" +
-                " on conflict (user_id) do update set token = ?");
+                        " on conflict (user_id) do update set token = ?");
         statement.setInt(1, user.getId());
         statement.setString(2, token);
         statement.setString(3, token);
@@ -83,17 +83,10 @@ public class UserDAO implements dao.UserDAO {
         statement.setString(1, token);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-            return new User(
-                    resultSet.getInt("user_id"),
-                    resultSet.getString("login"),
-                    resultSet.getString("password"),
-                    resultSet.getString("name")
-            );
+            return instance(resultSet);
         }
         return null;
     }
-
-
 
 
 }

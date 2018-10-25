@@ -19,12 +19,16 @@ public class SportDAO implements dao.SportDAO {
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-            return new Sport(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name")
-            );
+            return instance(resultSet);
         }
         return null;
+    }
+
+    private Sport instance(ResultSet resultSet) throws SQLException {
+        return new Sport(
+                resultSet.getInt("id"),
+                resultSet.getString("name")
+        );
     }
 
     @Override
@@ -33,10 +37,7 @@ public class SportDAO implements dao.SportDAO {
         statement.setString(1, name);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-            return new Sport(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name")
-            );
+            return instance(resultSet);
         }
         return null;
     }
@@ -47,10 +48,7 @@ public class SportDAO implements dao.SportDAO {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * FROM sport");
         while (resultSet.next()) {
-            sports.add(new Sport(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name")
-            ));
+            sports.add(instance(resultSet));
         }
         return null;
     }

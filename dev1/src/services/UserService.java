@@ -170,47 +170,23 @@ public class UserService {
         return matcher.matches();
     }
 
-    public String savePicture(Part file, String path, String filename) {
-        path = path + File.separator + "pic";
-        File dir = new File(path);
-        dir.mkdirs();
-        OutputStream out = null;
-        InputStream filecontent = null;
-        String ext = filename.substring(filename.lastIndexOf("."));
-        System.out.println(ext);
-        String fileName = System.currentTimeMillis() + "";
-        String fullpath = path + File.separator + fileName + ext;
-        try {
-            try {
-                out = new FileOutputStream(new File(fullpath));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            try {
-                filecontent = file.getInputStream();
-                int read = 0;
-                final byte[] bytes = new byte[1024];
-                while ((read = filecontent.read(bytes)) != -1) {
-                    out.write(bytes, 0, read);
-                }
-            } catch (FileNotFoundException fne) {
-                fne.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } finally {
-            try {
-                if (out != null) {
-                    out.close();
-                }
-                if (filecontent != null) {
-                    filecontent.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public void updateUserPicture(InputStream input, User user) throws IOException {
+//        final String ROOT = "\\kehtolaulu\\IdeaProjects\\sports-web-app\\out\\artifacts\\sports_web_app_war_exploded\\";
+        File file = new File("/Users/kehtolaulu/sports-web-app/dev1/out/artifacts/sports_web_app_war_exploded/static/images/" + user.getLogin() + ".jpg");
+        if (!file.exists()) {
+            file.createNewFile();
         }
-        return "/files/analysis/" + filename + ext;
+        FileOutputStream output = new FileOutputStream(file, false);
+
+        byte[] bytes = new byte[512];
+
+        int count = input.read(bytes);
+        while (count != -1) {
+            output.write(bytes);
+            count = input.read(bytes);
+        }
+        input.close();
+        output.close();
     }
 
 }

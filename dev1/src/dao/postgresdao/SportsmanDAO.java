@@ -23,16 +23,20 @@ public class SportsmanDAO implements dao.SportsmanDAO {
 
         LinkedList<Sportsman> sportsmen = new LinkedList<>();
         while (resultSet.next()) {
-            Sportsman sportsman = new Sportsman(
-                    resultSet.getInt("id"),
-                    teamDAO.getTeamById(resultSet.getInt("team_id")),
-                    resultSet.getString("name"),
-                    resultSet.getString("bio"),
-                    resultSet.getString("photo")
-            );
+            Sportsman sportsman = instance(resultSet);
             sportsmen.add(sportsman);
         }
         return sportsmen;
+    }
+
+    private Sportsman instance(ResultSet resultSet) throws SQLException {
+        return new Sportsman(
+                resultSet.getInt("id"),
+                teamDAO.getTeamById(resultSet.getInt("team_id")),
+                resultSet.getString("name"),
+                resultSet.getString("bio"),
+                resultSet.getString("photo")
+        );
     }
 
     @Override
@@ -41,13 +45,7 @@ public class SportsmanDAO implements dao.SportsmanDAO {
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-            return new Sportsman(
-                    resultSet.getInt("id"),
-                    teamDAO.getTeamById(resultSet.getInt("team_id")),
-                    resultSet.getString("name"),
-                    resultSet.getString("bio"),
-                    resultSet.getString("photo")
-            );
+            return instance(resultSet);
         }
         return null;
     }

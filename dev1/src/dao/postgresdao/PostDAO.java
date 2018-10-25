@@ -26,15 +26,19 @@ public class PostDAO implements dao.PostDAO {
         ResultSet resultSet = statement.executeQuery("SELECT * FROM post");
         List<Post> posts = new ArrayList<>();
         while (resultSet.next()) {
-            posts.add(new Post(
-                    resultSet.getInt("id"),
-                    userDAO.getUserById(resultSet.getInt("author_id")),
-                    resultSet.getString("title"),
-                    resultSet.getString("text"),
-                    resultSet.getDate("datetime")
-            ));
+            posts.add(instance(resultSet));
         }
         return posts;
+    }
+
+    private Post instance(ResultSet resultSet) throws SQLException {
+        return new Post(
+                resultSet.getInt("id"),
+                userDAO.getUserById(resultSet.getInt("author_id")),
+                resultSet.getString("title"),
+                resultSet.getString("text"),
+                resultSet.getDate("datetime")
+        );
     }
 
     @Override
@@ -53,13 +57,7 @@ public class PostDAO implements dao.PostDAO {
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-            return new Post(
-                    resultSet.getInt("id"),
-                    userDAO.getUserById(resultSet.getInt("author_id")),
-                    resultSet.getString("title"),
-                    resultSet.getString("text"),
-                    resultSet.getDate("datetime")
-            );
+            return instance(resultSet);
         }
         return null;
     }

@@ -32,28 +32,11 @@ public class MatchDAO implements dao.MatchDAO {
         ResultSet rs1 = statement.executeQuery("SELECT * FROM match INNER JOIN match_to_teams ON match.id = match_to_teams.match_id");
         List<Match> matches = new ArrayList<>();
         while (rs1.next()) {
-            matches.add(new Match(
-                    rs1.getInt("id"),
-                    rs1.getString("name"),
-                    rs1.getDate("datetime"),
-                    rs1.getString("result"),
-                    sportDAO.getSportById(rs1.getInt("sport_id")),
-                    tournamentDAO.getTournamentById(rs1.getInt("tournament_id")),
-                    teamDAO.getTeamById(rs1.getInt("team_1_id")),
-                    teamDAO.getTeamById(rs1.getInt("team_2_id"))
-            ));
+            matches.add(teamsInstance(rs1));
         }
         ResultSet rs2 = statement.executeQuery("SELECT * FROM match INNER JOIN match_to_sportsman ON match.id = match_to_sportsman.match_id");
         while (rs2.next()) {
-            matches.add(new Match(
-                    rs2.getInt("id"),
-                    rs2.getString("name"),
-                    rs2.getDate("datetime"),
-                    rs2.getString("result"),
-                    sportDAO.getSportById(rs2.getInt("sport_id")),
-                    tournamentDAO.getTournamentById(rs2.getInt("tournament_id")),
-                    sportsmanDAO.getSportsmanById(rs2.getInt("sportsman_id"))
-            ));
+            matches.add(sportsmanInstance(rs2));
         }
         return matches;
     }
@@ -65,32 +48,40 @@ public class MatchDAO implements dao.MatchDAO {
         ResultSet resultSet = statement.executeQuery();
         List<Match> matches = new ArrayList<>();
         while (resultSet.next()) {
-            matches.add(new Match(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name"),
-                    resultSet.getDate("datetime"),
-                    resultSet.getString("result"),
-                    sportDAO.getSportById(resultSet.getInt("sport_id")),
-                    tournamentDAO.getTournamentById(resultSet.getInt("tournament_id")),
-                    teamDAO.getTeamById(resultSet.getInt("team_1_id")),
-                    teamDAO.getTeamById(resultSet.getInt("team_2_id"))
-            ));
+            matches.add(teamsInstance(resultSet));
         }
         PreparedStatement statement2 = connection.prepareStatement("SELECT * FROM match INNER JOIN match_to_sportsman ON match.id = match_to_sportsman.match_id WHERE tournament_id = ?");
         statement2.setInt(1, tournament.getId());
         ResultSet rs2 = statement2.executeQuery();
         while (rs2.next()) {
-            matches.add(new Match(
-                    rs2.getInt("id"),
-                    rs2.getString("name"),
-                    rs2.getDate("datetime"),
-                    rs2.getString("result"),
-                    sportDAO.getSportById(rs2.getInt("sport_id")),
-                    tournamentDAO.getTournamentById(rs2.getInt("tournament_id")),
-                    sportsmanDAO.getSportsmanById(rs2.getInt("sportsman_id"))
-            ));
+            matches.add(sportsmanInstance(rs2));
         }
         return matches;
+    }
+
+    private Match teamsInstance(ResultSet resultSet) throws SQLException {
+        return new Match(
+                resultSet.getInt("id"),
+                resultSet.getString("name"),
+                resultSet.getDate("datetime"),
+                resultSet.getString("result"),
+                sportDAO.getSportById(resultSet.getInt("sport_id")),
+                tournamentDAO.getTournamentById(resultSet.getInt("tournament_id")),
+                teamDAO.getTeamById(resultSet.getInt("team_1_id")),
+                teamDAO.getTeamById(resultSet.getInt("team_2_id"))
+        );
+    }
+
+    private Match sportsmanInstance(ResultSet rs2) throws SQLException {
+        return new Match(
+                rs2.getInt("id"),
+                rs2.getString("name"),
+                rs2.getDate("datetime"),
+                rs2.getString("result"),
+                sportDAO.getSportById(rs2.getInt("sport_id")),
+                tournamentDAO.getTournamentById(rs2.getInt("tournament_id")),
+                sportsmanDAO.getSportsmanById(rs2.getInt("sportsman_id"))
+        );
     }
 
 }

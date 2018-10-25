@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="sports-web-app:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/sports_web_app_war</output-path>
+    <root id="archive" name="sports-web-app_war.war">
+      <element id="artifact" artifact-name="sports-web-app:war exploded" />
+    </root>
+  </artifact>
+</component>

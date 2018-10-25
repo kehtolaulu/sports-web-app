@@ -1,6 +1,8 @@
 <#-- @ftlvariable name="comments" type="java.util.List" -->
 <#include "base.ftl">
-
+<#macro title>
+    Post
+</#macro>
 <#macro import>
     <link rel="stylesheet" href="/static/css/style4.css">
     <script src="/static/js/jquery-3.3.1.min.js" defer></script>
@@ -22,19 +24,16 @@
                             <p> ${post.datetime} </p>
                             <p> <a href="/profile/${post.author.id}" class="nav-link">${post.author.name} </a></p>
                         </div>
-                    <#--<p><a href="/posts" class="button8">Back to all posts</a>-->
+
                         <div>
                         <#if user??>
                             <#if post.author.id == user.id>
-                              <form method="GET" id="edit_post" action="/posts">
-                                  <button type="submit" class="button8">Back to all posts</button>
-                              </form>
-                                <#--<p> </p>-->
-                                <form method="GET" id="edit_post" action="/posts/${post.id}/edit">
-                                    <button type="submit" class="button8">Edit post</button>
-                                </form>
-                                <#--<p> </p>-->
-                                <button onclick='deletePost();' class="button8">Delete post</button>
+                              <#--<form method="GET" id="edit_post" action="/posts">-->
+                                  <a href="/posts" class="nav-link" class="btn btn-primary"><button class="btn btn-primary">Back to all posts</button> </a>
+
+                                <a href="/posts/${post.id}/edit" class="nav-link"><button class="btn btn-primary">Edit post</button> </a>
+
+                                <button onclick='deletePost();' class="btn btn-primary">Delete post</button>
                             </#if>
                         </#if>
                         </div>

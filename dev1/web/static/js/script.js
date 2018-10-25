@@ -48,6 +48,7 @@ const newComment = () => {
 };
 
 const search = () => {
+    let comments = [];
     let name = $('#name').val();
     let city = $(`#city`).val();
     let year = $(`#year`).val();
@@ -62,12 +63,13 @@ const search = () => {
             sport: sport
         },
         success: (msg) => {
-            console.log(msg);
+            comments.push(msg);
+            console.log(comments);
             $('#table-results').empty();
             msg.forEach((tournament) => $('#table-results').append(`<tr>
                             <td></td>
-                            <td>${tournament[sport['name']]}</td>
-                            <td><p><a href="/tournament/${tournament.id}">${tournament['name']}</p></a></td>
+                            <td>${tournament.sport.name}</td>
+                            <td><p><a href="/tournament/${tournament.id}" target="_blank" rel="noopener noreferrer">${tournament['name']}</p></a></td>
                             <td>${tournament['place']}</td>
                             <td>${tournament['date_from']} - ${tournament['date_to']}</td>
                             <td>${tournament['result']}</td>

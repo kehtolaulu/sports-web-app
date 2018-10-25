@@ -1,5 +1,7 @@
 <#include "base.ftl">
-
+<#macro title>
+    News
+</#macro>
 <#macro import>
     <link rel="stylesheet" href="/static/css/style4.css">
 </#macro>

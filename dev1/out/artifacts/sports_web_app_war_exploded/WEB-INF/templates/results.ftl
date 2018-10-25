@@ -1,5 +1,7 @@
 <#include "base.ftl">
-
+<#macro title>
+    Results
+</#macro>
 <#macro import>
     <link rel="stylesheet" href="/static/css/style5.css">
 </#macro>

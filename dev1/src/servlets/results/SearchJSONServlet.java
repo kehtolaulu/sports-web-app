@@ -1,5 +1,6 @@
 package servlets.results;
 
+import com.google.gson.Gson;
 import entities.Tournament;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -27,22 +28,15 @@ public class SearchJSONServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        JSONArray array = new JSONArray();
         String name = request.getParameter("name");
         String city = request.getParameter("city");
         String year = request.getParameter("year");
         String sport = request.getParameter("sport");
-        List<Tournament> tournaments = tournamentService.searchTournaments(name, sport, city, year);
-        for (Tournament t : tournaments) {
-            JSONObject tJson = new JSONObject();
-//            JSONObject sJson = new JSONObject();
-            tJson.put("tournament", t);
-//            sJson.put("sport", t.getSport());
-//            tJson.put("sport", sJson);
-            array.put(tJson.toMap());
-        }
+        Object[] tournaments = tournamentService.searchTournaments(name, sport, city, year).toArray();
+        Gson gson = new Gson();
+        String json = gson.toJson(tournaments);
         response.setContentType("text/json");
-        response.getWriter().print(array.toString());
+        response.getWriter().print(json);
         response.getWriter().close();
     }
 }

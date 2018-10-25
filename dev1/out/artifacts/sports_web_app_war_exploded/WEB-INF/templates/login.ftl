@@ -1,5 +1,7 @@
 <#include "base.ftl">
-
+<#macro title>
+    Login
+</#macro>
 <#macro import>
     <link rel="stylesheet" href="/static/css/style.css">
 </#macro>

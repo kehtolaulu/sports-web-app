@@ -104,8 +104,8 @@
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2018-10-24.21:36:19.117</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1024</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-10-25.16:06:35.012</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1035</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -918,29 +918,23 @@
       <StateNumber>731</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="140" parent="58" name="photo">
-      <Position>5</Position>
-      <DataType>text|0s</DataType>
-      <StateNumber>1017</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
-    <index id="141" parent="58" name="pk_user">
+    <index id="140" parent="58" name="pk_user">
       <ObjectId>16811</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="142" parent="58" name="unique_user_name">
+    <index id="141" parent="58" name="unique_user_name">
       <ObjectId>16813</ObjectId>
       <ColNames>login</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="143" parent="58" name="pk_user">
+    <key id="142" parent="58" name="pk_user">
       <ObjectId>16812</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>pk_user</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="144" parent="58" name="unique_user_name">
+    <key id="143" parent="58" name="unique_user_name">
       <ObjectId>16814</ObjectId>
       <ColNames>login</ColNames>
       <UnderlyingIndexName>unique_user_name</UnderlyingIndexName>

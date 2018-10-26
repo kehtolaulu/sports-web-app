@@ -158,6 +158,15 @@
         <servlet-name>SearchJSONServlet</servlet-name>
         <url-pattern>/search.json</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PostsJSONServlet</servlet-name>
+        <servlet-class>servlets.posts.PostsJSONServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PostsJSONServlet</servlet-name>
+        <url-pattern>/posts.json</url-pattern>
+    </servlet-mapping>
 </web-app>
 
 

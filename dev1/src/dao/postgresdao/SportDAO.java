@@ -50,7 +50,7 @@ public class SportDAO implements dao.SportDAO {
         while (resultSet.next()) {
             sports.add(instance(resultSet));
         }
-        return null;
+        return sports;
     }
 
 

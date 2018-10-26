@@ -17,8 +17,8 @@ public class PostService {
         this.postDAO = new dao.postgresdao.PostDAO();
     }
 
-    public void newPost(User author, String title, String text) throws SQLException {
-        postDAO.newPost(author, title, text, new java.sql.Date(new Date().getTime()));
+    public void newPost(User author, String title, String text, int sport_id) throws SQLException {
+        postDAO.newPost(author, title, text, new java.sql.Date(new Date().getTime()), sport_id);
     }
 
     public List<Post> getAllPosts() {
@@ -51,6 +51,14 @@ public class PostService {
     public List<Post> getPostsByAuthor(User author) {
         try {
             return postDAO.getPostsByAuthor(author);
+        } catch (SQLException e) {
+            return new LinkedList<>();
+        }
+    }
+
+    public List<Post> getPostsBySport(Sport sport) {
+        try {
+            return  postDAO.getPostsBySport(sport);
         } catch (SQLException e) {
             return new LinkedList<>();
         }

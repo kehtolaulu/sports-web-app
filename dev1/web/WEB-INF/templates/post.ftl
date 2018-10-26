@@ -28,12 +28,14 @@
                         <div>
                         <#if user??>
                             <#if post.author.id == user.id>
+                            <div class = " d-flex justify-content-between" >
 
                                 <a href="/posts" class="nav-link" class="btn btn-primary"><button class="btn btn-primary">Back to all posts</button> </a>
 
                                 <a href="/posts/${post.id}/edit" class="nav-link"><button class="btn btn-primary">Edit post</button> </a>
 
                                 <button onclick='deletePost();' class="btn btn-primary">Delete post</button>
+                            </div>
                             </#if>
                         </#if>
                         </div>

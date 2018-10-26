@@ -37,17 +37,19 @@ public class PostDAO implements dao.PostDAO {
                 userDAO.getUserById(resultSet.getInt("author_id")),
                 resultSet.getString("title"),
                 resultSet.getString("text"),
-                resultSet.getDate("datetime")
+                resultSet.getDate("datetime"),
+                sportDAO.getSportById(resultSet.getInt("sport_id"))
         );
     }
 
     @Override
-    public void newPost(User author, String title, String text, Date datetime) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO post (author_id, title, text, datetime) VALUES (?, ?, ?, ?)");
+    public void newPost(User author, String title, String text, Date datetime, int sport_id) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO post (author_id, title, text, datetime, sport_id) VALUES (?, ?, ?, ?, ?)");
         statement.setInt(1, author.getId());
         statement.setString(2, title);
         statement.setString(3, text);
         statement.setDate(4, datetime);
+        statement.setInt(5, sport_id);
         statement.execute();
     }
 
@@ -85,17 +87,24 @@ public class PostDAO implements dao.PostDAO {
         statement.setInt(1, author.getId());
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
-            Post post = new Post(
-                    resultSet.getInt("id"),
-                    userDAO.getUserById(author.getId()),
-                    resultSet.getString("title"),
-                    resultSet.getString("text"),
-                    resultSet.getDate("datetime")
-            );
+            Post post = instance(resultSet);
             posts.add(post);
         }
         return posts;
 
+    }
+
+    @Override
+    public List<Post> getPostsBySport(Sport sport) throws SQLException {
+        List<Post> posts = new ArrayList<>();
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM post WHERE sport_id = ?");
+        statement.setInt(1, sport.getId());
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            Post post = instance(resultSet);
+            posts.add(post);
+        }
+        return posts;
     }
 
 

@@ -48,7 +48,7 @@ const newComment = () => {
 };
 
 const search = () => {
-    let comments = [];
+    // let comments = [];
     let name = $('#name').val();
     let city = $(`#city`).val();
     let year = $(`#year`).val();
@@ -63,8 +63,8 @@ const search = () => {
             sport: sport
         },
         success: (msg) => {
-            comments.push(msg);
-            console.log(comments);
+            // comments.push(msg);
+            // console.log(comments);
             $('#table-results').empty();
             msg.forEach((tournament) => $('#table-results').append(`<tr>
                             <td></td>
@@ -78,3 +78,22 @@ const search = () => {
     });
 
 };
+
+const showPosts = () => {
+    let sport = $(`#sport`).val();
+    $.ajax({
+        url: '/posts.json',
+        type: 'GET',
+        data: {
+            sport: sport
+        },
+        success: (msg) => {
+            $(`.post-item`).remove();
+            msg.forEach((post) => $('#posts-list').append(`<div class="post-item"><p><a href="/posts/${post.id}" class="nav-link">${post.title}</a></p>
+                            <p> ${post.text}</p>
+                            </div>`));
+        }
+
+    });
+};
+

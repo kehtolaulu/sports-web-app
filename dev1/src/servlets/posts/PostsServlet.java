@@ -1,6 +1,7 @@
 package servlets.posts;
 
 import entities.Post;
+import entities.Sport;
 import entities.User;
 import services.PostService;
 import services.SportService;
@@ -38,8 +39,9 @@ public class PostsServlet extends HttpServlet {
         } else {
             String text = request.getParameter("text");
             String title = request.getParameter("title");
+            String sport_id = request.getParameter("sport_id");
             try {
-                postService.newPost(userService.getCurrentUser(request), title, text);
+                postService.newPost(userService.getCurrentUser(request), title, text, Integer.parseInt(sport_id));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -50,10 +52,12 @@ public class PostsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = userService.getCurrentUser(request);
         List<Post> posts = postService.getAllPosts();
+        List<Sport> sports = sportService.getAllSports();
         Map<String, Object> root = new HashMap<>() {
             {
                 put("user", user);
                 put("posts", posts);
+                put("sports", sports);
             }
         };
         Helper.render(

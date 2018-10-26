@@ -11,7 +11,7 @@ import java.util.List;
 public interface PostDAO {
     List<Post> getAllPosts() throws SQLException;
 
-    void newPost(User author, String title, String text, Date datetime) throws SQLException;
+    void newPost(User author, String title, String text, Date datetime, int sport_id) throws SQLException;
 
     Post getPostById(int id) throws SQLException;
 
@@ -20,4 +20,6 @@ public interface PostDAO {
     boolean updatePost(int id, String text, String title) throws SQLException;
 
     List<Post> getPostsByAuthor(User author) throws SQLException;
+
+    List<Post> getPostsBySport(Sport sport) throws SQLException;
 }

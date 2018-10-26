@@ -11,13 +11,5 @@ public interface TournamentDAO {
 
     public List<Tournament> getAllTournaments() throws SQLException;
 
-    public List<Tournament> getTournamentsByCity(String city) throws SQLException;
-
-    public List<Tournament> getTournamentsByYear(String year) throws SQLException;
-
-    public List<Tournament> getTournamentsBySport(Sport sport) throws SQLException;
-
-    public Tournament getTournamentByName(String name) throws SQLException;
-
     public List<Tournament> searchTournaments(String name, String sport, String city, String year) throws SQLException;
 }

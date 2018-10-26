@@ -171,7 +171,6 @@ public class UserService {
     }
 
     public void updateUserPicture(InputStream input, User user) throws IOException {
-//        final String ROOT = "\\kehtolaulu\\IdeaProjects\\sports-web-app\\out\\artifacts\\sports_web_app_war_exploded\\";
         File file = new File("/Users/kehtolaulu/sports-web-app/dev1/out/artifacts/sports_web_app_war_exploded/static/images/" + user.getLogin() + ".jpg");
         if (!file.exists()) {
             file.createNewFile();

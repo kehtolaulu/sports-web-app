@@ -4,6 +4,10 @@
 </#macro>
 <#macro import>
     <link rel="stylesheet" href="/static/css/style4.css">
+    <script src="/static/js/jquery-3.3.1.min.js" defer></script>
+
+    <script src="/static/js/script.js" defer></script>
+
 </#macro>
 
 <#macro main_content>
@@ -21,17 +25,35 @@
                     </p>
                     <textarea id="text" class="text" cols="40" rows="1" name="title" required></textarea>
                     <p></p>
+
+                    <select name="sport_id">
+                    <#list sports as sport>
+                        <option value="${sport.id}">${sport.name}</option>
+                    </#list>
+                    </select>
                         <button type="submit" class="button8">Create post</button>
                     </form>
                     </p>
+                    <p>Search posts by sport:</p>
                     </#if>
+
                 <#if posts?has_content>
+                <div class="probootstrap-text" id="posts-list">
+                    <div>
+                    <select name="sport" id="sport">
+                    <#list sports as sport>
+                        <option value="${sport.name}">${sport.name}</option>
+                    </#list>
+                    </select>
+                    <button onclick="showPosts()" class="btn-primary">Show posts</button>
+                    </div>
                     <#list posts as post>
-                    <div class="probootstrap-text">
-                        <div><p><a href="/posts/${post.id}" class="nav-link">${post.title}</a></p>
-                            <p> ${post.text}</p></div>
+                        <div class="post-item">
+                            <p><a href="/posts/${post.id}" class="nav-link">${post.title}</a></p>
+                            <p> ${post.text}</p>
                         </div>
                     </#list>
+                </div>
                 <#else>
                     <b>There is no posts yet.</b>
                 </#if>

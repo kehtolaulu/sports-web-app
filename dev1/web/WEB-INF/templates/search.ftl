@@ -20,7 +20,11 @@
                     <div>
 
                         <input type="text" name="name" placeholder="name" size="15" class="input" id="name"/>
-                        <input type="text" size="15" class="input" name="sport" placeholder="sport" id="sport">
+                        <select name="sport" id="sport">
+                        <#list sports as sport>
+                            <option value="${sport.name}">${sport.name}</option>
+                        </#list>
+                        </select>
                         <input type="text" size="15" class="input" name="city" placeholder="city" id="city">
                         <input type="text" size="15" class="input" name="year" placeholder="year" id="year">
                         <button class="button8" onclick="search();"> SEARCH </button>

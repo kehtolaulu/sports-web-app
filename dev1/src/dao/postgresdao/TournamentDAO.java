@@ -64,10 +64,10 @@ public class TournamentDAO implements dao.TournamentDAO {
         }
         return tournaments
                 .stream()
-                .filter(t -> year.equals("") || t.getYear().equals(year))
-                .filter(t -> city.equals("") || t.getPlace().equals(city))
-                .filter(t -> name.equals("") || t.getName().equals(name))
-                .filter(t -> sport.equals("") || t.getSport().getName().equals(sport))
+                .filter(t -> year.equals("") || t.getYear().toLowerCase().equals(year.toLowerCase()))
+                .filter(t -> city.equals("") || t.getPlace().toLowerCase().equals(city.toLowerCase()))
+                .filter(t -> name.equals("") || t.getName().toLowerCase().equals(name.toLowerCase()))
+                .filter(t -> sport.equals("") || t.getSport().getName().toLowerCase().equals(sport.toLowerCase()))
                 .collect(Collectors.toList());
     }
 }

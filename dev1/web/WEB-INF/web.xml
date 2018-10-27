@@ -167,6 +167,15 @@
         <servlet-name>PostsJSONServlet</servlet-name>
         <url-pattern>/posts.json</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AutocompleteServlet</servlet-name>
+        <servlet-class>servlets.results.AutocompleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AutocompleteServlet</servlet-name>
+        <url-pattern>/search/autocomplete.json</url-pattern>
+    </servlet-mapping>
 </web-app>
 
 

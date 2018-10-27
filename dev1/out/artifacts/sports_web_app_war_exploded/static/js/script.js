@@ -96,4 +96,23 @@ const showPosts = () => {
 
     });
 };
-
+const autoComplete = (inputId) => {
+    let query = $(`#${inputId}`).val();
+    if (query.length > 2) {
+        $.ajax({
+            url: '/search/autocomplete.json',
+            type: 'GET',
+            data: {
+                query: query
+            },
+            success: (msg) => {
+                console.log(msg);
+                let list = $('#autocomplete-list');
+                $('.autocomplete-item').remove();
+                msg.forEach((tournament) => list.append(`<div class="autocomplete-item">${tournament}</div>`));
+            }
+        });
+    } else {
+        $('.autocomplete-item').remove();
+    }
+};

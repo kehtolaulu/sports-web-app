@@ -1,4 +1,4 @@
-package dao.postgresdao;
+package app.dao.postgresdao;
 
 import entities.Comment;
 import entities.Post;
@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommentDAO implements dao.CommentDAO {
+public class CommentDAO implements app.dao.CommentDAO {
 
     private Connection connection;
     private UserDAO userDAO;
@@ -17,9 +17,9 @@ public class CommentDAO implements dao.CommentDAO {
 
     public CommentDAO() {
         this.connection = ConnectionSingleton.getInstance();
-        this.userDAO = new dao.postgresdao.UserDAO();
-        this.sportDAO = new dao.postgresdao.SportDAO();
-        this.postDAO = new dao.postgresdao.PostDAO();
+        this.userDAO = new app.dao.postgresdao.UserDAO();
+        this.sportDAO = new app.dao.postgresdao.SportDAO();
+        this.postDAO = new app.dao.postgresdao.PostDAO();
     }
 
     @Override

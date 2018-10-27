@@ -1,6 +1,5 @@
-package dao;
+package app.dao;
 
-import entities.Sport;
 import entities.Tournament;
 
 import java.sql.SQLException;

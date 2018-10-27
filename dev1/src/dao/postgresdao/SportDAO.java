@@ -1,4 +1,4 @@
-package dao.postgresdao;
+package app.dao.postgresdao;
 
 import entities.Sport;
 
@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SportDAO implements dao.SportDAO {
+public class SportDAO implements app.dao.SportDAO {
     private Connection connection;
 
     public SportDAO() {

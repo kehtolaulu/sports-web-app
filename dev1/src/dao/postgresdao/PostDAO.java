@@ -1,6 +1,6 @@
-package dao.postgresdao;
+package app.dao.postgresdao;
 
-import dao.UserDAO;
+import app.dao.UserDAO;
 import entities.Post;
 import entities.Sport;
 import entities.User;
@@ -9,15 +9,15 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostDAO implements dao.PostDAO {
+public class PostDAO implements app.dao.PostDAO {
     private Connection connection;
     private UserDAO userDAO;
     private SportDAO sportDAO;
 
     public PostDAO() {
         this.connection = ConnectionSingleton.getInstance();
-        this.userDAO = new dao.postgresdao.UserDAO();
-        this.sportDAO = new dao.postgresdao.SportDAO();
+        this.userDAO = new app.dao.postgresdao.UserDAO();
+        this.sportDAO = new app.dao.postgresdao.SportDAO();
     }
 
     @Override

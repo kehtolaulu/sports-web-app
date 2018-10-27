@@ -1,4 +1,4 @@
-package dao.postgresdao;
+package app.dao.postgresdao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

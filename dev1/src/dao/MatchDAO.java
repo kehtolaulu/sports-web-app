@@ -1,4 +1,4 @@
-package dao;
+package app.dao;
 
 import entities.Match;
 import entities.Tournament;

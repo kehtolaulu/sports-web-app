@@ -29,15 +29,20 @@ public class ProfileServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
             ServletException, IOException {
-        int id = userService.getCurrentUser(request).getId();
-        User user = userService.getUserById(id);
-        Map root = new HashMap<>();
-        root.put("user", user);
-        Helper.render(
-                getServletContext(),
-                response,
-                "myprofile.ftl",
-                root
-        );
+        User user = userService.getCurrentUser(request);
+        if (user == null) {
+            response.sendRedirect("/auth");
+        } else {
+            int id = userService.getCurrentUser(request).getId();
+            User user1 = userService.getUserById(id);
+            Map root = new HashMap<>();
+            root.put("user", user1);
+            Helper.render(
+                    getServletContext(),
+                    response,
+                    "myprofile.ftl",
+                    root
+            );
+        }
     }
 }

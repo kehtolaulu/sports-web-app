@@ -14,9 +14,9 @@
                     <div class="probootstrap-text">
                         <p style="color:red"><b>EDIT YOUR POST:</b><br>
                             <form method="POST" id="edit_post" action="/posts/${post.id}/edit">
-                            <textarea id="title" name="newTitle" class="text" cols="60" rows="2"> </textarea>
+                            <input type="text" id="title" name="newTitle" class="text" size="40" value="${post.title}">
                             <p><small>Title</small></p>
-                            <textarea wrap="off" cols="60" rows="10" id="text" name="newText"></textarea>
+                            <textarea wrap="off" cols="60" rows="10" id="text" name="newText">${post.text}</textarea>
                             <button type="submit" class="button8">Save changes</button>
                         </form>
                         <div class="probootstrap-subheading mb-5">

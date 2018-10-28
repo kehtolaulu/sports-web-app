@@ -1,4 +1,4 @@
-package app.dao;
+package dao;
 
 import entities.Comment;
 import entities.Post;

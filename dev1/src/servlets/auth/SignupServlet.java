@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @WebServlet(name = "SignupServlet")
 public class SignupServlet extends HttpServlet {
@@ -28,14 +30,23 @@ public class SignupServlet extends HttpServlet {
             String login = request.getParameter("login");
             String password = request.getParameter("password");
             String name = request.getParameter("name");
-            boolean success = userService.signUp(login, password, name);
-            if (success) {
-                response.sendRedirect("/profile");
-            } else {
-                response.sendRedirect("/auth?msg=fail");
-            }
-        }
 
+            Matcher loginMatcher = Pattern.compile("[a-zA-Z][0-9a-zA-Z]{4,15}").matcher(login);
+            if (!loginMatcher.matches()) {
+                response.sendRedirect("/auth?msg=fail");
+                return;
+            }
+
+            Matcher passwordMatcher = Pattern.compile("[0-9a-zA-Z!@#$%^&*()+-_=]{8,16}").matcher(password);
+            if (!passwordMatcher.matches()) {
+                response.sendRedirect("/auth?msg=fail");
+                return;
+            }
+
+            User user = userService.signUp(login, password, name);
+            userService.authorize(userService.getUserBeLogin(user.getLogin()), request);
+            response.sendRedirect("/profile");
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,4 +1,4 @@
-package app.dao.postgresdao;
+package dao.postgresdao;
 
 import entities.User;
 
@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserDAO implements app.dao.UserDAO {
+public class UserDAO implements dao.UserDAO {
     Connection connection;
 
     public UserDAO() {

@@ -33,14 +33,12 @@ public class ProfileEditServlet extends HttpServlet {
             String password = request.getParameter("editPassword");
             String name = request.getParameter("editName");
             String login = request.getParameter("editLogin");
-            String photo;
             boolean success = userService.updateProfile(userId, password, name, login);
             if (success) {
                 response.sendRedirect("/profile");
             } else {
                 response.sendRedirect("/auth?msg=fail");
             }
-//            response.sendRedirect("/profile");
         }
     }
 

@@ -1,6 +1,6 @@
-package app.dao.postgresdao;
+package dao.postgresdao;
 
-import app.dao.UserDAO;
+import dao.UserDAO;
 import entities.Post;
 import entities.Sport;
 import entities.User;
@@ -9,21 +9,21 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostDAO implements app.dao.PostDAO {
+public class PostDAO implements dao.PostDAO {
     private Connection connection;
     private UserDAO userDAO;
     private SportDAO sportDAO;
 
     public PostDAO() {
         this.connection = ConnectionSingleton.getInstance();
-        this.userDAO = new app.dao.postgresdao.UserDAO();
-        this.sportDAO = new app.dao.postgresdao.SportDAO();
+        this.userDAO = new dao.postgresdao.UserDAO();
+        this.sportDAO = new dao.postgresdao.SportDAO();
     }
 
     @Override
     public List<Post> getAllPosts() throws SQLException {
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM post");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM post ORDER BY post.id DESC");
         List<Post> posts = new ArrayList<>();
         while (resultSet.next()) {
             posts.add(instance(resultSet));
@@ -83,7 +83,7 @@ public class PostDAO implements app.dao.PostDAO {
     @Override
     public List<Post> getPostsByAuthor(User author) throws SQLException {
         List<Post> posts = new ArrayList<>();
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM post WHERE author_id = ?");
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM post WHERE author_id = ? ORDER BY post.id DESC");
         statement.setInt(1, author.getId());
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
@@ -97,7 +97,7 @@ public class PostDAO implements app.dao.PostDAO {
     @Override
     public List<Post> getPostsBySport(Sport sport) throws SQLException {
         List<Post> posts = new ArrayList<>();
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM post WHERE sport_id = ?");
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM post WHERE sport_id = ? ORDER BY post.id DESC");
         statement.setInt(1, sport.getId());
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {

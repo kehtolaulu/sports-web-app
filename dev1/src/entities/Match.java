@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.Date;
+import java.util.List;
 
 public class Match {
     private int id;
@@ -12,6 +13,7 @@ public class Match {
     private Team team2;
     private String name;
     private Sportsman sportsman;
+    private List<Sportsman> sportsmen;
 
     public Match(int id, String name, Date datetime, String result, Sport sport, Tournament tournament, Team team1, Team team2) {
         this.id = id;
@@ -104,5 +106,13 @@ public class Match {
 
     public void setSportsman(Sportsman sportsman) {
         this.sportsman = sportsman;
+    }
+
+    public List<Sportsman> getSportsmen() {
+        return sportsmen;
+    }
+
+    public void setSportsmen(List<Sportsman> sportsmen) {
+        this.sportsmen = sportsmen;
     }
 }

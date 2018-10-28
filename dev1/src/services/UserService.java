@@ -82,21 +82,19 @@ public class UserService {
         session.setAttribute("current_user", current_user);
     }
 
-    public boolean signUp(String login, String password, String name) {
-        if (!isIdentifier(login)) {
-            return false;
-        }
-        if (!isPassword(password)) {
-            return false;
-        }
+    public User signUp(String login, String password, String name) {
         String hash = hashPassword(password);
-        User user = new User(-1, login, hash, name);
+        User user = new User();
+        user.setLogin(login);
+        user.setPassword(hash);
+        user.setName(name);
+
         try {
             userDAO.addUser(user);
         } catch (SQLException e) {
-            return false;
+            return null;
         }
-        return true;
+        return user;
     }
 
     public void addToken(User user, HttpServletResponse response) {
@@ -165,10 +163,6 @@ public class UserService {
         return matcher.matches();
     }
 
-    private boolean isIdentifier(String login) {
-        Matcher matcher = Pattern.compile("[a-zA-Z][0-9a-zA-Z]{4,15}").matcher(login);
-        return matcher.matches();
-    }
 
     public void updateUserPicture(InputStream input, User user) throws IOException {
         File file = new File("/Users/kehtolaulu/sports-web-app/dev1/out/artifacts/sports_web_app_war_exploded/static/images/" + user.getLogin() + ".jpg");
@@ -187,5 +181,13 @@ public class UserService {
         input.close();
         output.close();
     }
+
+    public User getUserBeLogin(String login) {
+        try {
+            return userDAO.getUserByLogin(login);
+        } catch (SQLException e) {
+            return null;
+        }
+    };
 
 }

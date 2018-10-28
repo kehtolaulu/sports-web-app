@@ -23,7 +23,7 @@
                     <p>
                         <small>Title</small>
                     </p>
-                    <textarea id="text" class="text" cols="40" rows="1" name="title" required></textarea>
+                        <textarea type="text" class="text" cols="40" rows="2" name="title" required maxlength="140"></textarea>
                     <p></p>
 
                     <select name="sport_id">
@@ -50,12 +50,12 @@
                     <#list posts as post>
                         <div class="post-item">
                             <p><a href="/posts/${post.id}" class="nav-link">${post.title}</a></p>
-                            <p> ${post.text}</p>
+                            <p class="post-text"> ${post.text}</p>
                         </div>
                     </#list>
                 </div>
                 <#else>
-                    <b>There is no posts yet.</b>
+                    <b>There are no posts yet.</b>
                 </#if>
                 </div>
             </div>

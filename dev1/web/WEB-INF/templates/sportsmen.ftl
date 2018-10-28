@@ -3,7 +3,7 @@
     Sportsmen
 </#macro>
 <#macro import>
-    <link rel="stylesheet" href="/static/css/style2.css">
+    <link rel="stylesheet" href="/static/css/style4.css">
 </#macro>
 
 <#macro main_content>
@@ -18,8 +18,11 @@
                             <h2>${sportsman.name}</h2>
                             <p>${sportsman.team.name}</p>
                             <p>${sportsman.bio}</p>
-                                <img src="${sportsman.photo}" width="400" height="250">
+                                <img src="${sportsman.photo}" width="200" height="200">
                             </div>
+                            <p></p>
+                            <br>
+                            <br>
                         </#list>
                         </div>
                     <div class="probootstrap-text">

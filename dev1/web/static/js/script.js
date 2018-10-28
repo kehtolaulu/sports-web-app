@@ -14,6 +14,10 @@ const deleteComment = (id) => {
         type: 'DELETE',
         success: (data) => {
             $(`#comment-item-${id}`).remove();
+            let list = $('#comments-list');
+            if (list.children().length === 0) {
+                $('#comments-list').append(`<b id="no-comments">There are no comments yet.</b>`);
+            }
         }
     });
 };
@@ -30,6 +34,8 @@ const newComment = () => {
                 text: text
             },
             success: (comment) => {
+                console.log(comment);
+                $('#no-comments').remove();
                 let list = $('#comments-list');
                 list.append(
                     `<div id="comment-item-${comment.id}">
@@ -38,7 +44,9 @@ const newComment = () => {
                         <em>${comment.datetime}</em>
                         <em>${comment.author.name}</em>
                     </p>
-                 <button onclick='deleteComment();'>Delete comment</button>
+                 <button onclick='deleteComment(${comment.id});'>
+                    Delete comment
+                 </button>
                 </div>`
                 );
             }
@@ -69,7 +77,8 @@ const search = () => {
             msg.forEach((tournament) => $('#table-results').append(`<tr>
                             <td></td>
                             <td>${tournament.sport.name}</td>
-                            <td><p><a href="/tournament/${tournament.id}" target="_blank" rel="noopener noreferrer">${tournament['name']}</p></a></td>
+                            <td><p><a href="/tournament/${tournament.id}" target="_blank" rel="noopener noreferrer">${tournament['name']}</p>
+                            </a></td>
                             <td>${tournament['place']}</td>
                             <td>${tournament['date_from']} - ${tournament['date_to']}</td>
                             <td>${tournament['result']}</td>
@@ -89,7 +98,8 @@ const showPosts = () => {
         },
         success: (msg) => {
             $(`.post-item`).remove();
-            msg.forEach((post) => $('#posts-list').append(`<div class="post-item"><p><a href="/posts/${post.id}" class="nav-link">${post.title}</a></p>
+            msg.forEach((post) => $('#posts-list').append(`
+<div class="post-item"><p><a href="/posts/${post.id}" class="nav-link">${post.title}</a></p>
                             <p> ${post.text}</p>
                             </div>`));
         }
@@ -109,7 +119,8 @@ const autoComplete = (inputId) => {
                 console.log(msg);
                 let list = $('#autocomplete-list');
                 $('.autocomplete-item').remove();
-                msg.forEach((tournament) => list.append(`<div class="autocomplete-item">${tournament}</div>`));
+                msg.forEach((tournament) => list.append(`
+<div class="autocomplete-item">${tournament}</div>`));
             }
         });
     } else {

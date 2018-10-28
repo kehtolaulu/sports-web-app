@@ -1,6 +1,7 @@
 package services;
 
 import dao.SportsmanDAO;
+import entities.Match;
 import entities.Sportsman;
 
 import java.sql.SQLException;
@@ -21,4 +22,13 @@ public class SportsmenService {
             return new LinkedList<Sportsman>();
         }
     }
+
+    public List<Sportsman> getSportsmenByMatch(Match match) {
+        try {
+            return postgresSportsmanDAO.getSportsmenByMatch(match);
+        } catch (SQLException e) {
+            return new LinkedList<>();
+        }
+    }
+
 }

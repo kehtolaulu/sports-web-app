@@ -3,7 +3,7 @@
     News
 </#macro>
 <#macro import>
-    <link rel="stylesheet" href="/static/css/style2.css">
+    <link rel="stylesheet" href="/static/css/style4.css">
 </#macro>
 
 <#macro main_content>
@@ -20,7 +20,7 @@
                     </div>
                     </#list>
                     <#else>
-                    <b>There is no posts yet.</b>
+                    <b>There are no posts yet.</b>
                     </#if>
                 </div>
             </div>

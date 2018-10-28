@@ -20,7 +20,7 @@
                         <tr>
                             <th colspan="2">Name</th>
                             <th>Data</th>
-                            <th>Teams</th>
+                            <th>Participants</th>
                             <th> Results </th>
                         </tr>
                         <#list matches as match>
@@ -28,7 +28,12 @@
                             <td></td>
                             <td><p>${match.name}</p></td>
                             <td>${match.datetime}</td>
-                            <td>${match.team1.name} vs ${match.team2.name}</td>
+                            <td><#if match.team1??>${match.team1.name} vs ${match.team2.name}
+                            <#else>
+                            <#list match.sportsmen as sportsman>
+                                ${sportsman.name}<br>
+                            </#list>
+                            </#if></td>
                             <td>${match.result}</td>
                         </tr>
                         </#list>

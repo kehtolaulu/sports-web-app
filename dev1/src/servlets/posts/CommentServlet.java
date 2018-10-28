@@ -44,10 +44,10 @@ public class CommentServlet extends HttpServlet {
             String text = request.getParameter("text");
             int post_id = getId(request);
             try {
-                response.setContentType("text/json");
                 Gson gson = new Gson();
                 Comment comment = commentService.newComment(userService.getCurrentUser(request), postService.getPostById(post_id), text);
                 String s = gson.toJson(comment);
+                response.setContentType("text/json");
                 response.getWriter().print(s);
                 response.getWriter().close();
             } catch (SQLException e) {

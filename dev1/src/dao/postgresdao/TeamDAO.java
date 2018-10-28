@@ -1,4 +1,4 @@
-package app.dao.postgresdao;
+package dao.postgresdao;
 
 import entities.Team;
 
@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class TeamDAO implements app.dao.TeamDAO {
+public class TeamDAO implements dao.TeamDAO {
     private Connection connection;
     private SportDAO sportDAO;
 

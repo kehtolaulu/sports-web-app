@@ -1,9 +1,9 @@
-package app.dao.postgresdao;
+package dao.postgresdao;
 
-import app.dao.SportDAO;
-import app.dao.SportsmanDAO;
-import app.dao.TeamDAO;
-import app.dao.TournamentDAO;
+import dao.SportDAO;
+import dao.SportsmanDAO;
+import dao.TeamDAO;
+import dao.TournamentDAO;
 import entities.Match;
 import entities.Tournament;
 
@@ -11,7 +11,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MatchDAO implements app.dao.MatchDAO {
+public class MatchDAO implements dao.MatchDAO {
     private Connection connection;
     private SportDAO sportDAO;
     private TournamentDAO tournamentDAO;
@@ -20,10 +20,10 @@ public class MatchDAO implements app.dao.MatchDAO {
 
     public MatchDAO() {
         this.connection = ConnectionSingleton.getInstance();
-        this.sportDAO = new app.dao.postgresdao.SportDAO();
-        this.tournamentDAO = new app.dao.postgresdao.TournamentDAO();
-        this.teamDAO = new app.dao.postgresdao.TeamDAO();
-        this.sportsmanDAO = new app.dao.postgresdao.SportsmanDAO();
+        this.sportDAO = new dao.postgresdao.SportDAO();
+        this.tournamentDAO = new dao.postgresdao.TournamentDAO();
+        this.teamDAO = new dao.postgresdao.TeamDAO();
+        this.sportsmanDAO = new dao.postgresdao.SportsmanDAO();
     }
 
     @Override

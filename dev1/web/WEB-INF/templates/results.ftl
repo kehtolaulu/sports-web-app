@@ -12,6 +12,8 @@
             <div class="row probootstrap-vh-100 align-items-center text-center">
                 <p style="color:red"> TOURNAMENTS </p>
                 <div class="col-sm">
+                    <p> </p>
+
                     <table>
                         <tr>
                             <th colspan="2">Kind of Sport</th>
@@ -27,7 +29,7 @@
                             <td><p><a href="/tournament/${tournament.id}">${tournament.name}</p></a></td>
                             <td>${tournament.place}</td>
                             <td>${tournament.date_from}-${tournament.date_to}</td>
-                            <#--<td>${tournament.result}</td>-->
+                            <td>${tournament.result}</td>
                         </tr>
                         </#list>
                     </table>

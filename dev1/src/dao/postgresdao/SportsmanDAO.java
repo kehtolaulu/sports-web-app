@@ -1,12 +1,14 @@
-package app.dao.postgresdao;
+package dao.postgresdao;
 
+import entities.Match;
+import entities.Sport;
 import entities.Sportsman;
 
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SportsmanDAO implements app.dao.SportsmanDAO {
+public class SportsmanDAO implements dao.SportsmanDAO {
     private TeamDAO teamDAO;
     private Connection connection;
 
@@ -49,4 +51,18 @@ public class SportsmanDAO implements app.dao.SportsmanDAO {
         }
         return null;
     }
+
+    @Override
+    public List<Sportsman> getSportsmenByMatch(Match match) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM sportsman INNER JOIN match_to_sportsman m on sportsman.id = m.sportsman_id WHERE match_id = ?");
+        statement.setInt(1, match.getId());
+        LinkedList<Sportsman> sportsmen = new LinkedList<>();
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            Sportsman sportsman = instance(resultSet);
+            sportsmen.add(sportsman);
+        }
+        return sportsmen;
+    }
+
 }

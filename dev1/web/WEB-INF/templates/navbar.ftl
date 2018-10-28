@@ -20,7 +20,7 @@
                         <li class="nav-item"><a href="/about" class="nav-link" ><small>About us</small></a></li>
                         <li class="nav-item"><a href="/results" class="nav-link"><small>Results</small></a></li>
                 <#if user??>
-                    <li class="nav-item probootstrap-cta probootstrap-seperator"><form method="post" action="/logout"><button type="submit" class="button8">Log out</button></form></li>
+                    <li class="nav-item probootstrap-cta probootstrap-seperator"><form method="post" action="/logout"><button type="submit" class="btn-primary">Log out</button></form></li>
                 <#else>
                     <li class="nav-item probootstrap-cta probootstrap-seperator"><a href="/registration" class="nav-link">Sign
                         up</a></li>

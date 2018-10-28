@@ -26,9 +26,11 @@ public class ProfileByIdServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = userService.getUserById(getId(request));
+        User current = userService.getCurrentUser(request);
         Map<String, Object> root = new HashMap<>() {
             {
                 put("user", user);
+                put("current", current);
             }
         };
         Helper.render(

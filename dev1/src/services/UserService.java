@@ -164,8 +164,10 @@ public class UserService {
     }
 
 
-    public void updateUserPicture(InputStream input, User user) throws IOException {
-        File file = new File("/Users/kehtolaulu/sports-web-app/dev1/out/artifacts/sports_web_app_war_exploded/static/images/" + user.getLogin() + ".jpg");
+    public boolean updateUserPicture(InputStream input, User user) throws IOException {
+        String root = "/Users/kehtolaulu/sports-web-app/dev1/out/artifacts/sports_web_app_war_exploded/";
+        String pathname = "/static/images/" + new Date() + ".jpg";
+        File file = new File(root + pathname);
         if (!file.exists()) {
             file.createNewFile();
         }
@@ -180,9 +182,15 @@ public class UserService {
         }
         input.close();
         output.close();
+
+        try {
+            return userDAO.updateUserPicture(pathname, user);
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
-    public User getUserBeLogin(String login) {
+    public User getUserByLogin(String login) {
         try {
             return userDAO.getUserByLogin(login);
         } catch (SQLException e) {

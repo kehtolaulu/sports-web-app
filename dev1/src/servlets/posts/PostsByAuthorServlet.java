@@ -37,10 +37,12 @@ public class PostsByAuthorServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User author = userService.getUserById(getId(request));
+        User user = userService.getCurrentUser(request);
         List<Post> posts = postService.getPostsByAuthor(author);
         Map<String, Object> root = new HashMap<>();
         root.put("posts", posts);
         root.put("author", author);
+        root.put("user", user);
         Helper.render(
                 getServletContext(),
                 response,

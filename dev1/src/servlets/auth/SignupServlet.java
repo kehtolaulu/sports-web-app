@@ -44,7 +44,7 @@ public class SignupServlet extends HttpServlet {
             }
 
             User user = userService.signUp(login, password, name);
-            userService.authorize(userService.getUserBeLogin(user.getLogin()), request);
+            userService.authorize(userService.getUserByLogin(user.getLogin()), request);
             response.sendRedirect("/profile");
         }
     }

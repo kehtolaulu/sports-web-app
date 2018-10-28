@@ -3,9 +3,11 @@ package servlets.results;
 import entities.Match;
 import entities.Sportsman;
 import entities.Tournament;
+import entities.User;
 import services.MatchService;
 import services.SportsmenService;
 import services.TournamentService;
+import services.UserService;
 import servlets.Helper;
 
 import javax.servlet.ServletException;
@@ -25,12 +27,14 @@ public class TournamentByIdServlet extends HttpServlet {
     private TournamentService tournamentService;
     private MatchService matchService;
     private SportsmenService sportsmenService;
+    private UserService userService;
 
     @Override
     public void init() throws ServletException {
         tournamentService = new TournamentService();
         matchService = new MatchService();
         sportsmenService = new SportsmenService();
+        userService = new UserService();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,6 +44,7 @@ public class TournamentByIdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Tournament tournament = tournamentService.getTournamentById(getId(request));
         List<Match> matches = matchService.getMatchesByTournament(tournament);
+        User user = userService.getCurrentUser(request);
         for (Match m : matches) {
             m.setSportsmen(sportsmenService.getSportsmenByMatch(m));
         }
@@ -47,6 +52,7 @@ public class TournamentByIdServlet extends HttpServlet {
             {
                 put("tournament", tournament);
                 put("matches", matches);
+                put("user", user);
             }
         };
         Helper.render(

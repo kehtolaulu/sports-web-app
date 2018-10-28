@@ -39,12 +39,18 @@ public class UserDAO implements dao.UserDAO {
     }
 
     public User instance(ResultSet resultSet) throws SQLException {
-        return new User(
+        User user = new User(//?caalt enter?
                 resultSet.getInt("id"),
                 resultSet.getString("login"),
                 resultSet.getString("password"),
                 resultSet.getString("name")
         );
+        try {
+            user.setPhoto(resultSet.getString("photo"));
+        } catch (SQLException e) {
+            System.err.println("no photo");
+        }
+        return user;
     }
 
     @Override
@@ -88,5 +94,12 @@ public class UserDAO implements dao.UserDAO {
         return null;
     }
 
+    @Override
+    public boolean updateUserPicture(String photo, User user) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("UPDATE \"user\" SET photo = ? where id = ?");
+        statement.setString(1, photo);
+        statement.setInt(2, user.getId());
+        return statement.execute();
+    }
 
 }

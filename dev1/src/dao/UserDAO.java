@@ -17,4 +17,6 @@ public interface UserDAO {
 
     User getUserByToken(String token) throws SQLException;
 
+    boolean updateUserPicture(String photo, User user) throws SQLException;
+
 }

@@ -16,14 +16,6 @@ public class MatchService {
         this.matchDAO = new dao.postgresdao.MatchDAO();
     }
 
-    public List<Match> getAllMatches() {
-        try {
-            return matchDAO.getAllMatches();
-        } catch (SQLException e) {
-            return new LinkedList<>();
-        }
-    }
-
     public List<Match> getMatchesByTournament(Tournament tournament) {
         try {
             return matchDAO.getMatchesByTournament(tournament);

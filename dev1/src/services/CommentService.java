@@ -28,14 +28,6 @@ public class CommentService {
         }
     }
 
-    public Comment getCommentById(int id) {
-        try {
-            return commentDAO.getCommentById(id);
-        } catch (SQLException e) {
-            return null;
-        }
-    }
-
     public List<Comment> getCommentsByPost(Post post) {
         try {
             return commentDAO.getCommentsByPost(post);

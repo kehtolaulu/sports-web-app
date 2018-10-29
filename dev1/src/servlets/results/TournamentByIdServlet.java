@@ -1,7 +1,6 @@
 package servlets.results;
 
 import entities.Match;
-import entities.Sportsman;
 import entities.Tournament;
 import entities.User;
 import services.MatchService;
@@ -48,13 +47,11 @@ public class TournamentByIdServlet extends HttpServlet {
         for (Match m : matches) {
             m.setSportsmen(sportsmenService.getSportsmenByMatch(m));
         }
-        Map<String, Object> root = new HashMap<>() {
-            {
-                put("tournament", tournament);
-                put("matches", matches);
-                put("user", user);
-            }
-        };
+        Map<String, Object> root = new HashMap<>() {{
+            put("tournament", tournament);
+            put("matches", matches);
+            put("user", user);
+        }};
         Helper.render(
                 getServletContext(),
                 response,

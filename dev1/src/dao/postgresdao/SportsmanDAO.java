@@ -42,17 +42,6 @@ public class SportsmanDAO implements dao.SportsmanDAO {
     }
 
     @Override
-    public Sportsman getSportsmanById(int id) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM sportsman WHERE id = ?");
-        statement.setInt(1, id);
-        ResultSet resultSet = statement.executeQuery();
-        if (resultSet.next()) {
-            return instance(resultSet);
-        }
-        return null;
-    }
-
-    @Override
     public List<Sportsman> getSportsmenByMatch(Match match) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM sportsman INNER JOIN match_to_sportsman m on sportsman.id = m.sportsman_id WHERE match_id = ?");
         statement.setInt(1, match.getId());

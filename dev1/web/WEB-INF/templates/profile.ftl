@@ -12,7 +12,7 @@
                     <div class="col-sm">
                         <div class="probootstrap-text">
                             <h1 class="profile text-white mb-4"><small><p>Name: ${user.name}</p> <p>Login: ${user.login}</p> </small></h1>
-                            <p><img src="${user.photo}" class = "newphoto" onerror="this.src='/static/images/myphoto.jpg'" width="150px" height="150px"> </p>
+                            <p><img src="<#if user.photo??>${user.photo}</#if>" class = "newphoto" onerror="this.src='/static/images/myphoto.jpg'" width="150px" height="150px"> </p>
                             <p> <form method="GET" id="edit_post" action="/profile/${user.id}/posts">
                             <button type="submit" class="button8">See posts</button>
                         </form>  </p>

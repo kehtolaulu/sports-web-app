@@ -24,11 +24,9 @@ public class IndexServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = userService.getCurrentUser(request);
-        Map<String, Object> root = new HashMap<>() {
-            {
-                put("user", user);
-            }
-        };
+        Map<String, Object> root = new HashMap<>() {{
+            put("user", user);
+        }};
         Helper.render(
                 getServletContext(),
                 response,

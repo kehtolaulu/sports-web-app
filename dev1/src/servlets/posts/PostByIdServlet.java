@@ -63,7 +63,6 @@ public class PostByIdServlet extends HttpServlet {
             List<Comment> comments = commentService.getCommentsByPost(post);
             Map<String, Object> root = new HashMap<>();
             root.put("post", post);
-//            root.put("can_delete", user.equals(post.getAuthor()));
             root.put("comments", comments);
             root.put("user", user);
             Helper.render(

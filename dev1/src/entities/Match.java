@@ -36,6 +36,9 @@ public class Match {
         this.name = name;
     }
 
+    public Match() {}
+
+
     public int getId() {
         return id;
     }
@@ -114,5 +117,10 @@ public class Match {
 
     public void setSportsmen(List<Sportsman> sportsmen) {
         this.sportsmen = sportsmen;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Match && ((Match) obj).getId() == this.id;
     }
 }

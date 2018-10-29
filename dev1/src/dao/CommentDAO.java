@@ -13,7 +13,5 @@ public interface CommentDAO {
 
     boolean deleteComment(int id) throws SQLException;
 
-    Comment getCommentById(int id) throws SQLException;
-
     List<Comment> getCommentsByPost(Post post) throws SQLException;
 }

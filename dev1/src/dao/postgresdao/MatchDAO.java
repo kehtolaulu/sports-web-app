@@ -10,6 +10,7 @@ import entities.Tournament;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MatchDAO implements dao.MatchDAO {
     private Connection connection;
@@ -27,21 +28,6 @@ public class MatchDAO implements dao.MatchDAO {
     }
 
     @Override
-    public List<Match> getAllMatches() throws SQLException {
-        Statement statement = connection.createStatement();
-        ResultSet rs1 = statement.executeQuery("SELECT * FROM match INNER JOIN match_to_teams ON match.id = match_to_teams.match_id");
-        List<Match> matches = new ArrayList<>();
-        while (rs1.next()) {
-            matches.add(teamsInstance(rs1));
-        }
-        ResultSet rs2 = statement.executeQuery("SELECT * FROM match INNER JOIN match_to_sportsman ON match.id = match_to_sportsman.match_id");
-        while (rs2.next()) {
-            matches.add(sportsmanInstance(rs2));
-        }
-        return matches;
-    }
-
-    @Override
     public List<Match> getMatchesByTournament(Tournament tournament) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM match INNER JOIN match_to_teams ON match.id = match_to_teams.match_id WHERE tournament_id = ?");
         statement.setInt(1, tournament.getId());
@@ -50,13 +36,14 @@ public class MatchDAO implements dao.MatchDAO {
         while (resultSet.next()) {
             matches.add(teamsInstance(resultSet));
         }
-        PreparedStatement statement2 = connection.prepareStatement("SELECT * FROM match INNER JOIN match_to_sportsman ON match.id = match_to_sportsman.match_id WHERE tournament_id = ?");
+
+        PreparedStatement statement2 = connection.prepareStatement("SELECT DISTINCT id, name, datetime, result, sport_id, tournament_id FROM match INNER JOIN match_to_sportsman ON match.id = match_to_sportsman.match_id WHERE tournament_id = ?");
         statement2.setInt(1, tournament.getId());
         ResultSet rs2 = statement2.executeQuery();
         while (rs2.next()) {
             matches.add(sportsmanInstance(rs2));
         }
-        return matches;
+        return matches.stream().distinct().collect(Collectors.toList());
     }
 
     private Match teamsInstance(ResultSet resultSet) throws SQLException {
@@ -73,15 +60,14 @@ public class MatchDAO implements dao.MatchDAO {
     }
 
     private Match sportsmanInstance(ResultSet rs2) throws SQLException {
-        return new Match(
-                rs2.getInt("id"),
-                rs2.getString("name"),
-                rs2.getDate("datetime"),
-                rs2.getString("result"),
-                sportDAO.getSportById(rs2.getInt("sport_id")),
-                tournamentDAO.getTournamentById(rs2.getInt("tournament_id")),
-                sportsmanDAO.getSportsmanById(rs2.getInt("sportsman_id"))
-        );
+        Match match = new Match();
+        match.setId(rs2.getInt("id"));
+        match.setName(rs2.getString("name"));
+        match.setDatetime(rs2.getDate("datetime"));
+        match.setResult(rs2.getString("result"));
+        match.setSport(sportDAO.getSportById(rs2.getInt("sport_id")));
+        match.setTournament(tournamentDAO.getTournamentById(rs2.getInt("tournament_id")));
+        return match;
     }
 
 }

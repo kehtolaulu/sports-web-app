@@ -3,8 +3,14 @@ package services;
 import dao.UserDAO;
 import entities.User;
 
-import javax.servlet.http.*;
-import java.io.*;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -196,6 +202,8 @@ public class UserService {
         } catch (SQLException e) {
             return null;
         }
-    };
+    }
+
+    ;
 
 }

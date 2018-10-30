@@ -7,24 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c917403b-fc38-46cf-b7e0-839f3067b897" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/09cf554f-8d88-45a7-9674-b4087ba538e4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/09cf554f-8d88-45a7-9674-b4087ba538e4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/CommentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/CommentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/MatchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/MatchDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/SportsmanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/SportsmanDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/TournamentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/TournamentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/postgresdao/CommentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/postgresdao/CommentDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/postgresdao/MatchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/postgresdao/MatchDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/postgresdao/SportsmanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/postgresdao/SportsmanDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Match.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/MatchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/MatchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/SportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/SportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/about/IndexServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/about/IndexServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/posts/PostByIdServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/posts/PostByIdServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/results/SearchServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/results/SearchServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/results/TournamentByIdServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/results/TournamentByIdServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/templates/profile.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/templates/profile.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/postgresdao/TournamentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/postgresdao/TournamentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlets/profile/ProfileEditServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/profile/ProfileEditServlet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -153,23 +142,23 @@
     <session id="-796883921">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="18" />
+          <entry key="project.closed" value="20" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.19" value="2" />
+          <entry key="project.open.time.19" value="3" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="2" />
           <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="2" />
           <entry key="project.open.time.31" value="1" />
-          <entry key="project.opened" value="19" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -179,7 +168,7 @@
           <entry key="ftl" value="4988" />
           <entry key="java" value="19864" />
           <entry key="js" value="2041" />
-          <entry key="sql" value="6335" />
+          <entry key="sql" value="7070" />
           <entry key="xml" value="1656" />
         </counts>
       </usages-collector>
@@ -191,31 +180,31 @@
           <entry key="JAVA" value="19864" />
           <entry key="JavaScript" value="1988" />
           <entry key="PLAIN_TEXT" value="48" />
-          <entry key="Scratch" value="6335" />
+          <entry key="Scratch" value="7070" />
           <entry key="XML" value="1656" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="3" />
-          <entry key="comment" value="22" />
+          <entry key="comment" value="24" />
           <entry key="css" value="22" />
           <entry key="ftl" value="201" />
           <entry key="html" value="2" />
-          <entry key="java" value="670" />
+          <entry key="java" value="689" />
           <entry key="jpg" value="8" />
           <entry key="js" value="14" />
-          <entry key="match" value="25" />
-          <entry key="match_to_sportsman" value="8" />
-          <entry key="match_to_teams" value="6" />
-          <entry key="post" value="12" />
-          <entry key="sport" value="9" />
-          <entry key="sportsman" value="15" />
+          <entry key="match" value="27" />
+          <entry key="match_to_sportsman" value="9" />
+          <entry key="match_to_teams" value="7" />
+          <entry key="post" value="13" />
+          <entry key="sport" value="10" />
+          <entry key="sportsman" value="16" />
           <entry key="sql" value="53" />
-          <entry key="team" value="6" />
-          <entry key="tokens" value="18" />
-          <entry key="tournament" value="22" />
-          <entry key="user" value="38" />
+          <entry key="team" value="9" />
+          <entry key="tokens" value="19" />
+          <entry key="tournament" value="25" />
+          <entry key="user" value="39" />
           <entry key="xml" value="33" />
         </counts>
       </usages-collector>
@@ -223,11 +212,11 @@
         <counts>
           <entry key="CLASS" value="3" />
           <entry key="CSS" value="22" />
-          <entry key="Database Element" value="181" />
+          <entry key="Database Element" value="198" />
           <entry key="FTL" value="201" />
           <entry key="HTML" value="2" />
           <entry key="Image" value="8" />
-          <entry key="JAVA" value="670" />
+          <entry key="JAVA" value="689" />
           <entry key="JavaScript" value="14" />
           <entry key="Scratch" value="53" />
           <entry key="XML" value="33" />
@@ -237,92 +226,96 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/servlets/results/SearchServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/servlets/results/ResultsServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/servlets/results/AutocompleteServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/servlets/Helper.java">
+        <entry file="file://$PROJECT_DIR$/src/dao/CommentDAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/09cf554f-8d88-45a7-9674-b4087ba538e4/console.sql">
+        <entry file="file://$PROJECT_DIR$/src/services/CommentService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="349" column="18" selection-start-line="349" selection-start-column="18" selection-end-line="349" selection-end-column="18" />
+            <state relative-caret-position="300">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/MatchDAO.java">
+        <entry file="file://$PROJECT_DIR$/src/services/MatchService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="135">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="e#262#263#0" expanded="true" />
+                <element signature="e#324#325#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/CommentDAO.java">
+        <entry file="file://$PROJECT_DIR$/src/services/PostService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="60">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/SportsmanDAO.java">
+        <entry file="file://$PROJECT_DIR$/src/services/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="42" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="60">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/team">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+        <entry file="file://$PROJECT_DIR$/src/servlets/about/AboutServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/tournament">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+        <entry file="file://$PROJECT_DIR$/src/servlets/about/IndexServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/servlets/profile/ProfileEditServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/servlets/profile/UploadPhotoServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/servlets/sportsmen/SportsmenServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -368,9 +361,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/servlets/results/AutocompleteServlet.java" />
-        <option value="$PROJECT_DIR$/src/dao/postgresdao/TournamentDAO.java" />
         <option value="$PROJECT_DIR$/src/servlets/profile/ProfileServlet.java" />
-        <option value="$PROJECT_DIR$/src/servlets/profile/ProfileEditServlet.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/templates/search.ftl" />
         <option value="$PROJECT_DIR$/web/WEB-INF/templates/tournament.ftl" />
         <option value="$PROJECT_DIR$/web/static/css/style2.css" />
@@ -394,7 +385,6 @@
         <option value="$PROJECT_DIR$/src/servlets/auth/SignupServlet.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/templates/myprofile.ftl" />
         <option value="$PROJECT_DIR$/src/dao/postgresdao/UserDAO.java" />
-        <option value="$PROJECT_DIR$/src/services/UserService.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/templates/base.ftl" />
         <option value="$PROJECT_DIR$/src/servlets/profile/ProfileByIdServlet.java" />
         <option value="$PROJECT_DIR$/src/dao/TeamDAO.java" />
@@ -413,11 +403,14 @@
         <option value="$PROJECT_DIR$/src/servlets/about/AboutServlet.java" />
         <option value="$PROJECT_DIR$/src/servlets/about/IndexServlet.java" />
         <option value="$PROJECT_DIR$/src/servlets/posts/PostByIdServlet.java" />
+        <option value="$PROJECT_DIR$/src/dao/postgresdao/CommentDAO.java" />
+        <option value="$PROJECT_DIR$/src/servlets/results/SearchServlet.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/09cf554f-8d88-45a7-9674-b4087ba538e4/console.sql" />
         <option value="$PROJECT_DIR$/src/dao/postgresdao/MatchDAO.java" />
-        <option value="$PROJECT_DIR$/src/dao/postgresdao/CommentDAO.java" />
         <option value="$PROJECT_DIR$/src/dao/postgresdao/SportsmanDAO.java" />
-        <option value="$PROJECT_DIR$/src/servlets/results/SearchServlet.java" />
+        <option value="$PROJECT_DIR$/src/dao/postgresdao/TournamentDAO.java" />
+        <option value="$PROJECT_DIR$/src/services/UserService.java" />
+        <option value="$PROJECT_DIR$/src/servlets/profile/ProfileEditServlet.java" />
       </list>
     </option>
   </component>
@@ -452,6 +445,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -554,13 +550,6 @@
               <item name="dev1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="servlets" type="462c0819:PsiDirectoryNode" />
-              <item name="results" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dev1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dev1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="servlets" type="462c0819:PsiDirectoryNode" />
               <item name="sportsmen" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -619,16 +608,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540832187033" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540837686937" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect" value="PostgreSQL" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="extract.method.default.visibility" value="private" />
@@ -780,17 +766,20 @@
       <workItem from="1540623663612" duration="19466000" />
       <workItem from="1540711045128" duration="3860000" />
       <workItem from="1540716331234" duration="7001000" />
-      <workItem from="1540797570156" duration="9166000" />
+      <workItem from="1540797570156" duration="11188000" />
+      <workItem from="1540882662060" duration="153000" />
+      <workItem from="1540882944503" duration="142000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197303000" />
+    <option name="totallyTimeSpent" value="199620000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4863884" visible="true" weight="0.21959943" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4863884" visible="true" weight="0.22532189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -801,7 +790,7 @@
       <window_info id="Web" order="8" sideWeight="0.5136116" side_tool="true" weight="0.21101573" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33614457" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33614457" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -820,7 +809,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.3297568" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.3297568" />
+      <window_info anchor="right" id="Database" order="6" weight="0.3297568" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" x="0" y="0" width="310" height="700" id="Documentation" order="9" side_tool="true" weight="0.3297568" />
@@ -832,138 +821,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/servlets/sportsmen/SportsmenServlet.java</url>
-          <line>35</line>
-          <properties />
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/templates/profile.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="14" column="78" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/templates/post.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/ConnectionSingleton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/PostDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-810">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/SportDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/TournamentDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="100" column="42" selection-start-line="100" selection-start-column="42" selection-end-line="100" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/SportsmenService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/TournamentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
-          <caret line="168" column="66" selection-start-line="168" selection-start-column="66" selection-end-line="168" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/CommentDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/MatchDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/PostDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/SportDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/SportsmanDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/TeamDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/TournamentDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -978,49 +840,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/CommentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/MatchService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-          <folding>
-            <element signature="e#262#263#0" expanded="true" />
-            <element signature="e#324#325#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/SportService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/PostService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlets/about/AboutServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlets/about/IndexServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1108,13 +931,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlets/profile/UploadPhotoServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/servlets/results/TournamentByIdServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
@@ -1143,66 +959,165 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/tournament">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/src/servlets/results/SearchServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/sport">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/team">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/match">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/sportsman" />
+    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/tournament" />
+    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/match_to_teams" />
+    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/sport" />
+    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/post" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/09cf554f-8d88-45a7-9674-b4087ba538e4/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="349" column="18" selection-start-line="349" selection-start-column="18" selection-end-line="349" selection-end-column="18" />
+        <state relative-caret-position="387">
+          <caret line="381" column="98" selection-start-line="381" selection-start-column="98" selection-end-line="381" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/team" />
+    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/match_to_sportsman" />
+    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/match" />
+    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/comment" />
+    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/tokens" />
+    <entry file="das://09cf554f-8d88-45a7-9674-b4087ba538e4/database/postgres/schema/public/table/user" />
+    <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/CommentDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-69">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/ConnectionSingleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/MatchDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="-279">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/CommentDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/PostDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="60">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/SportDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/SportsmanDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="208">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlets/results/SearchServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/TeamDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+        <state relative-caret-position="60">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/TournamentDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/postgresdao/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/CommentDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/CommentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/MatchService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#324#325#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/PostService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlets/about/AboutServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlets/about/IndexServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlets/profile/ProfileEditServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlets/profile/UploadPhotoServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlets/sportsmen/SportsmenServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>

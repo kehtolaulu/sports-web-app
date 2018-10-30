@@ -1,7 +1,6 @@
 package dao.postgresdao;
 
 import dao.SportDAO;
-import entities.Sport;
 import entities.Tournament;
 
 import java.sql.*;

@@ -1,7 +1,6 @@
 package servlets.profile;
 
 import entities.User;
-import services.PostService;
 import services.UserService;
 import servlets.Helper;
 
@@ -18,6 +17,7 @@ import java.util.Map;
 @WebServlet(name = "ProfileEditServlet")
 public class ProfileEditServlet extends HttpServlet {
     private UserService userService;
+
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
